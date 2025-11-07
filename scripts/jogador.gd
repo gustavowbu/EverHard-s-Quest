@@ -2,9 +2,17 @@ extends CharacterBody2D
 
 const speed = 100
 var current_dir = "none"
+@onready var interact_area = $InteractArea
 
 func _physics_process(delta):
 	player_movement(delta)
+
+func _input(event):
+	if event.is_action_pressed("interact"):
+		var bodies = interact_area.get_overlapping_bodies()
+		for b in bodies:
+			if b.is_in_group("npc"):
+				b.start_battle()
 
 func player_movement(delta):
 	
