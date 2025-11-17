@@ -11,17 +11,13 @@ config_version=5
 [application]
 
 config/name="EverHard's Quest"
-run/main_scene="uid://bpfi5mrkw4tds"
+run/main_scene="uid://c3v1237gaeyn1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
 global="*res://global.gd"
 BattleManager="*res://scripts/battle/BattleManager.gd"
-
-[display]
-
-window/stretch/scale=4.0
 
 [input]
 

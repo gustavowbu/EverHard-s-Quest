@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be43ooybhk72k"
-path="res://.godot/imported/ide-background.png-a7559dcaee18dcc6c1687c8beddbb646.ctex"
+uid="uid://u1guk81hnans"
+path="res://.godot/imported/seta.png-f62e520c959a8f8185f38eeb5b6660a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ide-background.png"
-dest_files=["res://.godot/imported/ide-background.png-a7559dcaee18dcc6c1687c8beddbb646.ctex"]
+source_file="res://sprites/seta.png"
+dest_files=["res://.godot/imported/seta.png-f62e520c959a8f8185f38eeb5b6660a9.ctex"]
 
 [params]
 
