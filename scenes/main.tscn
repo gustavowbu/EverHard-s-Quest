@@ -622,7 +622,7 @@ polygon = PackedVector2Array(23, 25, 135, 25, 135, -1, 167, -1, 167, 25, 277, 25
 position = Vector2(152, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_trans_point"]
-position = Vector2(0, -1)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_ya4ey")
 
 [connection signal="body_entered" from="cliffside_trans_point" to="." method="_on_cliffside_trans_point_body_entered"]

@@ -279,8 +279,7 @@ script = ExtResource("1_g1ob3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_huwyd")
-animation = &"back_walk"
-frame_progress = 0.2215888
+animation = &"front_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
