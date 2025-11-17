@@ -279,7 +279,8 @@ script = ExtResource("1_g1ob3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_huwyd")
-animation = &"front_walk"
+
+animation = &"back_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -287,3 +288,7 @@ position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_g1ob3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1000
+limit_bottom = 1000
