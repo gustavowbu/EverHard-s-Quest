@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://0he2grey3aav"]
+
+[ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="1_imff7"]
+
+[node name="BattleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_imff7")
+
+[node name="MessageBox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 491.0
+offset_right = 742.0
+offset_bottom = 612.0
+
+[node name="Label" type="Label" parent="MessageBox"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = 722.0
+offset_bottom = 116.0
+
+[node name="ActionsBox" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 160)
+layout_mode = 0
+offset_left = 770.0
+offset_top = 395.0
+offset_right = 1108.0
+offset_bottom = 614.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionsBox"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 332.0
+offset_bottom = 212.0
+
+[node name="ButtonFight" type="Button" parent="ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Fight"
+
+[node name="ButtonBag" type="Button" parent="ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Bag"
+
+[node name="ButtonRun" type="Button" parent="ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Run"
+
+[node name="ButtonParty" type="Button" parent="ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Party
+"

@@ -1,52 +1,162 @@
-[gd_scene load_steps=2 format=3 uid="uid://vagcf1p28bw4"]
+[gd_scene load_steps=8 format=3 uid="uid://vagcf1p28bw4"]
 
 [ext_resource type="Script" uid="uid://cbvbwgt1p30kw" path="res://scripts/battle/BattleScene.gd" id="1_643ng"]
+[ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_653c6"]
+[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="2_jnwg1"]
+[ext_resource type="Texture2D" uid="uid://c4p10ormosbcl" path="res://sprites/pngwing.com.png" id="3_w5rgc"]
+[ext_resource type="Texture2D" uid="uid://csfbqd33rki1f" path="res://sprites/enemies.png" id="4_jnwg1"]
+[ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="5_w5rgc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w5rgc"]
+font_size = 24
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_643ng")
 
-[node name="FadeRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-2.842171e-14, -5.9604645e-08)
+scale = Vector2(1.567347, 1.7142856)
+texture = ExtResource("2_653c6")
+centered = false
 
 [node name="PlayerMon" type="Sprite2D" parent="."]
+position = Vector2(302, 392)
+rotation = -0.17453292
+scale = Vector2(0.5930555, 0.56174767)
+texture = ExtResource("3_w5rgc")
 
 [node name="EnemyMon" type="Sprite2D" parent="."]
+position = Vector2(761, 277)
+scale = Vector2(0.052769925, 0.04896177)
+texture = ExtResource("4_jnwg1")
+flip_h = true
 
-[node name="UI" type="Control" parent="."]
+[node name="battle_ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("5_w5rgc")
 
-[node name="MessageBox" type="Panel" parent="UI"]
+[node name="MessageBox" type="Panel" parent="battle_ui"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 16.0
+offset_top = 491.0
+offset_right = 742.0
+offset_bottom = 612.0
 
-[node name="Label" type="Label" parent="UI/MessageBox"]
+[node name="Label" type="Label" parent="battle_ui/MessageBox"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 720.0
+offset_bottom = 115.0
+label_settings = SubResource("LabelSettings_w5rgc")
 
-[node name="ActionsBox" type="Panel" parent="UI"]
+[node name="ActionsBox" type="Panel" parent="battle_ui"]
+custom_minimum_size = Vector2(300, 160)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 770.0
+offset_top = 395.0
+offset_right = 1108.0
+offset_bottom = 614.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ActionsBox"]
+[node name="VBoxContainer" type="GridContainer" parent="battle_ui/ActionsBox"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 332.0
+offset_bottom = 212.0
+columns = 2
 
-[node name="PlayerHP" type="TextureProgressBar" parent="UI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ButtonFight" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action_mode = 0
+text = "Fight"
 
-[node name="EnemyHP" type="TextureProgressBar" parent="UI"]
+[node name="ButtonBag" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action_mode = 0
+text = "Bag"
+
+[node name="ButtonRun" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action_mode = 0
+text = "Run"
+
+[node name="ButtonParty" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action_mode = 0
+text = "Party
+"
+
+[node name="BoxPanel" type="Panel" parent="battle_ui"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 770.0
+offset_top = 395.0
+offset_right = 1108.0
+offset_bottom = 614.0
+
+[node name="FightBox" type="GridContainer" parent="battle_ui/BoxPanel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99700004
+anchor_bottom = 0.99100006
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -4.986023
+offset_bottom = -5.029007
+columns = 2
+
+[node name="Attack1" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Acelerar"
+
+[node name="Attack2" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dobrar"
+
+[node name="Attack3" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Bola de fogo"
+
+[node name="Attack4" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Gelo antigo"
+
+[node name="VBox" type="VBoxContainer" parent="battle_ui/BoxPanel"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 222.0
+offset_right = 337.0
+offset_bottom = 253.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="battle_ui/BoxPanel/VBox"]
+layout_direction = 3
+layout_mode = 2
+text = "Voltar"
+
+[node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_behavior_recursive = 1

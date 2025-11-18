@@ -19,10 +19,6 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 global="*res://global.gd"
 BattleManager="*res://scripts/battle/BattleManager.gd"
 
-[display]
-
-window/stretch/scale=4.0
-
 [input]
 
 up={
