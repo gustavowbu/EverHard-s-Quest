@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://nptw7gw57v0d"]
+
+[ext_resource type="Texture2D" uid="uid://dgmu4vi3iuet4" path="res://Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="1_xp2nl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ercui"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmsyw"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsu04"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdvrp"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ercui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmsyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsu04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdvrp")
+}],
+"loop": true,
+"name": &"sidewalk",
+"speed": 5.0
+}]

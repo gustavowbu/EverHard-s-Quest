@@ -1,0 +1,59 @@
+extends CharacterBody2D
+
+@export var velocidade: float = 100.0
+@export var mover_no_eixo_x: bool = true
+@export var mover_no_eixo_y: bool = false
+
+@export var distancia_max: float = 60.0
+
+@export var raio_acao: float = 80.0
+@export var caminho_cena_batalha: String = "res://scenes/Battle/battleScene.tscn"
+
+@onready var player = get_node("/root/Main/Player")   # ajuste se necessário
+
+var direcao: int = 1
+var pos_inicial: Vector2
+
+func _ready():
+	pos_inicial = global_position
+
+
+func _process(delta):
+	mover_inimigo(delta)
+	verificar_distancia_para_player()
+
+
+# -------------------------------
+# MOVIMENTO DO INIMIGO
+# -------------------------------
+func mover_inimigo(delta):
+	var movimento := Vector2.ZERO
+
+	if mover_no_eixo_x:
+		movimento.x = direcao * velocidade * delta
+
+	if mover_no_eixo_y:
+		movimento.y = direcao * velocidade * delta
+
+	global_position += movimento
+
+	# Inverte sentido ao atingir a distância definida
+	if global_position.distance_to(pos_inicial) > distancia_max:
+		direcao *= -1
+
+
+
+func verificar_distancia_para_player():
+	if player == null:
+		return
+
+	var distancia = global_position.distance_to(player.global_position)
+
+	if distancia <= raio_acao:
+		entrar_batalha()
+
+
+
+func entrar_batalha():
+	print("Entrou no raio, indo para a batalha...")
+	get_tree().change_scene_to_file(caminho_cena_batalha)
