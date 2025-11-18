@@ -33,32 +33,79 @@ func _on_run_button_button_down() -> void:
 	var code: String = editor.text
 	parse_code(code)
 
-func parse_code(code) -> void:
+func parse_code(code: String) -> void:
 	# Adicionar espaços antes e depois do código
 	code = " " + code + " "
 
 	# Adicionar espaços separando os símbolos
-	for i in range(len(simbolos)):
-		code = code.replace(simbolos[i], " " + simbolos[i] + " ")
+	var in_string = false
+	var i = 0
+	while i < len(code) - 1:
+		var double = code.substr(i, 2)
+		if double[0] == "\"":
+			if in_string:
+				in_string = false
+			else:
+				in_string = true
+		if not in_string:
+			if double[0] in simbolos and double[0] != "\"":
+				code = code.substr(0, i) + " " + double[0] + " " + code.substr(i + 1)
+				i += 2
+			elif double[0] == "\"":
+				code = code.substr(0, i + 1) + " " + code.substr(i + 1)
+				i += 1
+			elif double[0] in ["\n", "	"]:
+				code = code.substr(0, i) + " " + code.substr(i + 1)
+			i += 1
+		else:
+			if double[0] == "\"":
+				code = code.substr(0, i) + " " + code.substr(i)
+				i += 1
+			i += 1
+	# Remover espaços duplos
+	in_string = false
+	i = 0
+	while i < len(code) - 1:
+		var double = code.substr(i, 2)
+		if double[0] == "\"":
+			if in_string:
+				in_string = false
+			else:
+				in_string = true
+		if double == "  " and not in_string:
+			code = code.substr(0, i + 1) + code.substr(i + 2)
+		else:
+			i += 1
 
-	# Ignorar quebras de linha, tabs e espaços duplos
-	code = code.replace("\n", " ")
-	code = code.replace("	", " ")
-	var last_code = code
-	while true:
-		code = code.replace("  ", " ")
-		if code == last_code:
-			break
-		last_code = code
-
-	# Remover espaços antes e depois do código
-	code = code.substr(1, len(code)-2)
+	# Remover o espaço antes do código
+	code = code.substr(1)
 
 	# Transformar em lista de palavras
-	var code_array: Array = code.split(" ")
+	var code_array: Array = []
+	var w = ""
+	in_string = false
+	i = 0
+	while i != len(code):
+		if code[i] == "\"":
+			if in_string:
+				in_string = false
+			else:
+				in_string = true
+		if not in_string:
+			if code[i] == " ":
+				code_array.append(w)
+				w = ""
+			else:
+				w += code[i]
+		else:
+			if code[i] == "\"":
+				code_array.append(w + "\"")
+			else:
+				w += code[i]
+		i += 1
 
 	# Começar a ler o código em si
-	var i = 0;
+	i = 0;
 
 	# Checar se o código começa com "public class"
 	if len(code_array) <= i or code_array[i] != "public":
@@ -138,11 +185,35 @@ func parse_atributo(code_array: Array, tipo: String, nome: String) -> int:
 		erro("Atributo não pode ter o tipo 'void'")
 		return -1
 	# Ler valor do atributo
-	var variavel = parse_declaracao_variavel(code_array.slice(i), tipo, nome, true)
-	if variavel == []:
+	var valor
+	if code_array[i] == "=":
+		i += 1
+		if tipo == "int": # variável é int
+			if not code_array[i].is_valid_int():
+				erro("Valor do atributo '" + nome + "' inválido")
+				return -1
+			valor = int(code_array[i])
+		elif tipo == "String": # variável é String
+			if code_array[i] != "\"":
+				erro("Valor do atributo '" + nome + "' inválido")
+				return -1
+			i += 1
+			valor = code_array[i].substr(0, len(code_array[i])-1)
+			i += 1
+		elif tipo == "boolean": # variável é boolean
+			if code_array[i] == "true":
+				valor = true
+			elif code_array[i] == "false":
+				valor = false
+			else:
+				erro("Valor do atributo '" + nome + "' inválido")
+				return -1
+		i += 1
+	# Finalizar variável
+	if code_array[i] != ";":
+		erro("Nenhum ';' encontrado")
 		return -1
-	var valor = variavel[0]
-	i += variavel[1]
+	i += 1
 	# Adicionar atributo
 	alterar_atributo(nome, tipo, valor)
 	return i
@@ -226,37 +297,6 @@ func parse_expressao(expressao_raw: Array):
 		if expressao_raw[2] == "=":
 			expressao[0] = "declare & assign"
 			expressao[1].append(parse_expressao(expressao_raw.slice(3)))
-	# Acesso a variável
-	elif is_valid_name(w):
-		if expressao_raw[1] == "+":
-			expressao = ["add", []]
-			expressao[1].append(["read", [w]])
-			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
-		elif expressao_raw[1] == "-":
-			expressao = ["subtract", []]
-			expressao[1].append(["read", [w]])
-			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
-		elif expressao_raw[1] == "*":
-			expressao = ["multiply", []]
-			expressao[1].append(["read", [w]])
-			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
-		elif expressao_raw[1] == "/":
-			expressao = ["divide", []]
-			expressao[1].append(["read", [w]])
-			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
-		elif expressao_raw[1] == "=":
-			if expressao_raw[2] == "=":
-				expressao = ["equals", []]
-				expressao[1].append(["read", [w]])
-				expressao[1].append(parse_expressao(expressao_raw.slice(3)))
-			else:
-				expressao = ["assign", [w]]
-				expressao[1].append(parse_expressao(expressao_raw.slice(2)))
-		elif expressao_raw[1] == ";":
-			expressao = ["read", [w]]
-		else:
-			erro("Chamada de variável inválida")
-			return []
 	# Operação com int
 	elif w.is_valid_int():
 		w = int(w)
@@ -268,10 +308,22 @@ func parse_expressao(expressao_raw: Array):
 			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
 		elif expressao_raw[1] == "*":
 			expressao = ["multiply", [w]]
-			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
+			var w2 = parse_expressao(expressao_raw.slice(2))
+			if w2[0] in ["add", "subtract"]:
+				expressao[1].append(w2[1][0])
+				w2[1][0] = expressao
+				expressao = w2
+			else:
+				expressao[1].append(w2)
 		elif expressao_raw[1] == "/":
 			expressao = ["divide", [w]]
-			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
+			var w2 = parse_expressao(expressao_raw.slice(2))
+			if w2[0] in ["add", "subtract"]:
+				expressao[1].append(w2[1][0])
+				w2[1][0] = expressao
+				expressao = w2
+			else:
+				expressao[1].append(w2)
 		elif expressao_raw[1] == "=":
 			if expressao_raw[2] != "=":
 				erro("Operação inválida para int: '='")
@@ -285,10 +337,87 @@ func parse_expressao(expressao_raw: Array):
 			return []
 	# Operação com String
 	elif w == "\"":
-		pass
+		# Ler a string
+		w = expressao_raw[1].substr(0, len(expressao_raw[1]) - 1)
+		if expressao_raw[2] == "+":
+			expressao = ["add", [w]]
+			expressao[1].append(parse_expressao(expressao_raw.slice(3)))
+		elif expressao_raw[2] == "*":
+			expressao = ["multiply", [w]]
+			var w2 = parse_expressao(expressao_raw.slice(3))
+			if typeof(w2) == TYPE_ARRAY and w2[0] == "add":
+				expressao[1].append(w2[1][0])
+				w2[1][0] = expressao
+				expressao = w2
+			else:
+				expressao[1].append(w2)
+		elif expressao_raw[2] == "=":
+			if expressao_raw[3] != "=":
+				erro("Operação inválida para String: '='")
+				return []
+			expressao = ["equals", [w]]
+			expressao[1].append(parse_expressao(expressao_raw.slice(4)))
+		elif expressao_raw[2] == ";":
+			expressao = w
+		else:
+			erro("Valor inesperado após '" + w + "': " + expressao_raw[3])
+			return []
 	# Operação com boolean
 	elif w in ["true", "false"]:
-		pass
+		if expressao_raw[1] == "=":
+			if expressao_raw[2] != "=":
+				erro("Operação inválida para boolean: '='")
+				return []
+			expressao = ["equals", [w]]
+			expressao[1].append(parse_expressao(expressao_raw.slice(3)))
+		elif expressao_raw[1] == ";":
+			expressao = w
+		else:
+			erro("Valor inesperado após '" + w + "': " + expressao_raw[1])
+			return []
+	# Acesso a variável
+	elif is_valid_name(w):
+		if expressao_raw[1] == "+":
+			expressao = ["add", []]
+			expressao[1].append(["read", [w]])
+			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
+		elif expressao_raw[1] == "-":
+			expressao = ["subtract", []]
+			expressao[1].append(["read", [w]])
+			expressao[1].append(parse_expressao(expressao_raw.slice(2)))
+		elif expressao_raw[1] == "*":
+			expressao = ["multiply", []]
+			expressao[1].append(["read", [w]])
+			var w2 = parse_expressao(expressao_raw.slice(2))
+			if typeof(w2) == TYPE_ARRAY and w2[0] in ["add", "subtract"]:
+				expressao[1].append(w2[1][0])
+				w2[1][0] = expressao
+				expressao = w2
+			else:
+				expressao[1].append(w2)
+		elif expressao_raw[1] == "/":
+			expressao = ["divide", []]
+			expressao[1].append(["read", [w]])
+			var w2 = parse_expressao(expressao_raw.slice(2))
+			if typeof(w2) == TYPE_ARRAY and w2[0] in ["add", "subtract"]:
+				expressao[1].append(w2[1][0])
+				w2[1][0] = expressao
+				expressao = w2
+			else:
+				expressao[1].append(w2)
+		elif expressao_raw[1] == "=":
+			if expressao_raw[2] == "=":
+				expressao = ["equals", []]
+				expressao[1].append(["read", [w]])
+				expressao[1].append(parse_expressao(expressao_raw.slice(3)))
+			else:
+				expressao = ["assign", [w]]
+				expressao[1].append(parse_expressao(expressao_raw.slice(2)))
+		elif expressao_raw[1] == ";":
+			expressao = ["read", [w]]
+		else:
+			erro("Chamada de variável inválida")
+			return []
 	# return
 	elif w == "return":
 		expressao = ["return", []]
@@ -297,54 +426,6 @@ func parse_expressao(expressao_raw: Array):
 		erro("Expressão inválida")
 		return []
 	return expressao
-
-func parse_declaracao_variavel(code_array: Array, tipo: String, nome: String, is_atributo: bool = false) -> Array:
-	""" Retorna o valor da variável e o índex aumentado. """
-	var descricao_erro
-	if is_atributo:
-		descricao_erro = "Valor do atributo '" + nome + "' inválido"
-	else:
-		descricao_erro = "Valor da variável '" + nome + "' inválido"
-
-	var i = 0
-	var valor
-	if code_array[i] == "=":
-		i += 1
-		if tipo == "int": # variável é int
-			if not code_array[i].is_valid_int():
-				erro(descricao_erro)
-				return []
-			valor = int(code_array[i])
-		elif tipo == "String": # variável é String
-			if code_array[i] != "\"":
-				erro(descricao_erro)
-				return []
-			else:
-				i += 1
-				valor = ""
-				while true:
-					if len(code_array) == i: # aspas nunca fechadas
-						erro("\" não foi fechada")
-						return []
-					if code_array[i] == "\"": # encontrado fecha aspas
-						break
-					valor += code_array[i]
-					i += 1
-		elif tipo == "boolean": # variável é boolean
-			if code_array[i] == "true":
-				valor = true
-			elif code_array[i] == "false":
-				valor = false
-			else:
-				erro(descricao_erro)
-				return []
-		i += 1
-	# Finalizar variável
-	if code_array[i] != ";":
-		erro("Nenhum ';' encontrado")
-		return []
-
-	return [valor, i + 1]
 
 func erro(e: String) -> void:
 	print(e)
@@ -426,19 +507,44 @@ func computar_expressao(expressao, escopo_nome):
 		elif nome == "add":
 			var w1 = computar_expressao(valores[0], escopo_nome)
 			var w2 = computar_expressao(valores[1], escopo_nome)
+			if typeof(w1) != typeof(w2):
+				erro("O operador '+' não é definido para os tipos '" + str(typeof(w1)) + "' e '" + str(typeof(w2)))
+				return
 			return w1 + w2
 		elif nome == "subtract":
 			var w1 = computar_expressao(valores[0], escopo_nome)
 			var w2 = computar_expressao(valores[1], escopo_nome)
+			if typeof(w1) != typeof(w2):
+				erro("O operador '-' não é definido para os tipos '" + str(typeof(w1)) + "' e '" + str(typeof(w2)))
+				return
 			return w1 - w2
 		elif nome == "multiply":
 			var w1 = computar_expressao(valores[0], escopo_nome)
 			var w2 = computar_expressao(valores[1], escopo_nome)
-			return w1 * w2
+			if typeof(w1) == TYPE_STRING and typeof(w2) == TYPE_INT:
+				var string = ""
+				for i in range(w2):
+					string += w1
+				return string
+			else:
+				if typeof(w1) != typeof(w2):
+					erro("O operador '*' não é definido para os tipos '" + str(typeof(w1)) + "' e '" + str(typeof(w2)))
+					return
+				return w1 * w2
 		elif nome == "divide":
 			var w1 = computar_expressao(valores[0], escopo_nome)
 			var w2 = computar_expressao(valores[1], escopo_nome)
+			if typeof(w1) != typeof(w2):
+				erro("O operador '/' não é definido para os tipos '" + str(typeof(w1)) + "' e '" + str(typeof(w2)))
+				return
 			return w1 / w2
+		elif nome == "equals":
+			var w1 = computar_expressao(valores[0], escopo_nome)
+			var w2 = computar_expressao(valores[1], escopo_nome)
+			if typeof(w1) != typeof(w2):
+				erro("O operador '==' não é definido para os tipos '" + str(typeof(w1)) + "' e '" + str(typeof(w2)))
+				return
+			return w1 == w2
 		elif nome == "return":
 			return computar_expressao(valores[0], escopo_nome)
 	else:
