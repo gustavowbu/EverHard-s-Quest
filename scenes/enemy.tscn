@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpvmc7pc0my6"]
+
+[ext_resource type="Script" uid="uid://c3l2a7mse5t7d" path="res://scenes/enemy.gd" id="1_7p1mj"]
+[ext_resource type="SpriteFrames" uid="uid://nptw7gw57v0d" path="res://scenes/enemy.tres" id="2_md0e3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 6.0827627
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_7p1mj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_md0e3")
+animation = &"sidewalk"
+frame_progress = 0.65247345
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_md0e3")
