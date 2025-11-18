@@ -1,24 +1,37 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://nptw7gw57v0d"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://nptw7gw57v0d"]
 
-[ext_resource type="Texture2D" uid="uid://bbli111nsspn" path="res://Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver1.png" id="1_fsu04"]
-[ext_resource type="Texture2D" uid="uid://cxdysi67kvr5m" path="res://Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver2.png" id="2_vdvrp"]
-[ext_resource type="Texture2D" uid="uid://pmlkbhmf88gk" path="res://Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver3.png" id="3_djwa1"]
-[ext_resource type="Texture2D" uid="uid://t41lm377n0i8" path="res://Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver4.png" id="4_typtr"]
+[ext_resource type="Texture2D" uid="uid://dgmu4vi3iuet4" path="res://Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="1_xp2nl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ercui"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmsyw"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsu04"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdvrp"]
+atlas = ExtResource("1_xp2nl")
+region = Rect2(48, 0, 16, 16)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fsu04")
+"texture": SubResource("AtlasTexture_ercui")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vdvrp")
+"texture": SubResource("AtlasTexture_hmsyw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_djwa1")
+"texture": SubResource("AtlasTexture_fsu04")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_typtr")
+"texture": SubResource("AtlasTexture_vdvrp")
 }],
 "loop": true,
 "name": &"sidewalk",

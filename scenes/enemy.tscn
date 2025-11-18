@@ -13,7 +13,8 @@ script = ExtResource("1_7p1mj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_md0e3")
 animation = &"sidewalk"
-frame_progress = 0.65247345
+autoplay = "sidewalk"
+frame_progress = 0.7620801
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
