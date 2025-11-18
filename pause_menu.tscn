@@ -158,7 +158,7 @@ offset_bottom = 329.08
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 0.95702064, 1, 0)
-self_modulate = Color(0.4075198, 0.17462754, 0.03069861, 1)
+self_modulate = Color(0.4072413, 0.17558163, 0.025840001, 0)
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -166,10 +166,10 @@ anchor_left = 0.39100003
 anchor_top = 0.39900002
 anchor_right = 0.439
 anchor_bottom = 0.48100004
-offset_left = -119.48004
-offset_top = -149.28
-offset_right = 399.07996
-offset_bottom = 165.67996
+offset_left = 52.441986
+offset_top = -143.17601
+offset_right = 173.08002
+offset_bottom = 171.78395
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -180,18 +180,22 @@ alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Resume"
 
 [node name="Options" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Options"
 
 [node name="MainMenu" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Main Menu"
 
 [node name="ExitGame" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Exit Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
