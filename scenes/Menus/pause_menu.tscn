@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://u8ap2xp7nwi6"]
+[gd_scene load_steps=8 format=3 uid="uid://u8ap2xp7nwi6"]
 
 [ext_resource type="Script" uid="uid://clo0enf81a30t" path="res://scripts/menus/pause_menu.gd" id="1_myx47"]
 [ext_resource type="Shader" uid="uid://65rg524qmekl" path="res://pause_menu.gdshader" id="2_kukqi"]
@@ -6,6 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nwcfo"]
 shader = ExtResource("2_kukqi")
 shader_parameter/lod = 0.0
+
+[sub_resource type="Theme" id="Theme_prkpd"]
 
 [sub_resource type="Animation" id="Animation_p81d2"]
 length = 0.001
@@ -181,21 +183,25 @@ alignment = 1
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme = SubResource("Theme_prkpd")
 text = "Resume"
 
 [node name="Options" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme = SubResource("Theme_prkpd")
 text = "Options"
 
 [node name="MainMenu" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme = SubResource("Theme_prkpd")
 text = "Main Menu"
 
 [node name="ExitGame" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme = SubResource("Theme_prkpd")
 text = "Exit Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
