@@ -841,6 +841,7 @@ sources/3 = SubResource("TileSetAtlasSource_rlepw")
 size = Vector2(53, 20)
 
 [node name="cliff_side" type="Node2D"]
+position = Vector2(144, 110)
 
 [node name="Ground" type="TileMapLayer" parent="."]
 y_sort_enabled = true
