@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vagcf1p28bw4"]
+[gd_scene load_steps=8 format=3 uid="uid://vagcf1p28bw4"]
 
 [ext_resource type="Script" uid="uid://cbvbwgt1p30kw" path="res://scripts/battle/BattleScene.gd" id="1_643ng"]
 [ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_653c6"]
@@ -9,18 +9,6 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_w5rgc"]
 font_size = 24
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnwg1"]
-bg_color = Color(0, 0, 0, 0.4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhix4"]
-bg_color = Color(0, 0.47843137, 0, 0.6745098)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0uxj"]
-bg_color = Color(0, 0, 0, 0.4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2g34q"]
-bg_color = Color(0, 0.47648424, 3.85046e-07, 0.6745098)
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_643ng")
@@ -174,6 +162,13 @@ offset_top = 447.0
 offset_right = 316.0
 offset_bottom = 487.0
 
+[node name="ProgressBarHP" type="ProgressBar" parent="battle_ui/PlayerStatusBox"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 40.0
+value = 100.0
+show_percentage = false
+
 [node name="LabelName" type="Label" parent="battle_ui/PlayerStatusBox"]
 layout_mode = 0
 offset_right = 112.0
@@ -186,21 +181,20 @@ offset_top = 2.0
 offset_right = 299.0
 offset_bottom = 39.0
 
-[node name="ProgressBarHP" type="ProgressBar" parent="battle_ui/PlayerStatusBox"]
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 40.0
-theme_override_styles/background = SubResource("StyleBoxFlat_jnwg1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_rhix4")
-value = 100.0
-show_percentage = false
-
 [node name="EnemyStatusBox" type="Panel" parent="battle_ui"]
 layout_mode = 0
 offset_left = 833.0
 offset_top = 15.0
 offset_right = 1133.0
 offset_bottom = 55.0
+
+[node name="ProgressBarHP" type="ProgressBar" parent="battle_ui/EnemyStatusBox"]
+visible = false
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 40.0
+value = 100.0
+show_percentage = false
 
 [node name="LabelName" type="Label" parent="battle_ui/EnemyStatusBox"]
 layout_mode = 0
@@ -209,18 +203,9 @@ offset_bottom = 23.0
 
 [node name="LabelHP" type="Label" parent="battle_ui/EnemyStatusBox"]
 layout_mode = 0
-offset_left = 208.0
+offset_left = 247.0
 offset_right = 300.0
 offset_bottom = 23.0
-
-[node name="ProgressBarHP" type="ProgressBar" parent="battle_ui/EnemyStatusBox"]
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 40.0
-theme_override_styles/background = SubResource("StyleBoxFlat_k0uxj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_2g34q")
-value = 100.0
-show_percentage = false
 
 [node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
 visible = false

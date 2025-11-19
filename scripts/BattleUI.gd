@@ -146,5 +146,5 @@ func update_hp_color(pb: ProgressBar, hp: int, maxhp: int):
 	var fill_style := StyleBoxFlat.new()
 	fill_style.bg_color = color
 
-	# ESTILO CORRETO DO FILL → "fg"
-	pb.add_theme_stylebox_override("fg", fill_style)
+	# ProgressBar correto: usa "fill"
+	pb.add_theme_stylebox_override("fill", fill_style)
