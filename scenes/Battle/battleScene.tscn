@@ -21,7 +21,7 @@ centered = false
 
 [node name="PlayerMon" type="Sprite2D" parent="."]
 position = Vector2(302, 392)
-rotation = -0.17453292
+rotation = -0.08726646
 scale = Vector2(0.5930555, 0.56174767)
 texture = ExtResource("3_w5rgc")
 
@@ -30,6 +30,12 @@ position = Vector2(761, 277)
 scale = Vector2(0.052769925, 0.04896177)
 texture = ExtResource("4_jnwg1")
 flip_h = true
+
+[node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="battle_ui" type="Control" parent="."]
 layout_mode = 3
@@ -74,31 +80,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 action_mode = 0
-text = "Fight"
+text = "Lutar"
 
 [node name="ButtonBag" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 action_mode = 0
-text = "Bag"
+text = "Bolsa"
 
 [node name="ButtonRun" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 action_mode = 0
-text = "Run"
+text = "Fugir"
 
 [node name="ButtonParty" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 action_mode = 0
-text = "Party
+text = "Equipe
 "
 
 [node name="BoxPanel" type="Panel" parent="battle_ui"]
+visible = false
 layout_mode = 0
 offset_left = 770.0
 offset_top = 395.0
@@ -189,7 +196,6 @@ offset_right = 1133.0
 offset_bottom = 55.0
 
 [node name="ProgressBarHP" type="ProgressBar" parent="battle_ui/EnemyStatusBox"]
-visible = false
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 40.0
@@ -206,10 +212,3 @@ layout_mode = 0
 offset_left = 247.0
 offset_right = 300.0
 offset_bottom = 23.0
-
-[node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
-visible = false
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
-mouse_behavior_recursive = 1

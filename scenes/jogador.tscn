@@ -287,7 +287,8 @@ position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_g1ob3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
+limit_left = -25
 limit_top = 0
-limit_right = 1000
+limit_right = 1500
 limit_bottom = 1000
+limit_smoothed = true

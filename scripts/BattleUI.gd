@@ -1,5 +1,7 @@
 extends Control
 
+signal battle_ended
+
 @onready var message_box = $MessageBox
 @onready var message_label = $MessageBox/Label
 
@@ -63,12 +65,22 @@ func show_fight():
 	action_box.visible = false
 	fight_box.visible = true
 
+func _close_battle_ui():
+	
+	self.visible = false   # desativa TODO o BattleUI
+
+	# Se quiser despausar o jogo quando acabar:
+	# get_tree().paused = false
 
 # Enter automaticamente sai das mensagens
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept"):
+
 		if state == "message":
 			show_actions()
+
+		elif state == "victory":
+			_close_battle_ui()
 
 #  AÇÕES DOS BOTÕES DO MENU PRINCIPAL
 func _on_fight():
@@ -86,7 +98,13 @@ func _on_party():
 #  AÇÕES DOS BOTÕES DE ATAQUE
 func _on_attack_pressed(attack_name: String):
 	damage_enemy(10)
+
+	# se o inimigo morreu, NÃO mostrar outra mensagem
+	if enemy_hp == 0:
+		return
+
 	show_message("Você usou %s!" % attack_name)
+
 
 
 func _on_back():
@@ -100,8 +118,11 @@ func _on_back():
 @onready var enemy_hp_label = $EnemyStatusBox/LabelHP
 @onready var enemy_hp_bar = $EnemyStatusBox/ProgressBarHP
 
+
 var player_max_hp = 100
 var player_hp = 100
+var player_xp = 0
+var xp_reward = 25
 
 var enemy_max_hp = 40
 var enemy_hp = 40
@@ -122,10 +143,17 @@ func update_status_boxes():
 	enemy_hp_label.text = str(enemy_hp, " / ", enemy_max_hp)
 	enemy_hp_bar.max_value = enemy_max_hp
 	enemy_hp_bar.value = enemy_hp
+	
 
 func damage_enemy(amount: int):
 	enemy_hp = max(0, enemy_hp - amount)
 	update_status_boxes()
+
+	print("Enemy HP:", enemy_hp)  # debug
+
+	if enemy_hp == 0:
+		print("Chamando end_battle")  # debug
+		end_battle()
 
 func damage_player(amount: int):
 	player_hp = max(0, player_hp - amount)
@@ -148,3 +176,19 @@ func update_hp_color(pb: ProgressBar, hp: int, maxhp: int):
 
 	# ProgressBar correto: usa "fill"
 	pb.add_theme_stylebox_override("fill", fill_style)
+
+
+func end_battle():
+	state = "victory"
+
+	# Esconde tudo da batalha
+	message_box.visible = true
+	action_box.visible = false
+	fight_box.visible = false
+
+	message_label.text = "Você derrotou o inimigo!\nGanhou %d XP!" % xp_reward
+	
+	# Espera o jogador ver a mensagem
+	await get_tree().create_timer(1.5).timeout
+	
+	emit_signal("battle_ended")
