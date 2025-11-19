@@ -133,13 +133,13 @@ func update_status_boxes():
 	update_hp_color(enemy_hp_bar, enemy_hp, enemy_max_hp)
 
 	# Player
-	player_name.text = "Marquinhos"
+	player_name.text = "Diluc"
 	player_hp_label.text = str(player_hp, " / ", player_max_hp)
 	player_hp_bar.max_value = player_max_hp
 	player_hp_bar.value = player_hp
 
 	# Enemy
-	enemy_name.text = "Amogus"
+	enemy_name.text = "Slime"
 	enemy_hp_label.text = str(enemy_hp, " / ", enemy_max_hp)
 	enemy_hp_bar.max_value = enemy_max_hp
 	enemy_hp_bar.value = enemy_hp
