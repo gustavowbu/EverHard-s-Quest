@@ -16,65 +16,10 @@ text = "Classe"
 
 [node name="Seta" parent="." instance=ExtResource("1_4n805")]
 
-[node name="Metodo" type="Node2D" parent="."]
-position = Vector2(0, 30)
-
-[node name="Label" type="Label" parent="Metodo"]
-offset_left = 35.0
-offset_top = -4.0
-offset_right = 109.0
-offset_bottom = 19.0
-text = "Método 1"
-
-[node name="Seta" parent="Metodo" instance=ExtResource("1_4n805")]
-offset_left = 12.0
-offset_right = 29.0
-
-[node name="Metodo2" type="Node2D" parent="."]
-position = Vector2(0, 60)
-
-[node name="Label" type="Label" parent="Metodo2"]
-offset_left = 35.0
-offset_top = -4.0
-offset_right = 109.0
-offset_bottom = 19.0
-text = "Método 2"
-
-[node name="Seta" parent="Metodo2" instance=ExtResource("1_4n805")]
-offset_left = 12.0
-offset_right = 29.0
-
-[node name="Metodo3" type="Node2D" parent="."]
-position = Vector2(0, 90)
-
-[node name="Label" type="Label" parent="Metodo3"]
-offset_left = 35.0
-offset_top = -4.0
-offset_right = 109.0
-offset_bottom = 19.0
-text = "Método 3"
-
-[node name="Seta" parent="Metodo3" instance=ExtResource("1_4n805")]
-offset_left = 12.0
-offset_right = 29.0
-
-[node name="Metodo4" type="Node2D" parent="."]
-position = Vector2(0, 120)
-
-[node name="Label" type="Label" parent="Metodo4"]
-offset_left = 35.0
-offset_top = -4.0
-offset_right = 109.0
-offset_bottom = 19.0
-text = "Método 4"
-
-[node name="Seta" parent="Metodo4" instance=ExtResource("1_4n805")]
-offset_left = 12.0
-offset_right = 29.0
-
 [node name="Linha" type="Sprite2D" parent="."]
-position = Vector2(8.5, 83.5)
-scale = Vector2(0.02, 0.13167258)
+position = Vector2(0, 28)
+scale = Vector2(0.02, 0.022538556)
 texture = ExtResource("2_r2wc6")
+centered = false
 
 [connection signal="button_down" from="Seta" to="." method="_on_seta_button_down"]

@@ -155,10 +155,10 @@ gutters_draw_line_numbers = true
 position = Vector2(15, 115)
 
 [node name="Run button" type="Button" parent="."]
-offset_left = 786.0
-offset_top = 34.0
-offset_right = 803.0
-offset_bottom = 51.000015
+offset_left = 829.0
+offset_top = 44.0
+offset_right = 846.0
+offset_bottom = 61.000015
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7rcaa")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_byolr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_6jk35")

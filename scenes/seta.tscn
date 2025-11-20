@@ -43,7 +43,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fgcl5")
 script = ExtResource("1_gtacy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8.500469, 8.500469)
+position = Vector2(8.5, 8.5)
 scale = Vector2(0.020164961, 0.020164961)
 texture = ExtResource("1_ra3kq")
 
