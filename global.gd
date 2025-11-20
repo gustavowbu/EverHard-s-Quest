@@ -12,6 +12,6 @@ func finish_changescenes():
 	if transition_scene == true:
 		transition_scene = false
 		if current_scene == "world":
-			current_scene == "main_area"
+			current_scene == "forest_level"
 		else:
 			current_scene = "world"
