@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=4 uid="uid://bpfi5mrkw4tds"]
+[gd_scene load_steps=33 format=4 uid="uid://bpfi5mrkw4tds"]
 
 [ext_resource type="Script" uid="uid://dt4e63vux4fo1" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://cimbjln5b4pwv" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bwpr725ch6gvl" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled_Dirt.png" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="2_trceg"]
 [ext_resource type="Texture2D" uid="uid://duucpjaibyeay" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled_Dirt_Wide.png" id="3_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://buaqecs4yqmrs" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Bitmask references 2.png" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://c7cid7p7rqstj" path="res://Maps/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="4_tipki"]
@@ -12,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://s7r33i7yyam4" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="7_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://1utk2dlwq3ty" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bspr1m1lfwryx" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="9_trceg"]
-[ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://pause_menu.tscn" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://cpvmc7pc0my6" path="res://scenes/enemy.tscn" id="14_a8y0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
@@ -588,6 +589,8 @@ size = Vector2(40, 16)
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(169, 28)
+scale = Vector2(4, 4)
 script = ExtResource("1_eb6dy")
 
 [node name="Ground" type="TileMapLayer" parent="."]
@@ -627,18 +630,29 @@ position = Vector2(152, 9)
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_ya4ey")
 
+[node name="FadeLayer" parent="." instance=ExtResource("2_trceg")]
+z_index = 3
+offset_left = -43.75
+offset_top = -33.25
+offset_right = 357.0
+offset_bottom = 300.0
+mouse_filter = 1
+mouse_behavior_recursive = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_trceg")]
-anchor_left = 0.116000004
-anchor_top = 0.2
-anchor_right = 0.124000005
-anchor_bottom = 0.21800001
-offset_left = 46.51999
-offset_top = 38.0
-offset_right = 78.28
-offset_bottom = 91.03999
+anchor_left = 0.41300002
+anchor_top = 0.365
+anchor_right = 0.59800005
+anchor_bottom = 0.666
+offset_left = -240.64001
+offset_top = -161.80002
+offset_right = 896.55994
+offset_bottom = 737.48
 scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="Enemy" parent="." instance=ExtResource("14_a8y0u")]
 position = Vector2(151, 23)

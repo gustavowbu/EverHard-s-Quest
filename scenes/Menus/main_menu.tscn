@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgu55g2tct6qp"]
 
-[ext_resource type="Script" uid="uid://cvhbnwo38ylny" path="res://main_menu.gd" id="1_7vrkn"]
-[ext_resource type="Theme" uid="uid://cdrbnymgayqaf" path="res://main_menu.tres" id="2_fu7sn"]
+[ext_resource type="Script" uid="uid://cvhbnwo38ylny" path="res://scripts/menus/main_menu.gd" id="1_rvjno"]
+[ext_resource type="Theme" uid="uid://cdrbnymgayqaf" path="res://main_menu.tres" id="2_iep04"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_7vrkn")
+script = ExtResource("1_rvjno")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -39,25 +39,25 @@ grow_vertical = 2
 [node name="Play" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_fu7sn")
+theme = ExtResource("2_iep04")
 text = "Play"
 
 [node name="Achievements" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_fu7sn")
+theme = ExtResource("2_iep04")
 text = "Achievements"
 
 [node name="Options" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_fu7sn")
+theme = ExtResource("2_iep04")
 text = "Options"
 
 [node name="Quit Game" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_fu7sn")
+theme = ExtResource("2_iep04")
 text = "Quit Game"
 
 [node name="Label" type="Label" parent="Control"]
@@ -70,7 +70,7 @@ offset_top = 26.0
 offset_right = 252.0
 offset_bottom = 151.0
 grow_horizontal = 2
-theme = ExtResource("2_fu7sn")
+theme = ExtResource("2_iep04")
 text = "EverHard's Quest"
 horizontal_alignment = 1
 vertical_alignment = 1
