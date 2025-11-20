@@ -841,7 +841,8 @@ sources/3 = SubResource("TileSetAtlasSource_rlepw")
 size = Vector2(53, 20)
 
 [node name="cliff_side" type="Node2D"]
-position = Vector2(144, 110)
+position = Vector2(643, -55)
+scale = Vector2(4, 4)
 
 [node name="Ground" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -869,7 +870,7 @@ polygon = PackedVector2Array(14, 15, 218, 15, 218, 155, 141, 156, 142, 213, 89, 
 [node name="Area2D" type="Area2D" parent="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
-position = Vector2(115.5, 203)
+position = Vector2(114.25, 203)
 shape = SubResource("RectangleShape2D_5q6pw")
 
 [node name="jogador" parent="." instance=ExtResource("13_te2g4")]
@@ -877,6 +878,7 @@ z_index = 2
 position = Vector2(0.5, 101)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_ll56v")]
 anchor_left = 0.116000004
