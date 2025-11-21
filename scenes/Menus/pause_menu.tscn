@@ -153,6 +153,8 @@ offset_left = -361.0
 offset_top = -221.264
 offset_right = 637.0
 offset_bottom = 329.08
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 0.95702064, 1, 0)

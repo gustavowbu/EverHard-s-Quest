@@ -25,7 +25,7 @@ func _on_options_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	resume()
-	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Menus/main_menu.tscn")
 	
 
 func _on_exit_game_pressed() -> void:

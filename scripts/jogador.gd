@@ -4,6 +4,7 @@ const speed = 300
 
 var current_dir = "none"
 @onready var interact_area = $InteractArea
+@export var inv: Inv
 
 func _physics_process(delta):
 	player_movement(delta)

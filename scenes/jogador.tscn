@@ -1,7 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://cg0homwinklwl"]
+[gd_scene load_steps=53 format=3 uid="uid://cg0homwinklwl"]
 
 [ext_resource type="Script" uid="uid://b8q7bbx5fh150" path="res://scripts/jogador.gd" id="1_g1ob3"]
 [ext_resource type="Texture2D" uid="uid://7fdjvg0wy7c7" path="res://Personagem/Eris Esra's Character Template/16x16 Idle-Sheet.png" id="2_qcln2"]
+[ext_resource type="Resource" uid="uid://bxtt48ro38hrm" path="res://inventory/player_inv.tres" id="2_s760d"]
 [ext_resource type="Texture2D" uid="uid://bv3h4avo725uu" path="res://Personagem/Eris Esra's Character Template/16x16 Walk Cycle-Sheet.png" id="3_s760d"]
 [ext_resource type="Texture2D" uid="uid://bl036pi1yailf" path="res://sprites/apolo.png" id="4_qcln2"]
 
@@ -403,6 +404,7 @@ animations = [{
 
 [node name="jogador" type="CharacterBody2D"]
 script = ExtResource("1_g1ob3")
+inv = ExtResource("2_s760d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-14, 0)
