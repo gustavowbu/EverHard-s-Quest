@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://de1wvgvl3klxh"]
+[gd_scene load_steps=27 format=4 uid="uid://bahh0ovdvc2th"]
 
 [ext_resource type="Script" uid="uid://b2mvffkbwbucc" path="res://scripts/forest_level.gd" id="1_pf0y0"]
-[ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/jogador.tscn" id="1_qbdkf"]
+[ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/jogador.tscn" id="1_qbdkf"]
 [ext_resource type="Texture2D" uid="uid://dbw3lavju3ssm" path="res://sprites/tilesets/7.png" id="2_2fh7s"]
 [ext_resource type="Texture2D" uid="uid://r21r785sk2qx" path="res://sprites/tilesets/mystic_woods_free_2.2/sprites/tilesets/grass.png" id="2_7s4hh"]
 [ext_resource type="Texture2D" uid="uid://dacri4my3c8ek" path="res://sprites/tilesets/5.png" id="3_4mgxn"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dovj2qtmesnw5" path="res://sprites/tilesets/9.png" id="9_l65lk"]
 [ext_resource type="Texture2D" uid="uid://dqnhjxam3n4hx" path="res://sprites/tilesets/8.png" id="10_pf0y0"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_vvr6j"]
-[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="14_vvr6j"]
+[ext_resource type="PackedScene" path="res://scenes/fade_layer.tscn" id="14_vvr6j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mgxn"]
 texture = ExtResource("2_2fh7s")
@@ -2580,6 +2580,21 @@ scale = Vector2(0.3, 0.3)
 
 [node name="slime" parent="." instance=ExtResource("4_2fh7s")]
 position = Vector2(234, 112)
+velocidade = 70.0
+distancia_max = 300.0
+
+[node name="slime2" parent="." instance=ExtResource("4_2fh7s")]
+position = Vector2(53.25, 53.25)
+velocidade = 70.0
+distancia_max = 300.0
+
+[node name="slime3" parent="." instance=ExtResource("4_2fh7s")]
+position = Vector2(253.5, 59.75)
+velocidade = 70.0
+distancia_max = 300.0
+
+[node name="slime4" parent="." instance=ExtResource("4_2fh7s")]
+position = Vector2(-106.5, -24.25)
 velocidade = 70.0
 distancia_max = 300.0
 

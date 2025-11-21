@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cbvbwgt1p30kw" path="res://scripts/battle/BattleScene.gd" id="1_643ng"]
 [ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_653c6"]
-[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="2_jnwg1"]
+[ext_resource type="PackedScene" path="res://scenes/fade_layer.tscn" id="2_jnwg1"]
 [ext_resource type="Texture2D" uid="uid://dyaudqny6xwgs" path="res://Personagem/ezgif-split-diluc/frame_00_delay-0.2s.png" id="3_15xbb"]
 [ext_resource type="Texture2D" uid="uid://ecce2xx33vbu" path="res://Personagem/ezgif-split-diluc/frame_01_delay-0.2s.png" id="4_5osmj"]
 [ext_resource type="Texture2D" uid="uid://d2ixr5g1w0hk4" path="res://Personagem/slime/frame_00_delay-0.1s.png" id="4_srobg"]
 [ext_resource type="Texture2D" uid="uid://dh21su27v286e" path="res://Personagem/slime/frame_01_delay-0.1s.png" id="5_7f2nc"]
 [ext_resource type="Texture2D" uid="uid://qmf8gkouc2ys" path="res://Personagem/ezgif-split-diluc/frame_10_delay-0.2s.png" id="5_ps56g"]
-[ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="5_w5rgc"]
+[ext_resource type="Script" path="res://scripts/BattleUI.gd" id="5_w5rgc"]
 [ext_resource type="Texture2D" uid="uid://bd8y1tqj1qlvc" path="res://Personagem/slime/frame_02_delay-0.1s.png" id="6_00brc"]
 [ext_resource type="Texture2D" uid="uid://dvnfc14cer0mh" path="res://sprites/ezgif-split-diluc/frame_11_delay-0.2s.png" id="6_46q00"]
 [ext_resource type="Texture2D" uid="uid://d3mawry4h1p2e" path="res://Personagem/ezgif-split-diluc/frame_12_delay-0.2s.png" id="7_dh55d"]
@@ -207,25 +207,21 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Jogar Pedra"
 
 [node name="Attack2" type="Button" parent="battle_ui/BoxPanel/FightBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Gosma de Slime"
 
 [node name="Attack3" type="Button" parent="battle_ui/BoxPanel/FightBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Bola de fogo"
 
 [node name="Attack4" type="Button" parent="battle_ui/BoxPanel/FightBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Gorfo de Zumbi"
 
 [node name="VBox" type="VBoxContainer" parent="battle_ui/BoxPanel"]
 layout_mode = 0
@@ -298,7 +294,12 @@ offset_right = 398.0
 offset_bottom = 25.0
 
 [node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
+visible = false
 offset_right = 1282.0
 offset_bottom = 721.0
 mouse_filter = 2
 mouse_behavior_recursive = 1
+
+[node name="Objeto" type="Sprite2D" parent="."]
+position = Vector2(584, 440)
+scale = Vector2(0.634, 0.634)

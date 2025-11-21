@@ -73,7 +73,7 @@ func update():
 			$Sprite2D.texture = load("res://sprites/Objetos/pedra-frente.png")
 			objeto = Pedra.new()
 		elif classe.nome == "Zumbi":
-			$Sprite2D.texture = load("res://sprites/Objetos/zumbi-frente.png")
+			$Sprite2D.texture = load("res://sprites/Objetos/zumbi-costas-2.png")
 			objeto = Zumbi.new()
 		metodos = objeto.metodos
 		dropdown.clear()

@@ -2,11 +2,13 @@ extends Objeto
 class_name Zumbi
 
 var metodos := {
-	"atirar gosma": [],
+	"atirar_gosma": [
+		{"nome": "Inimigo", "esperado": "Inimigo mau!"},
+		{"nome": "Chefe", "esperado": "Chefe mau!"}
+	],
 	"pular": [
-		{"this.tamanho": 1, "x": 1, "esperado": 1},
-		{"this.tamanho": 3, "x": 4, "esperado": 12},
-		{"this.tamanho": 5, "x": 2, "esperado": 10}
+		{"this.velocidade": 2, "altura": 3, "distancia": 5, "esperado": 7},
+		{"this.velocidade": 3, "altura": 10, "distancia": 4, "esperado": 2}
 	]
 }
 

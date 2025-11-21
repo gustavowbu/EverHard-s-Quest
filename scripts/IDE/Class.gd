@@ -102,7 +102,7 @@ func computar_expressao(expressao, escopo: Dictionary):
 		valor1 = computar_expressao(par[2], escopo)
 		if is_error(valor1):
 			return valor1
-		if par[0] != typeof(valor1):
+		if map_tipo(par[0]) != typeof(valor1):
 			return raise_error("Incompatibilidade de tipo: não pôde converter " + unmap_tipo(par[0]) + " para " + unmap_tipo(valor1))
 		escopo[par[1]] = {"tipo": par[0], "valor": valor1}
 	elif expressao_nome == "addition":
@@ -240,6 +240,15 @@ func is_error(valor) -> bool:
 	if typeof(valor) != 24:
 		return false
 	return valor.get_classe() == "Erro"
+
+func map_tipo(tipo: String):
+	if tipo == "int":
+		return TYPE_INT
+	if tipo == "String":
+		return TYPE_STRING
+	if tipo == "boolean":
+		return TYPE_BOOL
+	return tipo
 
 func unmap_tipo(tipo):
 	if tipo == TYPE_INT:
