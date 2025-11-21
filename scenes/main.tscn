@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bpfi5mrkw4tds"]
+[gd_scene load_steps=34 format=4 uid="uid://bpfi5mrkw4tds"]
 
 [ext_resource type="Script" uid="uid://dt4e63vux4fo1" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://cimbjln5b4pwv" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="1_tbgi4"]
@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://1utk2dlwq3ty" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bspr1m1lfwryx" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_trceg"]
-[ext_resource type="PackedScene" uid="uid://cpvmc7pc0my6" path="res://scenes/enemy.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://inventory/scenes/inv_ui.tscn" id="15_jbj1t"]
+[ext_resource type="PackedScene" path="res://scenes/slime.tscn" id="17_muem4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
 texture = ExtResource("1_tbgi4")
@@ -619,6 +620,7 @@ position = Vector2(91, 88)
 disable_mode = 1
 
 [node name="collisions" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(23, 25, 135, 25, 135, -1, 167, -1, 167, 25, 277, 25, 277, 50, 266, 50, 266, 79, 282, 79, 282, 193, 266, 192, 266, 221, 266, 224, 281, 224, 280, 263, 24, 262, 24, 225, 38, 225, 38, 194, 21, 193, 21, 82, 36, 82, 36, 49, 23, 49, -35, 49, -35, 290, 320, 291, 350, 291, 347, -7, 23, -7, 23, 49)
@@ -631,6 +633,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_ya4ey")
 
 [node name="FadeLayer" parent="." instance=ExtResource("2_trceg")]
+visible = false
 z_index = 3
 offset_left = -43.75
 offset_top = -33.25
@@ -640,22 +643,36 @@ mouse_filter = 1
 mouse_behavior_recursive = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_trceg")]
-anchor_left = 0.41300002
-anchor_top = 0.365
-anchor_right = 0.59800005
-anchor_bottom = 0.666
-offset_left = -240.64001
-offset_top = -161.80002
-offset_right = 896.55994
-offset_bottom = 737.48
+anchor_left = 0.078
+anchor_top = 0.132
+anchor_right = 0.078
+anchor_bottom = 0.132
+offset_left = 13.409996
+offset_top = -26.54
+offset_right = 108.20997
+offset_bottom = 57.05999
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="Enemy" parent="." instance=ExtResource("14_a8y0u")]
-position = Vector2(151, 23)
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
+
+[node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("15_jbj1t")]
+visible = false
+offset_left = 43.166668
+offset_top = 23.666666
+offset_right = 173.16667
+offset_bottom = 102.666664
+
+[node name="slime" parent="." instance=ExtResource("17_muem4")]
+z_index = 1
+position = Vector2(153.25, 23)
 
 [connection signal="body_entered" from="cliffside_trans_point" to="." method="_on_cliffside_trans_point_body_entered"]
 [connection signal="body_exited" from="cliffside_trans_point" to="." method="_on_cliffside_trans_point_body_exited"]

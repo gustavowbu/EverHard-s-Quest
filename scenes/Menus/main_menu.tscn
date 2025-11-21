@@ -19,8 +19,27 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 1.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.5
+offset_top = 26.0
+offset_right = 335.5
+offset_bottom = 151.0
+grow_horizontal = 2
+theme = ExtResource("2_iep04")
+text = "EverHard's Quest"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -59,21 +78,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_iep04")
 text = "Quit Game"
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -249.0
-offset_top = 26.0
-offset_right = 252.0
-offset_bottom = 151.0
-grow_horizontal = 2
-theme = ExtResource("2_iep04")
-text = "EverHard's Quest"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Achievements" to="." method="_on_achievements_pressed"]

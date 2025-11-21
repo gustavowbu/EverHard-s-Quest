@@ -14,7 +14,7 @@ func _on_cliffside_trans_point_body_entered(body: Node2D) -> void:
 
 func _on_cliffside_trans_point_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
-		global.transition_scene = false
+		global.transition_scene = true
 		
 func change_scene():
 	if global.transition_scene == true:

@@ -135,12 +135,8 @@ _data = {
 [node name="PauseMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchor_right = 0.57600003
-anchor_bottom = 0.596
-offset_left = -1.0
-offset_top = 5.0
-offset_right = -0.2800293
-offset_bottom = -0.120025635
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_myx47")
@@ -157,6 +153,8 @@ offset_left = -361.0
 offset_top = -221.264
 offset_right = 637.0
 offset_bottom = 329.08
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 0.95702064, 1, 0)
