@@ -15,6 +15,7 @@ func _input(event):
 		for b in bodies:
 			if b.is_in_group("npc"):
 				b.start_battle()
+	
 
 func player_movement(delta):
 	if Input.is_action_pressed("right"):

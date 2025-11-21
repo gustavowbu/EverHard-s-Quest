@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"back_idle",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -80,7 +80,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"back_walk",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -88,7 +88,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"front_idle",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -105,7 +105,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"front_walk",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -113,7 +113,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"side_idle",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -130,7 +130,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"side_walk",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="jogador" type="CharacterBody2D"]
@@ -147,4 +147,4 @@ limit_smoothed = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tg4ar")
-animation = &"side_walk"
+animation = &"back_idle"

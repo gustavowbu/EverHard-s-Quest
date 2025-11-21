@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:sprites/Personagem/Eris Esra's Character Template/16x32 Idle-Sheet.png.import
-uid="uid://1avdyfmbt5e4"
-path="res://.godot/imported/16x32 Idle-Sheet.png-448935c4ec63ec6f5725f0d91dc72e3e.ctex"
-========
-uid="uid://dvnfc14cer0mh"
+uid="uid://dfg7wjotjn2rr"
 path="res://.godot/imported/frame_11_delay-0.2s.png-4f4e15b20d632bb7334cf933dd0b12af.ctex"
->>>>>>>> 562a489d0aa41e72155cb431be1315dd711adb1d:Personagem/ezgif-split-diluc/frame_11_delay-0.2s.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:sprites/Personagem/Eris Esra's Character Template/16x32 Idle-Sheet.png.import
-source_file="res://sprites/Personagem/Eris Esra's Character Template/16x32 Idle-Sheet.png"
-dest_files=["res://.godot/imported/16x32 Idle-Sheet.png-448935c4ec63ec6f5725f0d91dc72e3e.ctex"]
-========
 source_file="res://Personagem/ezgif-split-diluc/frame_11_delay-0.2s.png"
 dest_files=["res://.godot/imported/frame_11_delay-0.2s.png-4f4e15b20d632bb7334cf933dd0b12af.ctex"]
->>>>>>>> 562a489d0aa41e72155cb431be1315dd711adb1d:Personagem/ezgif-split-diluc/frame_11_delay-0.2s.png.import
 
 [params]
 
