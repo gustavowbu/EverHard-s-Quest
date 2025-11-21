@@ -47,44 +47,33 @@ func player_movement(delta):
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D2
-	var anim2 = $AnimatedSprite2D
 
 	if dir == "right":
 		anim.flip_h = true
-		anim2.flip_h = true
 		if movement == 1:
 			anim.play("side_walk")
-			anim2.play("side_walk")
+
 		elif movement == 0:
 			anim.play("side_idle")
-			anim2.play("side_idle")
+
 	if dir == "left":
 		anim.flip_h = false
-		anim2.flip_h = false
 		if movement == 1:
 			anim.play("side_walk")
-			anim2.play("side_walk")
 		elif movement == 0:
 			anim.play("side_idle")
-			anim2.play("side_idle")
 	if dir == "down":
 		anim.flip_h = false
-		anim2.flip_h = false
 		if movement == 1:
 			anim.play("front_walk")
-			anim2.play("front_walk")
 		elif movement == 0:
 			anim.play("front_idle")
-			anim2.play("front_idle")
 	if dir == "up":
 		anim.flip_h = false
-		anim2.flip_h = false
 		if movement == 1:
 			anim.play("back_walk")
-			anim2.play("back_walk")
 		elif movement == 0:
 			anim.play("back_idle")
-			anim2.play("back_idle")
 			
 
 func player():

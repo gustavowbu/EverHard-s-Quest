@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ccifs1lc5bxb8" path="res://Maps/tileset_16x16_interior.png" id="1_suqx5"]
 [ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/jogador.tscn" id="2_kdcu7"]
-[ext_resource type="Script" uid="uid://cm47d2i2ppg18" path="res://scenes/area_2d.gd" id="3_8pu0s"]
+[ext_resource type="Script" uid="uid://cm47d2i2ppg18" path="res://scripts/area_2d.gd" id="3_8pu0s"]
 [ext_resource type="Texture2D" uid="uid://dwivcimjsofi5" path="res://scenes/door.png" id="4_k78ul"]
-[ext_resource type="Script" uid="uid://tcx0cgu82ulv" path="res://scenes/canvas_layer.gd" id="5_k78ul"]
+[ext_resource type="Script" uid="uid://tcx0cgu82ulv" path="res://scripts/canvas_layer.gd" id="5_k78ul"]
 [ext_resource type="Texture2D" uid="uid://dbroemmqhh0oj" path="res://sprites/forest.png" id="5_nx8rg"]
-[ext_resource type="Script" uid="uid://d3yhjbgvvdja4" path="res://scenes/texture_rect.gd" id="7_nx8rg"]
+[ext_resource type="Script" uid="uid://d3yhjbgvvdja4" path="res://scripts/texture_rect.gd" id="7_nx8rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k78ul"]
 texture = ExtResource("1_suqx5")

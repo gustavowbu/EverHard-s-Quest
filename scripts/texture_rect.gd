@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends TextureRect
 
 var next_scene_path: String
 

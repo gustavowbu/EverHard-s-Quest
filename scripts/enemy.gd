@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @export var distancia_max: float = 60.0
 
-@export var raio_acao: float = 15.0
+@export var raio_acao: float = 60.0
 @export var caminho_cena_batalha: String = "res://scenes/Battle/battleScene.tscn"
 
 @onready var player = get_node("../jogador")
