@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://n4kvoeca1uts"]
+
+[ext_resource type="PackedScene" uid="uid://c36nvnhfewf64" path="res://scenes/Dropdown/Seta.tscn" id="1_4n805"]
+[ext_resource type="Texture2D" uid="uid://ci7sl25d6mbu" path="res://sprites/line_dropdown.png" id="1_a3xf7"]
+[ext_resource type="Script" uid="uid://c0ewivydirqu5" path="res://scripts/IDE/Classe_Dropdown.gd" id="1_cev8s"]
+
+[node name="Classe" type="Node2D"]
+script = ExtResource("1_cev8s")
+metadata/_custom_type_script = "uid://8p6gxkl7xhvp"
+
+[node name="Linha" type="Sprite2D" parent="."]
+position = Vector2(4, 28)
+texture = ExtResource("1_a3xf7")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 23.0
+offset_top = -4.0
+offset_right = 76.0
+offset_bottom = 19.0
+text = "Classe"
+
+[node name="Seta" parent="." instance=ExtResource("1_4n805")]
+
+[connection signal="button_down" from="Seta" to="." method="_on_seta_button_down"]

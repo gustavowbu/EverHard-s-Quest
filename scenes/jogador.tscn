@@ -1,8 +1,8 @@
 [gd_scene load_steps=52 format=3 uid="uid://cg0homwinklwl"]
 
 [ext_resource type="Script" uid="uid://b8q7bbx5fh150" path="res://scripts/jogador.gd" id="1_g1ob3"]
-[ext_resource type="Texture2D" uid="uid://7fdjvg0wy7c7" path="res://Personagem/Eris Esra's Character Template/16x16 Idle-Sheet.png" id="2_qcln2"]
-[ext_resource type="Texture2D" uid="uid://bv3h4avo725uu" path="res://Personagem/Eris Esra's Character Template/16x16 Walk Cycle-Sheet.png" id="3_s760d"]
+[ext_resource type="Texture2D" uid="uid://7fdjvg0wy7c7" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet.png" id="2_qcln2"]
+[ext_resource type="Texture2D" uid="uid://bv3h4avo725uu" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Walk Cycle-Sheet.png" id="3_s760d"]
 [ext_resource type="Texture2D" uid="uid://bl036pi1yailf" path="res://sprites/apolo.png" id="4_qcln2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqpra"]

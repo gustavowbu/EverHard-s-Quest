@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8lv1k0hsumkf"]
+
+[ext_resource type="Script" uid="uid://cwcrw3sy27hwm" path="res://scripts/Dropdown/Leaf.gd" id="1_3d0o1"]
+[ext_resource type="Texture2D" uid="uid://b0bkfwvx722" path="res://sprites/caso-de-teste.png" id="2_3u7ly"]
+
+[node name="Leaf" type="Node2D"]
+script = ExtResource("1_3d0o1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 23.0
+offset_top = -4.0
+offset_right = 58.0
+offset_bottom = 19.0
+text = "Leaf"
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.033, 0.033)
+texture = ExtResource("2_3u7ly")
+centered = false

@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://nptw7gw57v0d"]
 
-[ext_resource type="Texture2D" uid="uid://dgmu4vi3iuet4" path="res://Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="1_xp2nl"]
+[ext_resource type="Texture2D" uid="uid://dgmu4vi3iuet4" path="res://sprites/Personagem/basic asset pack/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="1_xp2nl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ercui"]
 atlas = ExtResource("1_xp2nl")
