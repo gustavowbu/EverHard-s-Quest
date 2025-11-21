@@ -620,6 +620,7 @@ position = Vector2(91, 88)
 disable_mode = 1
 
 [node name="collisions" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(23, 25, 135, 25, 135, -1, 167, -1, 167, 25, 277, 25, 277, 50, 266, 50, 266, 79, 282, 79, 282, 193, 266, 192, 266, 221, 266, 224, 281, 224, 280, 263, 24, 262, 24, 225, 38, 225, 38, 194, 21, 193, 21, 82, 36, 82, 36, 49, 23, 49, -35, 49, -35, 290, 320, 291, 350, 291, 347, -7, 23, -7, 23, 49)
@@ -642,6 +643,7 @@ mouse_filter = 1
 mouse_behavior_recursive = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 scale = Vector2(4, 4)
 transform = Transform2D(4, 0, 0, 4, 0, 0)
 
@@ -654,6 +656,7 @@ offset_left = -24.090004
 offset_top = -20.79
 offset_right = 70.70997
 offset_bottom = 62.80999
+
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 6
 size_flags_vertical = 6
