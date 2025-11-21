@@ -147,4 +147,4 @@ limit_smoothed = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tg4ar")
-animation = &"back_idle"
+animation = &"front_idle"
