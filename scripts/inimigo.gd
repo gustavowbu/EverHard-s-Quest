@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var velocidade: float = 100.0
+@export var velocidade: float = 50.0
 @export var mover_no_eixo_x: bool = true
 @export var mover_no_eixo_y: bool = false
 

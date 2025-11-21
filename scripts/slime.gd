@@ -1,5 +1,5 @@
 # Slime.gd
-extends "res://scripts/Inimigo.gd"
+extends "res://scripts/inimigo.gd"
 class_name Slime
 
 
