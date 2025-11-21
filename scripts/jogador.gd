@@ -6,6 +6,12 @@ var current_dir = "none"
 @onready var interact_area = $InteractArea
 @export var inv: Inv
 
+func _ready():
+	if global.player_position != Vector2.ZERO:
+		global_position = global.player_position
+		print("POSIÇÃO RESTAURADA:", global_position)
+
+
 func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
 	for i in range(4):
 		if Input.is_action_just_pressed("ide" + str(i + 1)):

@@ -38,7 +38,7 @@ func mover_inimigo(delta):
 
 func verificar_distancia_para_player():
 	if player == null:
-		print("❌ Player é NULL! Verifique o caminho do nó.")
+		print("Player é NULL! Verifique o caminho do nó.")
 		return
 
 	var distancia = global_position.distance_to(player.global_position)
@@ -47,5 +47,10 @@ func verificar_distancia_para_player():
 		entrar_batalha()
 
 func entrar_batalha():
-	print("🎯 O inimigo detectou o player! Indo para batalha...")
+	var player = get_tree().get_nodes_in_group("player")[0]
+	global.player_position = player.global_position
+	global.inimigo_derrotado = self.name
+	print("POSIÇÃO SALVA:", global.player_position)
+
+	print("O inimigo detectou o player! Indo para batalha...")
 	get_tree().change_scene_to_file(caminho_cena_batalha)

@@ -2,6 +2,8 @@ extends Node
 
 var codigos := ["", "", "", ""]
 var objetos := [{"nome": "", "metodos": []}, {"nome": "", "metodos": []}, {"nome": "", "metodos": []}, {"nome": "", "metodos": []}]
+var player_position: Vector2 = Vector2.ZERO
+var inimigo_derrotado: String = ""
 
 func _ready() -> void:
 	codigos[0] = """public class Pedra {

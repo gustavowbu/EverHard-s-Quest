@@ -4,6 +4,14 @@ class_name Slime
 func _ready():
 	super._ready() # chama o ready do Objeto.gd
 	$AnimatedSprite2D.play("walk")
+	
+	# tenta pegar o jogador pelo grupo
+	var jogador = get_tree().get_first_node_in_group("player")
+
+	if jogador:
+		print("🎉 Jogador encontrado: ", jogador.name)
+	else:
+		print("❌ Jogador NÃO encontrado! (confirme o grupo player no jogador.tscn)")
 
 var metodos := {
 	"atirar gosma": [],
