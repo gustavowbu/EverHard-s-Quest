@@ -52,3 +52,7 @@ func _on_body_entered(body: Node) -> void:
 
 	# re-enable monitoring so door can be used again
 	set_monitoring(true)
+
+
+func _on_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
