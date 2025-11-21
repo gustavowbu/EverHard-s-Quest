@@ -30,10 +30,10 @@ func _ready():
 	btn_party.pressed.connect(_on_party)
 
 	# Conectar botões dos ataques
-	attack1.pressed.connect(func(): _on_attack_pressed("Acelerar"))
-	attack2.pressed.connect(func(): _on_attack_pressed("Dobrar"))
+	attack1.pressed.connect(func(): _on_attack_pressed("Jogar Pedra"))
+	attack2.pressed.connect(func(): _on_attack_pressed("Gosma de SLime"))
 	attack3.pressed.connect(func(): _on_attack_pressed("Bola de Fogo"))
-	attack4.pressed.connect(func(): _on_attack_pressed("Gelo Antigo"))
+	attack4.pressed.connect(func(): _on_attack_pressed("Gorfo de Zumbi"))
 
 	# Conectar botão BACK
 	back_btn.pressed.connect(_on_back)

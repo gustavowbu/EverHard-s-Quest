@@ -12,4 +12,4 @@ func _on_battle_ended():
 
 	await $FadeLayer/AnimationPlayer.animation_finished
 
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/ForestLevel.tscn")

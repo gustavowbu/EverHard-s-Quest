@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvt8kdjffq6k8"
-<<<<<<<< HEAD:sprites/slime/frame_05_delay-0.1s.png.import
-path="res://.godot/imported/frame_05_delay-0.1s.png-399db44b5878ea75eddcfe48e47abbe5.ctex"
-========
+uid="uid://cvjrsmq7gqc8r"
 path="res://.godot/imported/frame_05_delay-0.1s.png-8b380c010c51deb5990d86e9ae4f744c.ctex"
->>>>>>>> 562a489d0aa41e72155cb431be1315dd711adb1d:Personagem/slime/frame_05_delay-0.1s.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:sprites/slime/frame_05_delay-0.1s.png.import
-source_file="res://sprites/slime/frame_05_delay-0.1s.png"
-dest_files=["res://.godot/imported/frame_05_delay-0.1s.png-399db44b5878ea75eddcfe48e47abbe5.ctex"]
-========
 source_file="res://Personagem/slime/frame_05_delay-0.1s.png"
 dest_files=["res://.godot/imported/frame_05_delay-0.1s.png-8b380c010c51deb5990d86e9ae4f744c.ctex"]
->>>>>>>> 562a489d0aa41e72155cb431be1315dd711adb1d:Personagem/slime/frame_05_delay-0.1s.png.import
 
 [params]
 

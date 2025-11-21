@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnnwwpjhsrupm"
-<<<<<<<< HEAD:sprites/ezgif-split-diluc/frame_14_delay-0.2s.png.import
-path="res://.godot/imported/frame_14_delay-0.2s.png-253a3c0529593784cc2dac890094b8cd.ctex"
-========
+uid="uid://306s3ehhsoxb"
 path="res://.godot/imported/frame_14_delay-0.2s.png-822f4df05d8c5ed7011871a47a5af5bf.ctex"
->>>>>>>> 562a489d0aa41e72155cb431be1315dd711adb1d:Personagem/ezgif-split-diluc/frame_14_delay-0.2s.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:sprites/ezgif-split-diluc/frame_14_delay-0.2s.png.import
-source_file="res://sprites/ezgif-split-diluc/frame_14_delay-0.2s.png"
-dest_files=["res://.godot/imported/frame_14_delay-0.2s.png-253a3c0529593784cc2dac890094b8cd.ctex"]
-========
 source_file="res://Personagem/ezgif-split-diluc/frame_14_delay-0.2s.png"
 dest_files=["res://.godot/imported/frame_14_delay-0.2s.png-822f4df05d8c5ed7011871a47a5af5bf.ctex"]
->>>>>>>> 562a489d0aa41e72155cb431be1315dd711adb1d:Personagem/ezgif-split-diluc/frame_14_delay-0.2s.png.import
 
 [params]
 
