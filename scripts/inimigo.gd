@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var mover_no_eixo_y: bool = false
 
 @export var distancia_max: float = 60.0
-@export var raio_acao: float = 15.0
+@export var raio_acao: float = 70.0
 
 @export var caminho_cena_batalha: String = "res://scenes/Battle/battleScene.tscn"
 

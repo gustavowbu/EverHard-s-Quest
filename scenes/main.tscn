@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://1utk2dlwq3ty" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bspr1m1lfwryx" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_trceg"]
-[ext_resource type="PackedScene" uid="uid://cpvmc7pc0my6" path="res://scenes/enemy.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://inventory/scenes/inv_ui.tscn" id="15_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/slime.tscn" id="17_muem4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
 texture = ExtResource("1_tbgi4")
@@ -651,10 +651,10 @@ anchor_left = 0.078
 anchor_top = 0.132
 anchor_right = 0.078
 anchor_bottom = 0.132
-offset_left = -24.090004
-offset_top = -20.79
-offset_right = 70.70997
-offset_bottom = 62.80999
+offset_left = 13.409996
+offset_top = -26.54
+offset_right = 108.20997
+offset_bottom = 57.05999
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -664,13 +664,15 @@ scale = Vector2(6, 6)
 transform = Transform2D(6, 0, 0, 6, 0, 0)
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("15_jbj1t")]
+visible = false
 offset_left = 43.166668
 offset_top = 23.666666
 offset_right = 173.16667
 offset_bottom = 102.666664
 
-[node name="Enemy" parent="." instance=ExtResource("14_a8y0u")]
-position = Vector2(151, 23)
+[node name="slime" parent="." instance=ExtResource("17_muem4")]
+z_index = 1
+position = Vector2(153.25, 23)
 
 [connection signal="body_entered" from="cliffside_trans_point" to="." method="_on_cliffside_trans_point_body_entered"]
 [connection signal="body_exited" from="cliffside_trans_point" to="." method="_on_cliffside_trans_point_body_exited"]

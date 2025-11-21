@@ -40,16 +40,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gstla"]
-radius = 61.204575
+radius = 9.848858
 
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_371uh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(12, -2)
+position = Vector2(-1, -7.999996)
+scale = Vector2(0.14516133, 0.1274194)
 sprite_frames = SubResource("SpriteFrames_p2gj0")
 frame_progress = 0.83216023
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(13, 65)
+position = Vector2(-3, 1)
 shape = SubResource("CircleShape2D_gstla")
