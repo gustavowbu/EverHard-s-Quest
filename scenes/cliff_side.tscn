@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bspr1m1lfwryx" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="10_kg76y"]
 [ext_resource type="Texture2D" uid="uid://c6dwtvi2irjrr" path="res://Maps/Sprout Lands - Sprites - Basic pack/Objects/Basic_Furniture.png" id="11_mh3it"]
 [ext_resource type="Texture2D" uid="uid://dmumdy58d256k" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled_Dirt_v2.png" id="12_svhu0"]
-[ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/jogador.tscn" id="13_te2g4"]
+[ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/Jogador.tscn" id="13_te2g4"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="14_ll56v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tw0c"]

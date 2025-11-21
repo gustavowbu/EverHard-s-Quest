@@ -107,7 +107,7 @@ func parse_code_array(code: Array):
 		return raise_syntax_error("Classe não pode ser resolvida a um tipo")
 	if code[i] in encapsulamentos:
 		i += 1
-	if code[i] != "class":
+	if len(code) == 1 or code[i] != "class":
 		return raise_syntax_error("Classe não pode ser resolvida a um tipo")
 	i += 1
 	# Parte 2: Ler o nome da classe e o '{'
@@ -117,6 +117,8 @@ func parse_code_array(code: Array):
 		return raise_syntax_error("Erro no token \"" + code[i] + "\", declarador de classe inválido")
 	classe.nome = code[i]
 	i += 1
+	if len(code) == i:
+		return raise_syntax_error("Insira o \"CorpoDaClasse\" para completar a \"UnidadeDeCompilacao\"")
 	if code[i] != "{":
 		return raise_syntax_error("Insira o \"CorpoDaClasse\" para completar a \"UnidadeDeCompilacao\"")
 	i += 1
@@ -185,7 +187,7 @@ func parse_code_array(code: Array):
 		elif estado == "corpo_valor":
 			if w == ";":
 				corpo.append(w)
-				var valor = computar_expressao(parse_expressao(corpo), {}, classe)
+				var valor = classe.computar_expressao(parse_expressao(corpo), {})
 				if is_error(valor):
 					return valor
 				classe.declarar_atributo(encapsulamento, tipo, nome, valor)
@@ -195,6 +197,10 @@ func parse_code_array(code: Array):
 				continue
 			corpo.append(w)
 		elif estado == "corpo_parametros_tipo":
+			if w == ")":
+				estado = "corpo_metodo_comeco"
+				i += 1
+				continue
 			if not w in tipos_var:
 				if w != "void":
 					return raise_syntax_error("O método " + nome + "() da classe " + classe.nome + " refere ao tipo faltante " + w)
@@ -226,8 +232,8 @@ func parse_code_array(code: Array):
 		elif estado == "corpo_metodo":
 			if w == "}":
 				corpo.append(w)
-				var algoritmo = parse_algoritmo(corpo, nome, parametros, classe)
-				if typeof(algoritmo) != TYPE_CALLABLE:
+				var algoritmo = parse_algoritmo(corpo)
+				if not is_algoritmo(algoritmo):
 					return algoritmo
 				classe.alterar_metodo(encapsulamento, tipo, nome, parametros, algoritmo)
 				corpo = []
@@ -361,8 +367,8 @@ func parse_expressao(code: Array):
 		i += 1
 	return expressao
 
-func parse_algoritmo(code: Array, nome: String, parametros_algoritmo: Array, classe: Class):
-	var algoritmo = []
+func parse_algoritmo(code: Array):
+	var algoritmo = Algoritmo.new()
 	var expressao = []
 	var i = 0
 	while i != len(code):
@@ -374,200 +380,12 @@ func parse_algoritmo(code: Array, nome: String, parametros_algoritmo: Array, cla
 			expressao = parse_expressao(expressao)
 			if is_error(expressao):
 				return expressao
-			algoritmo.append(expressao)
+			algoritmo.expressoes.append(expressao)
 			expressao = []
 		else:
 			expressao.append(w)
 		i += 1
-	return func(parametros: Array): return chamar_algoritmo(algoritmo, nome, parametros_algoritmo, classe, parametros)
-
-func chamar_algoritmo(algoritmo: Array, nome: String, parametros_algoritmo: Array, classe: Class, parametros: Array):
-	var escopo := {}
-
-	# Adicionar parâmetros ao escopo
-	if len(parametros_algoritmo) != len(parametros):
-		var tipos_esperados = parametros_dicts_tipos_to_string(parametros_algoritmo)
-		var tipos_passados = parametros_values_tipos_to_string(parametros)
-		return raise_error("O método \"" + nome + "(" + tipos_esperados + ")\" na classe " + classe.nome + " não é aplicável para os argumentos (" + tipos_passados + ")")
-	for i in range(len(parametros_algoritmo)):
-		var tipo = parametros_algoritmo[i]["tipo"]
-		var nome_parametro = parametros_algoritmo[i]["nome"]
-		var valor = parametros[i]
-		if tipo != typeof(valor):
-			var tipos_esperados = parametros_dicts_tipos_to_string(parametros_algoritmo)
-			var tipos_passados = parametros_values_tipos_to_string(parametros)
-			return raise_error("O método \"" + nome + "(" + tipos_esperados + ")\" na classe " + classe.nome + " não é aplicável para os argumentos (" + tipos_passados + ")")
-		escopo[nome_parametro] = {"tipo": tipo, "valor": valor}
-
-	# Computar expressões
-	for expressao in algoritmo:
-		var resultado
-		resultado = computar_expressao(expressao, escopo, classe)
-		if is_error(resultado):
-			return resultado
-		if expressao.nome == "return":
-			return resultado.parametros[0]
-
-func computar_expressao(expressao, escopo: Dictionary, classe: Class):
-	if typeof(expressao) != 24:
-		return expressao
-	if expressao.get_classe() != "Expressao":
-		return expressao
-	var nome = expressao.nome
-	var par = expressao.parametros
-	var valor1
-	var valor2
-	if nome == "declare":
-		if par[1] in escopo.keys():
-			return raise_error("Variável local \"" + par[0] + "\" duplicada")
-		escopo[par[1]] = {"tipo": par[0], "valor": null}
-	elif nome == "assign":
-		if not par[0] in escopo.keys():
-			if par[0].begins_with("this."):
-				return raise_error(par[0].substr(5) + " não pode ser resolvido ou não é um campo")
-			else:
-				return raise_error(par[0] + " não pode ser resolvido a uma variável")
-		valor1 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if par[0].begins_with("this."):
-			classe.alterar_atributo(par[0].substr(5), valor1)
-		else:
-			if escopo[par[0]]["tipo"] != typeof(valor1):
-				return raise_error("Incompatibilidade de tipo: não pôde converter " + unmap_tipo(typeof(valor1)) + " para " + unmap_tipo(escopo[par[0]]["tipo"]))
-			escopo[par[0]] = valor1
-	elif nome == "declare & assign":
-		if par[1] in escopo.keys():
-			return raise_error("Variável local \"" + par[0] + "\" duplicada")
-		valor1 = computar_expressao(par[2], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if par[0] != typeof(valor1):
-			return raise_error("Incompatibilidade de tipo: não pôde converter " + unmap_tipo(par[0]) + " para " + unmap_tipo(valor1))
-		escopo[par[1]] = {"tipo": par[0], "valor": valor1}
-	elif nome == "addition":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if not typeof(valor1) in [TYPE_INT, TYPE_STRING] or not typeof(valor2) in [TYPE_INT, TYPE_STRING]:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador + não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		if typeof(valor1) == TYPE_STRING or typeof(valor2) == TYPE_STRING:
-			valor1 = str(valor1)
-			valor2 = str(valor2)
-		return valor1 + valor2
-	elif nome == "subtraction":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2) or typeof(valor1) != TYPE_INT:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador - não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 - valor2
-	elif nome == "multiplication":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2) or typeof(valor1) != TYPE_INT:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador * não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 * valor2
-	elif nome == "division":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2) or typeof(valor1) != TYPE_INT:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador / não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 / valor2
-	elif nome == "equals":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2):
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador == não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 == valor2
-	elif nome == "greater than":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2) or typeof(valor1) != TYPE_INT:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador > não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 > valor2
-	elif nome == "less than":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2) or typeof(valor1) != TYPE_INT:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador < não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 < valor2
-	elif nome == "greater than or equal":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2) or typeof(valor1) != TYPE_INT:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador >= não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 >= valor2
-	elif nome == "less than or equal":
-		valor1 = computar_expressao(par[0], escopo, classe)
-		valor2 = computar_expressao(par[1], escopo, classe)
-		if is_error(valor1):
-			return valor1
-		if is_error(valor2):
-			return valor2
-		if typeof(valor1) != typeof(valor2) or typeof(valor1) != TYPE_INT:
-			var tipo1 = unmap_tipo(typeof(valor1))
-			var tipo2 = unmap_tipo(typeof(valor1))
-			return raise_error("O operador <= não é definido para o(s) tipo(s) de argumentos " + tipo1 + ", " + tipo2)
-		return valor1 <= valor2
-	elif nome == "read":
-		if par[0].begins_with("this."):
-			return classe.ler_atributo(par[0].substr(5))
-		else:
-			if not par[0] in escopo.keys():
-				return raise_error(par[0] + " não pode ser resolvido a uma variável")
-			return escopo[par[0]]["valor"]
-	elif nome == "value":
-		return par[0]
-	elif nome == "return":
-		expressao.parametros = [computar_expressao(par[0], escopo, classe)]
-		return expressao
+	return algoritmo
 
 func raise_error(message: String, nome: String = "Erro") -> Erro:
 	var erro = Erro.new()
@@ -595,6 +413,11 @@ func is_error(valor) -> bool:
 	if typeof(valor) != 24:
 		return false
 	return valor.get_classe() == "Erro"
+
+func is_algoritmo(valor) -> bool:
+	if typeof(valor) != 24:
+		return false
+	return valor.get_classe() == "Algoritmo"
 
 func map_tipo(tipo: String):
 	if tipo == "int":

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Objeto
 
 @export var velocidade: float = 50.0
 @export var mover_no_eixo_x: bool = true
@@ -14,16 +15,12 @@ extends CharacterBody2D
 var direcao: int = 1
 var pos_inicial: Vector2
 
-
 func _ready():
 	pos_inicial = global_position
-
 
 func _process(delta):
 	mover_inimigo(delta)
 	verificar_distancia_para_player()
-
-
 
 func mover_inimigo(delta):	
 	var movimento := Vector2.ZERO
@@ -36,11 +33,8 @@ func mover_inimigo(delta):
 
 	global_position += movimento
 
-	
 	if global_position.distance_to(pos_inicial) >= distancia_max:
 		direcao *= -1
-
-
 
 func verificar_distancia_para_player():
 	if player == null:
@@ -51,8 +45,6 @@ func verificar_distancia_para_player():
 
 	if distancia <= raio_acao:
 		entrar_batalha()
-
-
 
 func entrar_batalha():
 	print("🎯 O inimigo detectou o player! Indo para batalha...")

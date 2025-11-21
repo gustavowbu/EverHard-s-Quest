@@ -11,6 +11,12 @@ var elements := []
 func _ready():
 	$Linha.position = Vector2(4, 28)
 	$Seta.button_down.connect(_on_seta_button_down)
+	update()
+
+func clear() -> void:
+	for element in elements:
+		element.queue_free()
+	elements = []
 
 func rename(new_name: String) -> void:
 	$Label.text = new_name
@@ -30,13 +36,14 @@ func update() -> void:
 	# Ajustando a altura dos métodos
 	var cumulative_height = 0
 	for element in elements:
+		element.update()
 		element.position = Vector2(12, cumulative_height + height)
 		cumulative_height += element.get_height()
 
 	# Alterando a linha
-	$Linha.scale = Vector2(1, float(cumulative_height - 9) / sprite_height)
+	$Linha.scale = Vector2(1, float(max(0, cumulative_height - 9)) / sprite_height)
 
-func add_dropdown(element_name: String):
+func add_dropdown(element_name: String) -> Dropdown:
 	# Adicionando o novo element
 	var new_element = dropdown_path.instantiate()
 	new_element.toggled.connect(update)
@@ -48,7 +55,7 @@ func add_dropdown(element_name: String):
 	update()
 	return new_element
 
-func add_leaf(element_name: String):
+func add_leaf(element_name: String) -> Leaf:
 	# Adicionando o novo element
 	var new_element = leaf_path.instantiate()
 	new_element.rename(element_name)

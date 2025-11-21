@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://c7cid7p7rqstj" path="res://Maps/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://c6dwtvi2irjrr" path="res://Maps/Sprout Lands - Sprites - Basic pack/Objects/Basic_Furniture.png" id="5_85g3d"]
 [ext_resource type="Texture2D" uid="uid://wy4j6bomgt7h" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="5_choun"]
-[ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/jogador.tscn" id="5_tipki"]
+[ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/Jogador.tscn" id="5_tipki"]
 [ext_resource type="Texture2D" uid="uid://s7r33i7yyam4" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="7_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://1utk2dlwq3ty" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bspr1m1lfwryx" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://inventory/scenes/inv_ui.tscn" id="15_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/slime.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/Objetos/Slime.tscn" id="17_muem4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
 texture = ExtResource("1_tbgi4")
