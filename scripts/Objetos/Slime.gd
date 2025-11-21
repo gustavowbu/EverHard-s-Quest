@@ -1,6 +1,10 @@
 extends Objeto
 class_name Slime
 
+func _ready():
+	super._ready() # chama o ready do Objeto.gd
+	$AnimatedSprite2D.play("walk")
+
 var metodos := {
 	"atirar gosma": [],
 	"pular": [
