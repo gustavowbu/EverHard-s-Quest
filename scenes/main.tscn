@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bspr1m1lfwryx" path="res://Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://inventory/scenes/inv_ui.tscn" id="15_jbj1t"]
-[ext_resource type="PackedScene" path="res://scenes/slime.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/slime.tscn" id="17_muem4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
 texture = ExtResource("1_tbgi4")
@@ -618,6 +618,7 @@ z_index = 2
 y_sort_enabled = true
 position = Vector2(91, 88)
 disable_mode = 1
+inv = null
 
 [node name="collisions" type="StaticBody2D" parent="."]
 visible = false
