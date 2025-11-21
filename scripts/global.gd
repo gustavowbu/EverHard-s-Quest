@@ -1,17 +1,20 @@
 extends Node
 
-var current_scene = "world"
-var transition_scene = false	
+var codigos := ["", "", "", ""]
+var objetos := [{"nome": "", "metodos": []}, {"nome": "", "metodos": []}, {"nome": "", "metodos": []}, {"nome": "", "metodos": []}]
 
-var player_exit_cliffside_posx = 0
-var player_exit_cliffside_posy = 0
-var player_start_posx = 0
-var player_start_posy = 0
+func _ready() -> void:
+	codigos[0] = """public class Pedra {
+	int tamanho = 1;
 
-func finish_changescenes():
-	if transition_scene == true:
-		transition_scene = false
-		if current_scene == "world":
-			current_scene == "main_area"
-		else:
-			current_scene = "world"
+	int jogar(int x) {
+		return x * 2;
+	}
+
+	int aumentar() {
+		this.tamanho = this.tamanho + 1;
+	}
+}
+"""
+
+var current_scene = "res://scenes/main.tscn"

@@ -35,24 +35,20 @@ func alterar_metodo(encapsulamento, tipo, nome_metodo: String, parametros: Array
 func chamar_metodo(nome_metodo: String, parametros: Array):
 	if not nome_metodo in metodos.keys():
 		var erro = Erro.new()
-		erro.message = "O método " + nome_metodo + "() não é definido para o tipo" + name
+		erro.message = "O método " + nome_metodo + "() não é definido para o tipo " + nome
 		erro.print_message()
 		return erro
 
 	var escopo := {}
-	print("Tamanho: ", ler_atributo("tamanho"))
 
 	var parametros_algoritmo = metodos[nome_metodo]["parametros"]
 	var algoritmo = metodos[nome_metodo]["algoritmo"].copy()
-
-	print("Algoritmo:")
-	algoritmo.print_algoritmo()
 
 	# Adicionar parâmetros ao escopo
 	if len(parametros_algoritmo) != len(parametros):
 		var tipos_esperados = parametros_dicts_tipos_to_string(parametros_algoritmo)
 		var tipos_passados = parametros_values_tipos_to_string(parametros)
-		return raise_error("O método \"" + nome + "(" + tipos_esperados + ")\" na classe " + nome + " não é aplicável para os argumentos (" + tipos_passados + ")")
+		return raise_error("O método \"" + nome_metodo + "(" + tipos_esperados + ")\" na classe " + nome + " não é aplicável para os argumentos (" + tipos_passados + ")")
 	for i in range(len(parametros_algoritmo)):
 		var tipo = parametros_algoritmo[i]["tipo"]
 		var nome_parametro = parametros_algoritmo[i]["nome"]

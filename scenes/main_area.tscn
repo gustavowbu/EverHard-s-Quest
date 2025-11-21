@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ccifs1lc5bxb8" path="res://Maps/tileset_16x16_interior.png" id="1_suqx5"]
 [ext_resource type="Texture2D" uid="uid://b3iopxqvrn3b2" path="res://sprites/tilesets/RF_Catacombs_v1.0/mainlevbuild.png" id="1_u8dlq"]
 [ext_resource type="Texture2D" uid="uid://brn6swga75dg1" path="res://sprites/tilesets/RF_Catacombs_v1.0/decorative.png" id="2_2642x"]
-[ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/Jogador.tscn" id="2_kdcu7"]
+[ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/Jogador.tscn" id="2_kdcu7"]
 [ext_resource type="Script" path="res://scripts/area_2d.gd" id="3_8pu0s"]
 [ext_resource type="Texture2D" uid="uid://dwivcimjsofi5" path="res://scenes/door.png" id="4_k78ul"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="5_k78ul"]

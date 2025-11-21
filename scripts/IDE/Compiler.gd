@@ -236,6 +236,7 @@ func parse_code_array(code: Array):
 				if not is_algoritmo(algoritmo):
 					return algoritmo
 				classe.alterar_metodo(encapsulamento, tipo, nome, parametros, algoritmo)
+				parametros = []
 				corpo = []
 				estado = "encapsulamento"
 				i += 1
