@@ -47,7 +47,6 @@ func verificar_distancia_para_player():
 		entrar_batalha()
 
 func entrar_batalha():
-	var player = get_tree().get_nodes_in_group("player")[0]
 	global.player_position = player.global_position
 	global.inimigo_derrotado = self.name
 	print("POSIÇÃO SALVA:", global.player_position)

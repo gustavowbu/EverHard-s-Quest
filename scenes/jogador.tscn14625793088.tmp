@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cf58vpmi7co7v"]
+[gd_scene load_steps=34 format=3 uid="uid://cf58vpmi7co7v"]
 
 [ext_resource type="Script" uid="uid://b6g365svjlqqt" path="res://scripts/jogador.gd" id="1_g1ob3"]
 [ext_resource type="Resource" uid="uid://bxtt48ro38hrm" path="res://sprites/inventory/Inventário.tres" id="2_s760d"]
@@ -19,22 +19,6 @@ region = Rect2(0, 17, 16, 17)
 [sub_resource type="AtlasTexture" id="AtlasTexture_32758"]
 atlas = ExtResource("4_qcln2")
 region = Rect2(0, 34, 16, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mssya"]
-atlas = ExtResource("3_g1ob3")
-region = Rect2(0, 0, 16, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rownd"]
-atlas = ExtResource("3_g1ob3")
-region = Rect2(0, 21, 16, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vda7y"]
-atlas = ExtResource("3_g1ob3")
-region = Rect2(0, 63, 16, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvm7u"]
-atlas = ExtResource("3_g1ob3")
-region = Rect2(0, 42, 16, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lj65x"]
 atlas = ExtResource("3_g1ob3")
@@ -149,39 +133,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Lara",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mssya")
-}],
-"loop": true,
-"name": &"idle_down",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rownd")
-}],
-"loop": true,
-"name": &"idle_left",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vda7y")
-}],
-"loop": true,
-"name": &"idle_right",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gvm7u")
-}],
-"loop": true,
-"name": &"idle_up",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -204,7 +156,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_down",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -227,7 +179,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_left",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -250,7 +202,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_right",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -273,7 +225,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_up",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [node name="jogador" type="CharacterBody2D"]
@@ -290,5 +242,5 @@ limit_smoothed = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uahlj")
-animation = &"Lara"
+animation = &"run_up"
 offset = Vector2(0, -0.5)

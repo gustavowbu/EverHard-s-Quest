@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=4 uid="uid://bahh0ovdvc2th"]
 
 [ext_resource type="Script" uid="uid://b2mvffkbwbucc" path="res://scripts/forest_level.gd" id="1_pf0y0"]
-[ext_resource type="PackedScene" uid="uid://cg0homwinklwl" path="res://scenes/jogador.tscn" id="1_qbdkf"]
+[ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/jogador.tscn" id="1_qbdkf"]
 [ext_resource type="Texture2D" uid="uid://dbw3lavju3ssm" path="res://sprites/tilesets/7.png" id="2_2fh7s"]
 [ext_resource type="Texture2D" uid="uid://r21r785sk2qx" path="res://sprites/tilesets/mystic_woods_free_2.2/sprites/tilesets/grass.png" id="2_7s4hh"]
 [ext_resource type="Texture2D" uid="uid://dacri4my3c8ek" path="res://sprites/tilesets/5.png" id="3_4mgxn"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dovj2qtmesnw5" path="res://sprites/tilesets/9.png" id="9_l65lk"]
 [ext_resource type="Texture2D" uid="uid://dqnhjxam3n4hx" path="res://sprites/tilesets/8.png" id="10_pf0y0"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_vvr6j"]
-[ext_resource type="PackedScene" path="res://scenes/fade_layer.tscn" id="14_vvr6j"]
+[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="14_vvr6j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mgxn"]
 texture = ExtResource("2_2fh7s")
@@ -2602,10 +2602,11 @@ distancia_max = 300.0
 remote_path = NodePath("../jogador/Camera2D2")
 
 [node name="FadeLayer" parent="." instance=ExtResource("14_vvr6j")]
+visible = false
 z_index = 3
-offset_left = -131.5
-offset_top = -222.5
-offset_right = 223.25
-offset_bottom = 53.0
+offset_left = -378.0
+offset_top = -268.0
+offset_right = 372.25
+offset_bottom = 227.25
 mouse_filter = 1
 mouse_behavior_recursive = 1

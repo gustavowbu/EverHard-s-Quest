@@ -2,15 +2,16 @@ extends CharacterBody2D
 
 const speed = 300
 
-var current_dir = "none"
+var direction := "down"
+var state := "run"
 @onready var interact_area = $InteractArea
 @export var inv: Inv
+@onready var animation = $AnimatedSprite2D
 
 func _ready():
 	if global.player_position != Vector2.ZERO:
 		global_position = global.player_position
 		print("POSIÇÃO RESTAURADA:", global_position)
-
 
 func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
 	for i in range(4):
@@ -34,63 +35,37 @@ func _physics_process(delta):
 	player_movement(delta)
 
 func player_movement(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
-	if Input.is_action_pressed("right"):
-		current_dir = "right"
-		play_anim(1)
-		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed("left"):
-		current_dir = "left"
-		play_anim(1)
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("down"):
-		current_dir = "down"
-		play_anim(1)
-		velocity.y = speed
-		velocity.x = 0
-	elif Input.is_action_pressed("up"):
-		current_dir = "up"
-		play_anim(1)
-		velocity.y = -speed
-		velocity.x = 0
+	var right = bool_to_int(Input.is_action_pressed("right"))
+	var left = bool_to_int(Input.is_action_pressed("left"))
+	var down = bool_to_int(Input.is_action_pressed("down"))
+	var up = bool_to_int(Input.is_action_pressed("up"))
+	var x_movement = right - left
+	var y_movement = down - up
+	velocity.x = speed * x_movement
+	velocity.y = speed * y_movement
+
+	if x_movement != 0:
+		state = "run"
+		if right:
+			direction = "right"
+		else:
+			direction = "left"
+	elif y_movement != 0:
+		state = "run"
+		if up:
+			direction = "up"
+		if down:
+			direction = "down"
 	else:
-		play_anim(0)
-		velocity.y = 0
-		velocity.x = 0
+		state = "idle"
 
 	move_and_slide()
 
-func play_anim(movement):
-	var dir = current_dir
-	var anim = $AnimatedSprite2D2
+	var animation_name := state + "_" + direction
+	animation.play(animation_name)
 
-	if dir == "right":
-		anim.flip_h = true
-		if movement == 1:
-			anim.play("side_walk")
-
-		elif movement == 0:
-			anim.play("side_idle")
-
-	if dir == "left":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("side_walk")
-		elif movement == 0:
-			anim.play("side_idle")
-	if dir == "down":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("front_walk")
-		elif movement == 0:
-			anim.play("front_idle")
-	if dir == "up":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("back_walk")
-		elif movement == 0:
-			anim.play("back_idle")
+func bool_to_int(boolean: bool) -> int:
+	return 1 if boolean else 0
 
 func _input(event):
 	if event.is_action_pressed("interact"):

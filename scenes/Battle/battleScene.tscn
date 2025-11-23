@@ -1,99 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://vagcf1p28bw4"]
+[gd_scene load_steps=8 format=3 uid="uid://vagcf1p28bw4"]
 
 [ext_resource type="Script" uid="uid://cbvbwgt1p30kw" path="res://scripts/battle/BattleScene.gd" id="1_643ng"]
 [ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_653c6"]
-[ext_resource type="PackedScene" path="res://scenes/fade_layer.tscn" id="2_jnwg1"]
-[ext_resource type="Texture2D" uid="uid://dyaudqny6xwgs" path="res://Personagem/ezgif-split-diluc/frame_00_delay-0.2s.png" id="3_15xbb"]
-[ext_resource type="Texture2D" uid="uid://ecce2xx33vbu" path="res://Personagem/ezgif-split-diluc/frame_01_delay-0.2s.png" id="4_5osmj"]
-[ext_resource type="Texture2D" uid="uid://d2ixr5g1w0hk4" path="res://Personagem/slime/frame_00_delay-0.1s.png" id="4_srobg"]
-[ext_resource type="Texture2D" uid="uid://dh21su27v286e" path="res://Personagem/slime/frame_01_delay-0.1s.png" id="5_7f2nc"]
-[ext_resource type="Texture2D" uid="uid://qmf8gkouc2ys" path="res://Personagem/ezgif-split-diluc/frame_10_delay-0.2s.png" id="5_ps56g"]
-[ext_resource type="Script" path="res://scripts/BattleUI.gd" id="5_w5rgc"]
-[ext_resource type="Texture2D" uid="uid://bd8y1tqj1qlvc" path="res://Personagem/slime/frame_02_delay-0.1s.png" id="6_00brc"]
-[ext_resource type="Texture2D" uid="uid://dvnfc14cer0mh" path="res://sprites/ezgif-split-diluc/frame_11_delay-0.2s.png" id="6_46q00"]
-[ext_resource type="Texture2D" uid="uid://d3mawry4h1p2e" path="res://Personagem/ezgif-split-diluc/frame_12_delay-0.2s.png" id="7_dh55d"]
-[ext_resource type="Texture2D" uid="uid://begeorx0dk0ch" path="res://Personagem/slime/frame_03_delay-0.1s.png" id="7_fy2w6"]
-[ext_resource type="Texture2D" uid="uid://bk34rbqb4fv5y" path="res://Personagem/slime/frame_04_delay-0.1s.png" id="8_2dxgu"]
-[ext_resource type="Texture2D" uid="uid://8yseurdgier5" path="res://Personagem/ezgif-split-diluc/frame_13_delay-0.2s.png" id="8_664ha"]
-[ext_resource type="Texture2D" uid="uid://cvjrsmq7gqc8r" path="res://Personagem/slime/frame_05_delay-0.1s.png" id="9_vk0fd"]
-[ext_resource type="Texture2D" uid="uid://306s3ehhsoxb" path="res://Personagem/ezgif-split-diluc/frame_14_delay-0.2s.png" id="9_wpift"]
-[ext_resource type="Texture2D" uid="uid://bivu13h68qrx1" path="res://Personagem/slime/frame_06_delay-0.1s.png" id="10_fcrl6"]
-[ext_resource type="Texture2D" uid="uid://b28o0ap7kmpov" path="res://sprites/ezgif-split-diluc/frame_26_delay-0.2s.png" id="10_rv8rk"]
-[ext_resource type="Texture2D" uid="uid://bsdubsmbhv8e7" path="res://sprites/ezgif-split-diluc/frame_27_delay-0.2s.png" id="11_cpxm7"]
-[ext_resource type="Texture2D" uid="uid://tie7j2dqpto5" path="res://Personagem/slime/frame_07_delay-0.1s.png" id="11_itq7q"]
-[ext_resource type="Texture2D" uid="uid://c2ykns56b6pic" path="res://Personagem/slime/frame_08_delay-0.1s.png" id="12_7rgxi"]
-[ext_resource type="Texture2D" uid="uid://diqg56dhtuy0q" path="res://sprites/ezgif-split-diluc/frame_28_delay-0.2s.png" id="12_niubx"]
-[ext_resource type="Texture2D" uid="uid://du8qqau7kwsb6" path="res://Personagem/slime/frame_09_delay-0.1s.png" id="13_qmi28"]
-[ext_resource type="Texture2D" uid="uid://bs4y2a8i848ja" path="res://Personagem/ezgif-split-diluc/frame_02_delay-0.2s.png" id="15_jljlt"]
-[ext_resource type="Texture2D" uid="uid://dgakuotmercrb" path="res://Personagem/ezgif-split-diluc/frame_03_delay-0.2s.png" id="25_ynl51"]
-[ext_resource type="Texture2D" uid="uid://cxm2h1rxmdyps" path="res://Personagem/ezgif-split-diluc/frame_04_delay-0.2s.png" id="26_hqie4"]
-[ext_resource type="Texture2D" uid="uid://b6j86k1vdjihy" path="res://Personagem/ezgif-split-diluc/frame_05_delay-0.2s.png" id="27_r4ycw"]
-[ext_resource type="Texture2D" uid="uid://d3ensbypnldgp" path="res://Personagem/ezgif-split-diluc/frame_06_delay-0.2s.png" id="28_j7dvv"]
-[ext_resource type="Texture2D" uid="uid://dktxo8v1v413o" path="res://Personagem/ezgif-split-diluc/frame_07_delay-0.2s.png" id="29_7mv6b"]
-[ext_resource type="Texture2D" uid="uid://cggpr8u74xcn7" path="res://Personagem/ezgif-split-diluc/frame_08_delay-0.2s.png" id="30_bsbgj"]
-[ext_resource type="Texture2D" uid="uid://doju8go1nxbui" path="res://Personagem/ezgif-split-diluc/frame_09_delay-0.2s.png" id="31_w8djt"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_h3412"]
-frames = 18
-frame_0/texture = ExtResource("3_15xbb")
-frame_0/duration = 0.1
-frame_1/texture = ExtResource("4_5osmj")
-frame_1/duration = 0.1
-frame_2/texture = ExtResource("15_jljlt")
-frame_2/duration = 0.1
-frame_3/texture = ExtResource("25_ynl51")
-frame_3/duration = 0.1
-frame_4/texture = ExtResource("26_hqie4")
-frame_4/duration = 0.1
-frame_5/texture = ExtResource("27_r4ycw")
-frame_5/duration = 0.1
-frame_6/texture = ExtResource("28_j7dvv")
-frame_6/duration = 0.1
-frame_7/texture = ExtResource("29_7mv6b")
-frame_7/duration = 0.1
-frame_8/texture = ExtResource("30_bsbgj")
-frame_8/duration = 0.1
-frame_9/texture = ExtResource("31_w8djt")
-frame_9/duration = 0.1
-frame_10/texture = ExtResource("5_ps56g")
-frame_10/duration = 0.1
-frame_11/texture = ExtResource("6_46q00")
-frame_11/duration = 0.1
-frame_12/texture = ExtResource("7_dh55d")
-frame_12/duration = 0.1
-frame_13/texture = ExtResource("8_664ha")
-frame_13/duration = 0.1
-frame_14/texture = ExtResource("9_wpift")
-frame_14/duration = 0.1
-frame_15/texture = ExtResource("10_rv8rk")
-frame_15/duration = 0.1
-frame_16/texture = ExtResource("11_cpxm7")
-frame_16/duration = 0.1
-frame_17/texture = ExtResource("12_niubx")
-frame_17/duration = 0.1
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_ex735"]
-frames = 10
-frame_0/texture = ExtResource("4_srobg")
-frame_0/duration = 0.1
-frame_1/texture = ExtResource("5_7f2nc")
-frame_1/duration = 0.1
-frame_2/texture = ExtResource("6_00brc")
-frame_2/duration = 0.1
-frame_3/texture = ExtResource("7_fy2w6")
-frame_3/duration = 0.1
-frame_4/texture = ExtResource("8_2dxgu")
-frame_4/duration = 0.1
-frame_5/texture = ExtResource("9_vk0fd")
-frame_5/duration = 0.1
-frame_6/texture = ExtResource("10_fcrl6")
-frame_6/duration = 0.1
-frame_7/texture = ExtResource("11_itq7q")
-frame_7/duration = 0.1
-frame_8/texture = ExtResource("12_7rgxi")
-frame_8/duration = 0.1
-frame_9/texture = ExtResource("13_qmi28")
-frame_9/duration = 0.1
+[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="2_jnwg1"]
+[ext_resource type="Texture2D" uid="uid://b2wk47xpd3fnw" path="res://sprites/ezgif-split-diluc/frame_00_delay-0.2s.png" id="3_jnwg1"]
+[ext_resource type="Texture2D" uid="uid://mlmieuquqjjq" path="res://sprites/slime/frame_00_delay-0.1s.png" id="4_rhix4"]
+[ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="5_w5rgc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w5rgc"]
 font_size = 32
@@ -110,12 +22,12 @@ centered = false
 [node name="PlayerMon" type="Sprite2D" parent="."]
 position = Vector2(409, 415)
 scale = Vector2(0.6340278, 0.6058739)
-texture = SubResource("AnimatedTexture_h3412")
+texture = ExtResource("3_jnwg1")
 
 [node name="EnemyMon" type="Sprite2D" parent="."]
 position = Vector2(833, 319)
 scale = Vector2(0.67382544, 0.69251156)
-texture = SubResource("AnimatedTexture_ex735")
+texture = ExtResource("4_rhix4")
 
 [node name="battle_ui" type="Control" parent="."]
 layout_mode = 3
