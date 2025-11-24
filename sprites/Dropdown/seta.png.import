@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fomxwjp8t3yw"
-path="res://.godot/imported/frame_03_delay-0.1s.png-f60c69a0c3039bfa82a604e963e58223.ctex"
+uid="uid://u1guk81hnans"
+path="res://.godot/imported/seta.png-6784a730fbdcface32a313cdbad1d950.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/slime/frame_03_delay-0.1s.png"
-dest_files=["res://.godot/imported/frame_03_delay-0.1s.png-f60c69a0c3039bfa82a604e963e58223.ctex"]
+source_file="res://sprites/Dropdown/seta.png"
+dest_files=["res://.godot/imported/seta.png-6784a730fbdcface32a313cdbad1d950.ctex"]
 
 [params]
 

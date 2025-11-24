@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c36nvnhfewf64"]
 
 [ext_resource type="Script" uid="uid://bl2tsplg2ni2g" path="res://scripts/Dropdown/Seta.gd" id="1_gith4"]
-[ext_resource type="Texture2D" uid="uid://u1guk81hnans" path="res://sprites/seta.png" id="2_tli5f"]
+[ext_resource type="Texture2D" uid="uid://u1guk81hnans" path="res://sprites/Dropdown/seta.png" id="2_tli5f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtacy"]
 

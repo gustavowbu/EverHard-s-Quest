@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnip3ymsi7755"
-path="res://.godot/imported/frame_02_delay-0.1s.png-4dc94e7604e7c2ce231921320ffbdc97.ctex"
+path="res://.godot/imported/frame_02_delay-0.1s.png-42350e19f93574c1f63b15ff5f04e900.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/slime/frame_02_delay-0.1s.png"
-dest_files=["res://.godot/imported/frame_02_delay-0.1s.png-4dc94e7604e7c2ce231921320ffbdc97.ctex"]
+source_file="res://sprites/Objetos/slime/frame_02_delay-0.1s.png"
+dest_files=["res://.godot/imported/frame_02_delay-0.1s.png-42350e19f93574c1f63b15ff5f04e900.ctex"]
 
 [params]
 

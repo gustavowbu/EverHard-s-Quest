@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c54ikhugbjyhs" path="res://sprites/ide-textarea-tileset.png" id="2_qkgnc"]
 [ext_resource type="PackedScene" uid="uid://n4kvoeca1uts" path="res://scenes/IDE/classe_dropdown.tscn" id="4_7rcaa"]
 [ext_resource type="Texture2D" uid="uid://byxhbnneg3ghq" path="res://sprites/play.png" id="5_g2orf"]
-[ext_resource type="Texture2D" uid="uid://cmpbuff5ctqgs" path="res://sprites/seta_voltando.png" id="6_yvh0p"]
+[ext_resource type="Texture2D" uid="uid://cmpbuff5ctqgs" path="res://sprites/Dropdown/seta_voltando.png" id="6_yvh0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1ns2"]
 texture = ExtResource("2_qkgnc")

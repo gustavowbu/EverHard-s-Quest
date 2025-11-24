@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmpbuff5ctqgs"
-path="res://.godot/imported/seta_voltando.png-2efea1263bd643d704867628c8bf9bdb.ctex"
+uid="uid://3oanudl7x235"
+path="res://.godot/imported/frame_01_delay-0.1s.png-ba1d852899783c392fe8c1e3408cdcec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/seta_voltando.png"
-dest_files=["res://.godot/imported/seta_voltando.png-2efea1263bd643d704867628c8bf9bdb.ctex"]
+source_file="res://sprites/Objetos/slime/frame_01_delay-0.1s.png"
+dest_files=["res://.godot/imported/frame_01_delay-0.1s.png-ba1d852899783c392fe8c1e3408cdcec.ctex"]
 
 [params]
 

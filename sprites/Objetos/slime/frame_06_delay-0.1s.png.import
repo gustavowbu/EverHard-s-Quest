@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf6bcld3d6lxs"
-path="res://.godot/imported/frame_05_delay-0.1s.png-399db44b5878ea75eddcfe48e47abbe5.ctex"
+uid="uid://340px4gfhnlt"
+path="res://.godot/imported/frame_06_delay-0.1s.png-381457d6016c408fcfae3c2d86439ce2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/slime/frame_05_delay-0.1s.png"
-dest_files=["res://.godot/imported/frame_05_delay-0.1s.png-399db44b5878ea75eddcfe48e47abbe5.ctex"]
+source_file="res://sprites/Objetos/slime/frame_06_delay-0.1s.png"
+dest_files=["res://.godot/imported/frame_06_delay-0.1s.png-381457d6016c408fcfae3c2d86439ce2.ctex"]
 
 [params]
 
