@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsivo5tx8cx28"]
 
-[ext_resource type="Script" uid="uid://xu1adsi0yeyd" path="res://scripts/Inventário/inv_ui.gd" id="1_2dxkv"]
+[ext_resource type="Script" uid="uid://xu1adsi0yeyd" path="res://inventory/scripts/inv_ui.gd" id="1_2dxkv"]
 [ext_resource type="Texture2D" uid="uid://bilctdu6maurx" path="res://sprites/inventory_background.png" id="2_qnoh4"]
-[ext_resource type="PackedScene" uid="uid://bahpt3cd5rpxd" path="res://scenes/Inventário/inv_ui_slot.tscn" id="3_jy7ay"]
-[ext_resource type="PackedScene" uid="uid://7ix8l77h42hh" path="res://scenes/Inventário/inv_ui_object.tscn" id="4_3lq4p"]
+[ext_resource type="PackedScene" uid="uid://bahpt3cd5rpxd" path="res://inventory/scenes/inv_ui_slot.tscn" id="3_jy7ay"]
+[ext_resource type="PackedScene" uid="uid://7ix8l77h42hh" path="res://inventory/scenes/inv_ui_object.tscn" id="4_qnoh4"]
 
 [node name="Inv_UI" type="Control"]
 layout_mode = 3
@@ -84,14 +84,14 @@ grow_vertical = 0
 size_flags_vertical = 8
 columns = 6
 
-[node name="Inv_UI_object" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+[node name="Inv_UI_object" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_qnoh4")]
 layout_mode = 2
 
-[node name="Inv_UI_object2" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+[node name="Inv_UI_object2" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_qnoh4")]
 layout_mode = 2
 
-[node name="Inv_UI_object3" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+[node name="Inv_UI_object3" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_qnoh4")]
 layout_mode = 2
 
-[node name="Inv_UI_object4" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+[node name="Inv_UI_object4" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_qnoh4")]
 layout_mode = 2
