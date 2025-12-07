@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_653c6"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="2_jnwg1"]
 [ext_resource type="Texture2D" uid="uid://b2wk47xpd3fnw" path="res://sprites/ezgif-split-diluc/frame_00_delay-0.2s.png" id="3_jnwg1"]
-[ext_resource type="Texture2D" uid="uid://mlmieuquqjjq" path="res://sprites/slime/frame_00_delay-0.1s.png" id="4_rhix4"]
+[ext_resource type="Texture2D" uid="uid://mlmieuquqjjq" path="res://sprites/Objetos/slime/frame_00_delay-0.1s.png" id="4_rhix4"]
 [ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="5_w5rgc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w5rgc"]
@@ -205,13 +205,12 @@ offset_top = 2.0
 offset_right = 398.0
 offset_bottom = 25.0
 
+[node name="Objeto" type="Sprite2D" parent="."]
+position = Vector2(584, 440)
+scale = Vector2(0.634, 0.634)
+
 [node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
-visible = false
 offset_right = 1282.0
 offset_bottom = 721.0
 mouse_filter = 2
 mouse_behavior_recursive = 1
-
-[node name="Objeto" type="Sprite2D" parent="."]
-position = Vector2(584, 440)
-scale = Vector2(0.634, 0.634)

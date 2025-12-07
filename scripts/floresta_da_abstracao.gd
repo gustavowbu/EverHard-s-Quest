@@ -1,7 +1,6 @@
 extends Node2D
 
 func _ready():
-	$FadeLayer.fade_in()
 
 	# reposiciona jogador
 	if global.player_position != Vector2.ZERO:
