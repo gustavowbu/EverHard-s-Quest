@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cf58vpmi7co7v"]
+[gd_scene load_steps=39 format=3 uid="uid://cf58vpmi7co7v"]
 
 [ext_resource type="Script" uid="uid://dhuvhfot64dxo" path="res://scripts/jogador.gd" id="1_g1ob3"]
 [ext_resource type="Resource" uid="uid://bxtt48ro38hrm" path="res://sprites/inventory/Inventario.tres" id="2_s760d"]
@@ -276,6 +276,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcln2"]
 size = Vector2(6, 11)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qcln2"]
+radius = 22.022715
+
 [node name="jogador" type="CharacterBody2D"]
 script = ExtResource("1_g1ob3")
 inv = ExtResource("2_s760d")
@@ -292,3 +295,9 @@ animation = &"Lara"
 y_sort_enabled = true
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_qcln2")
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_qcln2")

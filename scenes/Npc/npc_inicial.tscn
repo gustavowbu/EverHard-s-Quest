@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4t6n26wj67bk"]
+[gd_scene load_steps=12 format=3 uid="uid://4t6n26wj67bk"]
 
 [ext_resource type="Script" uid="uid://dun5m81e0fskm" path="res://scripts/npc_inicial.gd" id="1_sk8ai"]
 [ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="2_npl4y"]
@@ -40,15 +40,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kyq8"]
-size = Vector2(48, 28)
+size = Vector2(101, 45)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6ejg"]
 bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
 
-[sub_resource type="LabelSettings" id="LabelSettings_f42p0"]
-shadow_color = Color(0, 0, 0, 1)
+[sub_resource type="SystemFont" id="SystemFont_sk8ai"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_npl4y"]
+font = SubResource("SystemFont_sk8ai")
+font_size = 7
 
 [node name="Npc_inicial" type="Area2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_sk8ai")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -57,32 +61,38 @@ autoplay = "default"
 frame_progress = 0.8632638
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_3kyq8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
-offset_left = 100.0
-offset_top = 480.0
-offset_right = 1200.0
-offset_bottom = 630.0
+offset_left = 101.0
+offset_top = 507.0
+offset_right = 1201.0
+offset_bottom = 657.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_y6ejg")
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TextoDialogo" type="Label" parent="CanvasLayer"]
-offset_left = 150.0
-offset_top = 495.0
-offset_right = 1150.0
-offset_bottom = 615.0
+offset_left = 146.0
+offset_top = 521.0
+offset_right = 1146.0
+offset_bottom = 641.0
 theme_override_font_sizes/font_size = 21
 vertical_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer"]
 
 [node name="LabelInteracao" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -37.0
-offset_right = 21.0
-offset_bottom = -14.0
-label_settings = SubResource("LabelSettings_f42p0")
+offset_left = -40.0
+offset_top = -24.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_npl4y")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
