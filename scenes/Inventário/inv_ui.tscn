@@ -8,14 +8,23 @@
 [node name="Inv_UI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 129.0
-offset_bottom = 78.0
+offset_left = -65.0
+offset_top = -43.0
+offset_right = 64.0
+offset_bottom = 35.0
 script = ExtResource("1_2dxkv")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 129.0
-offset_bottom = 78.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.54700005
+anchor_right = 0.5
+anchor_bottom = 0.54700005
+offset_left = -64.5
+offset_top = -42.666004
+offset_right = 64.5
+offset_bottom = 35.333996
 texture = ExtResource("2_qnoh4")
 region_rect = Rect2(26.863907, 25.005798, 16.295273, 16.024918)
 patch_margin_left = 6
