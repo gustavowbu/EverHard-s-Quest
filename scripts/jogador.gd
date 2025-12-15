@@ -9,6 +9,7 @@ var state := "run"
 @onready var animation = $AnimatedSprite2D
 
 func _ready():
+	$FadeLayer.fade_in()
 	if global.player_position != Vector2.ZERO:
 		global_position = global.player_position
 		print("POSIÇÃO RESTAURADA:", global_position)
