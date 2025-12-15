@@ -12,7 +12,7 @@ class_name Objeto
 
 @onready var player = get_node("../jogador")
 
-var direcao: int = 1
+var direcao := 1
 var pos_inicial: Vector2
 
 func _ready():
@@ -53,3 +53,26 @@ func entrar_batalha():
 
 	print("O inimigo detectou o player! Indo para batalha...")
 	get_tree().change_scene_to_file(caminho_cena_batalha)
+
+# Informações do objeto
+
+var nome := "Objeto nulo"
+var metodos := []
+
+var vida:= 10
+var forca:= 5
+var defesa:= 5
+var mvida := 1.0
+var mforca := 1.0
+var mdefesa := 1.0
+
+var atributos := {}
+var testes := {}
+
+var sprites = {
+	"16x16": null,
+	"32x32_front": null,
+	"32x32_back": null,
+	"64x64_front": null,
+	"64x64_back": null
+}

@@ -1,12 +1,18 @@
 extends Node
 
-var codigos := ["", "", "", ""]
-var objetos := [{"nome": "Pedra", "metodos": ["jogar", "aumentar"]}, {"nome": "", "metodos": []}, {"nome": "", "metodos": []}, {"nome": "", "metodos": []}]
+var tabs := [
+	{"nome": "Main", "codigo": ""},
+	{"nome": "Pedra", "codigo": ""},
+	{"nome": "Objeto vazio", "codigo": ""},
+	{"nome": "Objeto vazio", "codigo": ""},
+	{"nome": "Objeto vazio", "codigo": ""},
+]
+var objetos := [Objeto.new(), Objeto.new(), Objeto.new(), Objeto.new()]
 var player_position: Vector2 = Vector2.ZERO
 var inimigo_derrotado: String = ""
 
 func _ready() -> void:
-	codigos[0] = """public class Pedra {
+	var codigo_pedra = """public class Pedra {
 	int tamanho = 1;
 
 	int jogar(int x) {
@@ -18,5 +24,9 @@ func _ready() -> void:
 	}
 }
 """
+	tabs[1]["codigo"] = codigo_pedra
+	objetos[0] = Pedra.new(
+		["jogar", "aumentar"]
+	)
 
 var current_scene = "res://scenes/main.tscn"

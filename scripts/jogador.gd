@@ -14,21 +14,18 @@ func _ready():
 		print("POSIÇÃO RESTAURADA:", global_position)
 
 func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
-	for i in range(4):
-		if Input.is_action_just_pressed("ide" + str(i + 1)):
-			var main := get_tree().current_scene
+	if Input.is_action_just_pressed("ide"):
+		var main := get_tree().current_scene
 
-			var packed := load("res://scenes/IDE/ide.tscn") as PackedScene
-			var ide := packed.instantiate()
+		var packed := load("res://scenes/IDE/ide.tscn") as PackedScene
+		var ide := packed.instantiate()
 
-			ide.previous_scene = main
-			get_tree().get_root().add_child(ide)
-			get_tree().current_scene = ide
+		ide.previous_scene = main
+		get_tree().get_root().add_child(ide)
+		get_tree().current_scene = ide
 
-			main.get_parent().remove_child(main)
-			ide.alterar_codigo(i)
-			ide.update()
-	if Input.is_action_just_pressed("ide5"):
+		main.get_parent().remove_child(main)
+	if Input.is_action_just_pressed("DEBUG"):
 		print(global.objetos)
 
 func _physics_process(delta):
