@@ -75,10 +75,10 @@ func computar_expressao(expressao: JavaDataType, escopo := {}) -> Array:
 
 	elif expressao.nome.equals(StringJDT.new("assign")).value:
 		if not par[0].repr() in escopo.keys():
-			if par[0].begins_with(StringJDT.new("this.")):
+			if par[0].begins_with(StringJDT.new("this.")).value:
 				resultado = ExceptionJDT.new("", par[0].substr(IntJDT.new(5)).repr() + " não pode ser resolvido ou não é um campo")
 			else:
-				resultado = ExceptionJDT.new("", par[0] + " não pode ser resolvido a uma variável")
+				resultado = ExceptionJDT.new("", par[0].repr() + " não pode ser resolvido a uma variável")
 			return [resultado, escopo]
 		resultado_expressao = computar_expressao(par[1], escopo)
 		valor1 = resultado_expressao[0]

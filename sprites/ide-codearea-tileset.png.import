@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c54ikhugbjyhs"
-path="res://.godot/imported/ide-textarea-tileset.png-7c6bc296d002a41f9314aa478067db81.ctex"
+path="res://.godot/imported/ide-codearea-tileset.png-8d2bc0b175945260d745ebe371221c26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ide-textarea-tileset.png"
-dest_files=["res://.godot/imported/ide-textarea-tileset.png-7c6bc296d002a41f9314aa478067db81.ctex"]
+source_file="res://sprites/ide-codearea-tileset.png"
+dest_files=["res://.godot/imported/ide-codearea-tileset.png-8d2bc0b175945260d745ebe371221c26.ctex"]
 
 [params]
 

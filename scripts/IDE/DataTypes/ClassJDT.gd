@@ -51,7 +51,7 @@ func ler_atributo(nome_atributo: StringJDT) -> JavaDataType:
 		return ExceptionJDT.new("", nome_atributo.repr() + " não pode ser resolvido ou não é um campo")
 	return atributos[nome_atributo.repr()].valor
 
-func declarar_metodo(encapsulamento_metodo: JavaDataType, tipo: StringJDT, nome_metodo: StringJDT, parametros_tipos: ArrayJDT, parametros_nomes: ArrayJDT, algoritmo: AlgorithmJDT):
+func declarar_metodo(encapsulamento_metodo: JavaDataType, estatico: BooleanJDT, tipo: StringJDT, nome_metodo: StringJDT, parametros_tipos: ArrayJDT, parametros_nomes: ArrayJDT, algoritmo: AlgorithmJDT):
 	if nome_metodo in metodos.keys():
 		var tipos_parametros = ""
 		for i in range(parametros_tipos.length().value):
@@ -59,7 +59,7 @@ func declarar_metodo(encapsulamento_metodo: JavaDataType, tipo: StringJDT, nome_
 			if i != parametros_tipos.length().value - 1:
 				tipos_parametros += ", "
 		return ExceptionJDT.new("", "Método duplicado " + nome_metodo.repr() + "(" + tipos_parametros + ") no tipo " + nome.repr())
-	metodos[nome_metodo.repr() + " " + parametros_tipos.repr()] = MethodJDT.new(encapsulamento_metodo, tipo, nome_metodo, parametros_tipos, parametros_nomes, algoritmo)
+	metodos[nome_metodo.repr() + " " + parametros_tipos.repr()] = MethodJDT.new(encapsulamento_metodo, estatico, tipo, nome_metodo, parametros_tipos, parametros_nomes, algoritmo)
 
 func alterar_metodo(nome_metodo: StringJDT, parametros_tipos: ArrayJDT, algoritmo: AlgorithmJDT) -> void:
 	metodos[nome_metodo.repr() + " " + parametros_tipos.repr()].algoritmo = algoritmo

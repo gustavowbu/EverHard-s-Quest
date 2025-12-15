@@ -9,7 +9,7 @@ var parametros_tipos := ArrayJDT.new()
 var parametros_nomes := ArrayJDT.new()
 var algoritmo: AlgorithmJDT
 
-func _init(encapsulamento_in := NullJDT.new(), estatico_in := BooleanJDT.new(false), tipo_in := StringJDT.new(), nome_in := StringJDT.new(), parametros_tipos_in := ArrayJDT.new(), parametros_nomes_in := ArrayJDT.new(), algoritmo_in := AlgorithmJDT.new()) -> void:
+func _init(encapsulamento_in = NullJDT.new(), estatico_in := BooleanJDT.new(false), tipo_in := StringJDT.new(), nome_in := StringJDT.new(), parametros_tipos_in := ArrayJDT.new(), parametros_nomes_in := ArrayJDT.new(), algoritmo_in := AlgorithmJDT.new()) -> void:
 	classe = "Method"
 	encapsulamento = encapsulamento_in
 	estatico = estatico_in

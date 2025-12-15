@@ -2,7 +2,7 @@ extends Node2D
 class_name Dropdown
 
 signal toggled
-var open = true
+var is_open = true
 var height = 30
 var elements := []
 @export var leaf_path = load("res://scenes/Dropdown/Leaf.tscn")
@@ -17,6 +17,7 @@ func clear() -> void:
 	for element in elements:
 		element.queue_free()
 	elements = []
+	update()
 
 func rename(new_name: String) -> void:
 	$Label.text = new_name
@@ -43,6 +44,12 @@ func update() -> void:
 	# Alterando a linha
 	$Linha.scale = Vector2(1, float(max(0, cumulative_height - 9)) / sprite_height)
 
+	# Atualizando elementos
+	if is_open:
+		open()
+	else:
+		close()
+
 func add_dropdown(element_name: String) -> Dropdown:
 	# Adicionando o novo element
 	var new_element = dropdown_path.instantiate()
@@ -66,15 +73,24 @@ func add_leaf(element_name: String) -> Leaf:
 	update()
 	return new_element
 
-func _on_seta_button_down() -> void:
-	if open:
-		open = false
-		$Linha.visible = false
-		for element in elements:
-			element.visible = false
+func open() -> void:
+	is_open = true
+	$Linha.visible = true
+	for element in elements:
+		element.visible = true
+
+func close() -> void:
+	is_open = false
+	$Linha.visible = false
+	for element in elements:
+		element.visible = false
+
+func toggle() -> void:
+	if is_open:
+		close()
 	else:
-		open = true
-		$Linha.visible = true
-		for element in elements:
-			element.visible = true
+		open()
 	emit_signal("toggled")
+
+func _on_seta_button_down() -> void:
+	toggle()

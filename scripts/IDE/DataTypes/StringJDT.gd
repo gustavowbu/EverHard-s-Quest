@@ -48,7 +48,7 @@ func contains(other: JavaDataType) -> JavaDataType:
 		return ExceptionJDT.new("", "O método contains(String) do tipo String não é aplicável para os argumentos (" + other.classe + ")")
 	return BooleanJDT.new(value.contains(other.value))
 
-func substr(from: IntJDT, len_in: IntJDT) -> StringJDT:
+func substr(from: IntJDT, len_in := IntJDT.new(-1)) -> StringJDT:
 	return StringJDT.new(value.substr(from.value, len_in.value))
 
 func isEmpty() -> BooleanJDT:

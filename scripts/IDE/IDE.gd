@@ -1,7 +1,8 @@
 extends CanvasLayer
 
-@onready var editor = $"Text Area/CodeEdit"
-@onready var dropdown = $Classe
+@onready var editor = $"CodeArea/CodeEdit"
+@onready var dropdown = $Dropdown
+@onready var terminal = $Terminal
 var compiler = Compiler.new()
 var objeto
 var testes = {}
@@ -32,6 +33,11 @@ func atualizar_codigo():
 			objeto = Pedra.new()
 		elif classe.nome.repr() == "Zumbi":
 			objeto = Zumbi.new()
+		else:
+			objeto = null
+			$SpriteObjeto.texture = null
+			dropdown.clear()
+			return
 		$SpriteObjeto.texture = load(objeto.sprites["32x32_front"])
 		testes = objeto.testes
 		dropdown.clear()
@@ -96,23 +102,28 @@ func _on_test_button_button_down() -> void:
 	if classe.classe != "Exception":
 		for metodo_key in classe.metodos.keys():
 			var metodo = classe.metodos[metodo_key]
-			if metodo.estatico.value and metodo.nome.repr() == "main":
-				# Completar isso
-				pass
+			if metodo.estatico.value and metodo.tipo.repr() == "void" and metodo.nome.repr() == "main":
+				var resultado = classe.chamar_metodo(StringJDT.new("main"), ArrayJDT.new())
+				terminal.adicionar_linha("Rodando main. Retornou: " + resultado.repr())
+			else:
+				terminal.adicionar_linha("Erro de Sintaxe: faltando public static void main()")
+	else:
+		terminal.adicionar_linha(classe.get_message())
 # Mudar aba
 
 func update_tabs() -> void:
 	for i in range(5):
-		get_node("Text Area/Tab" + str(i)).update_text(global.tabs[i]["nome"])
+		get_node("CodeArea/Tab" + str(i)).update_text(global.tabs[i]["nome"])
 
 func change_tab(tab: int) -> void:
 	for i in range(5):
-		get_node("Text Area/Tab" + str(i)).close()
-	get_node("Text Area/Tab" + str(tab)).open()
+		get_node("CodeArea/Tab" + str(i)).close()
+	get_node("CodeArea/Tab" + str(tab)).open()
 	# Alterar código
 	dropdown.clear()
 	$SpriteObjeto.texture = null
 	alterar_codigo(tab)
+	dropdown.update()
 
 func _on_tab_0_button_down() -> void:
 	change_tab(0)
