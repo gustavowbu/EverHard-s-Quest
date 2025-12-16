@@ -2356,6 +2356,7 @@ grow_vertical = 1
 scale = Vector2(0.3, 0.3)
 
 [node name="FadeLayer" parent="jogador" instance=ExtResource("15_xc05o")]
+visible = false
 z_index = 3
 offset_left = -143.26924
 offset_top = -82.63736
@@ -2363,11 +2364,6 @@ offset_right = 141.12639
 offset_bottom = 81.53848
 mouse_filter = 1
 mouse_behavior_recursive = 1
-
-[node name="slime" parent="." instance=ExtResource("14_b5exp")]
-position = Vector2(234, 112)
-velocidade = 70.0
-distancia_max = 300.0
 
 [node name="slime2" parent="." instance=ExtResource("14_b5exp")]
 position = Vector2(53.25, 53.25)
