@@ -1,4 +1,4 @@
-package floresta;
+
 class Passaro {
 
 	int energia = 3;

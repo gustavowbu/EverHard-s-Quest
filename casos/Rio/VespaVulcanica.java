@@ -1,6 +1,3 @@
-package Rio;
-
-import caverna.Vespa;
 
 class VespaVulcanica extends Vespa {
 

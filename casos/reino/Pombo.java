@@ -1,4 +1,3 @@
-package reino;
 
 class Pombo extends Passaro {
 

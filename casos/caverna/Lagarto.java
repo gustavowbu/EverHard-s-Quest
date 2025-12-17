@@ -1,4 +1,3 @@
-package caverna;
 
 class Lagarto {
 

@@ -1,4 +1,3 @@
-package Rio;
 
 class Piranha extends Peixe {
 

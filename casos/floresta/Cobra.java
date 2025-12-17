@@ -1,4 +1,4 @@
-package floresta;
+
 class Cobra {
 
 	int veneno = 3;

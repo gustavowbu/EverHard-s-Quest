@@ -1,4 +1,3 @@
-package Rio;
 
 class Corda {
 

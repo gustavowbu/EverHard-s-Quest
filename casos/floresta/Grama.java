@@ -1,4 +1,4 @@
-package floresta;
+
 class Grama {
 
 	int area = 2;
