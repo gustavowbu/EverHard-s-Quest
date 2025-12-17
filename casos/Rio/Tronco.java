@@ -1,20 +1,8 @@
 package Rio;
 
-class Tronco extends Arvore {
+class Tronco{
 
 	int dureza = 5;
-
-	
-	@Override
-	int atacar() {
-		return this.dureza * 10;
-	}
-
-	@Override
-	String cair() {
-	
-		return "Tronco já caiu faz tempo";
-	}
 
 	int flutuar(int peso) {
 		return this.dureza - peso;
