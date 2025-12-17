@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b6hcl3ojio41p"]
+
+[node name="Aranha" type="CharacterBody2D"]

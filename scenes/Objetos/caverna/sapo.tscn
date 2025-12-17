@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://snbnbyrj00fa"]
+
+[node name="Sapo" type="CharacterBody2D"]

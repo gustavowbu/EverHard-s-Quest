@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://duw82wvrfqp6d"]
+
+[node name="Cobra" type="CharacterBody2D"]
