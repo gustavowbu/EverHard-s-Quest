@@ -16,7 +16,7 @@ class Arvore {
 		return this.altura;
 	}
 
-	String cair() {
+	int cair() {
 		this.altura = 0;
 		this.galhos = 0;
 		int soma = this.altura + this.galhos;
