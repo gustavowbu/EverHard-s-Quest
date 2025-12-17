@@ -5,9 +5,9 @@ func _init(metodos_in := []) -> void:
 	nome = "Pedra"
 	metodos = metodos_in
 
-	vida = 12
-	forca = 7
-	defesa = 1
+	vida = 5
+	forca = 6
+	defesa = 8
 
 	atributos = {"tamanho": 1}
 	testes = {

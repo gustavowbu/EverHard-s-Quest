@@ -13,15 +13,20 @@ func _ready():
 	else:
 		print("❌ Jogador NÃO encontrado! (confirme o grupo player no jogador.tscn)")
 
-var metodos := {
-	"atirar gosma": [],
-	"pular": [
-		{"this.tamanho": 1, "x": 1, "esperado": 1},
-		{"this.tamanho": 3, "x": 4, "esperado": 12},
-		{"this.tamanho": 5, "x": 2, "esperado": 10}
-	]
-}
+func _init(metodos_in := []) -> void:
+	nome = "Slime"
+	metodos = metodos_in
 
-@export var vida: int = 40
-@export var forca: int = 3
-@export var multiplicador_ataque: float = 1.0
+	vida = 10
+	forca = 3
+	defesa = 6
+
+	#atributos = {}
+	testes = {
+		"atirar gosma": [],
+		"pular": [
+			{"this.tamanho": 1, "x": 1, "esperado": 1},
+			{"this.tamanho": 3, "x": 4, "esperado": 12},
+			{"this.tamanho": 5, "x": 2, "esperado": 10}
+		]
+	}

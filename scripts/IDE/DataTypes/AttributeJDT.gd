@@ -13,7 +13,6 @@ func _init(encapsulamento_in: JavaDataType = NullJDT.new(), tipo_in := StringJDT
 	tipo = tipo_in
 	nome = nome_in
 	valor_padrao = valor_padrao_in
-	alterar_valor(valor_padrao)
 
 # Esse método é reimplementado aqui apenas para adicionar o parâmetro da identação
 func repr(identation: int = 0) -> String:
@@ -31,11 +30,34 @@ func toString(identation: int = 0) -> JavaDataType:
 	result += tipo.repr() + " "
 	result += nome.repr()
 	if valor_padrao.classe != "null":
-		result += " = " + valor_padrao.repr()
+		var valor_padrao_str
+		if valor_padrao.classe == "Algorithm":
+			valor_padrao_str = valor_padrao.expressoes.getElement(IntJDT.new(0)).parametros.getElement(IntJDT.new(0)).repr()
+		else:
+			valor_padrao_str = valor_padrao.repr()
+		result += " = " + valor_padrao_str
 	result += ";"
 	return StringJDT.new(result)
 
 func alterar_valor(valor_in: JavaDataType) -> void:
-	if valor_in.classe != tipo.repr() and valor_in.classe != "null":
-		return ExceptionJDT.new("Tipo incompatível", "não é possível converter de " + valor_in.classe + " para " + tipo.repr())
+	var tipo_valor
+	if valor_in.classe == "Class":
+		tipo_valor = valor_in.nome.repr()
+	else:
+		tipo_valor = valor_in.classe
+	if tipo_valor != tipo.repr() and tipo_valor != "null":
+		return ExceptionJDT.new("Tipo incompatível", "não é possível converter de " + tipo_valor + " para " + tipo.repr())
 	valor = valor_in
+
+func instanciar(classes: ArrayJDT):
+	var resultado = copy()
+	resultado.alterar_valor(resultado.valor_padrao.exec({}, null, classes)[0])
+	return resultado
+
+func copy() -> AttributeJDT:
+	var valor_padrao_copy
+	if valor_padrao.classe == "Class":
+		valor_padrao_copy = valor_padrao.copy()
+	else:
+		valor_padrao_copy = valor_padrao
+	return AttributeJDT.new(encapsulamento, tipo, nome, valor_padrao_copy)

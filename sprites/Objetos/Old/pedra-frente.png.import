@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch5irroa5be4h"
-path="res://.godot/imported/zumbi-frente.png-64af81b8e8afffcddae15b84331fabb4.ctex"
+uid="uid://gcqv5acsfhq1"
+path="res://.godot/imported/pedra-frente.png-59fef00dd66571c42618de6a180080e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Objetos/zumbi-frente.png"
-dest_files=["res://.godot/imported/zumbi-frente.png-64af81b8e8afffcddae15b84331fabb4.ctex"]
+source_file="res://sprites/Objetos/Old/pedra-frente.png"
+dest_files=["res://.godot/imported/pedra-frente.png-59fef00dd66571c42618de6a180080e4.ctex"]
 
 [params]
 

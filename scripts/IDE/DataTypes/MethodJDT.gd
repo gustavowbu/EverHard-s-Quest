@@ -1,6 +1,8 @@
 extends JavaDataType
 class_name MethodJDT
 
+signal sout(message)
+
 var encapsulamento: JavaDataType
 var estatico := BooleanJDT.new(false)
 var tipo := StringJDT.new()
@@ -18,6 +20,7 @@ func _init(encapsulamento_in = NullJDT.new(), estatico_in := BooleanJDT.new(fals
 	parametros_tipos = parametros_tipos_in
 	parametros_nomes = parametros_nomes_in
 	algoritmo = algoritmo_in
+	algoritmo.sout.connect(println)
 
 # Esse método é reimplementado aqui apenas para adicionar o parâmetro da identação
 func repr(identation: int = 0) -> String:
@@ -30,8 +33,10 @@ func toString(identation: int = 0) -> JavaDataType:
 	var result = ""
 	for i in range(identation):
 		result += "    "
-	if encapsulamento.different(NullJDT.new()):
+	if encapsulamento.different(NullJDT.new()).value:
 		result += encapsulamento.repr() + " "
+	if estatico.value:
+		result += "static "
 	result += tipo.repr() + " "
 	result += nome.repr() + "("
 	for i in range(parametros_tipos.length().value):
@@ -47,7 +52,7 @@ func toString(identation: int = 0) -> JavaDataType:
 	result += "}"
 	return StringJDT.new(result)
 
-func chamar(parametros: ArrayJDT, atributos: Dictionary):
+func chamar(parametros: ArrayJDT, this: ClassJDT, classes: ArrayJDT):
 	# Definir escopo
 	var escopo = {}
 
@@ -57,15 +62,18 @@ func chamar(parametros: ArrayJDT, atributos: Dictionary):
 		var tipo_parametro = parametros_tipos.getElement(IntJDT.new(i))
 		escopo[nome_parametro.repr()] = {"tipo": tipo_parametro, "nome": nome_parametro, "valor": parametros.getElement(IntJDT.new(i))}
 
-	# Adicionar os atributos ao escopo
-	for key in atributos.keys():
-		var atributo = atributos[key]
-		var nome_atributo = StringJDT.new("this.").add(atributo.nome)
-		var tipo_atributo = atributo.tipo
-		escopo[nome_atributo.repr()] = {"tipo": tipo_atributo, "nome": nome_atributo, "valor": atributo.valor}
+	# Adicionar o this ao escopo
+	escopo["this"] = {"tipo": this.nome, "nome": StringJDT.new("this"), "valor": this}
+
+	# Adicionar o System ao escopo
+	var system = classes.getElement(IntJDT.new(0)).instanciar(classes)
+	escopo["System"] = {"tipo": StringJDT.new("System"), "nome": StringJDT.new("System"), "valor": system}
 
 	# Executar
-	var result = algoritmo.exec(escopo)
+	var result = algoritmo.exec(escopo, this, classes)
 	var resultado = result[0]
 	escopo = result[1]
 	return [resultado, escopo]
+
+func println(message: String) -> void:
+	emit_signal("sout", message)

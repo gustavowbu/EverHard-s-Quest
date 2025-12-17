@@ -7,7 +7,7 @@ var tabs := [
 	{"nome": "Objeto vazio", "codigo": ""},
 	{"nome": "Objeto vazio", "codigo": ""},
 ]
-var objetos := [Objeto.new(), Objeto.new(), Objeto.new(), Objeto.new()]
+var objetos := [null, null, null, null]
 var player_position: Vector2 = Vector2.ZERO
 var inimigo_derrotado: String = ""
 
@@ -34,7 +34,7 @@ func _ready() -> void:
 		return x * 2;
 	}
 
-	int aumentar() {
+	void aumentar() {
 		this.tamanho = this.tamanho + 1;
 	}
 }

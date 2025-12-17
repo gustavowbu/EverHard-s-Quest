@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f280v0fdo0my"
-path="res://.godot/imported/pedra.png-c9096b5fac2ef10fb9198b69feef58b7.ctex"
+uid="uid://hoigu6qdp5uo"
+path="res://.godot/imported/32x32-pedra-up.png-29953bdeba9959bdd45603a45679e8d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Objetos/pedra.png"
-dest_files=["res://.godot/imported/pedra.png-c9096b5fac2ef10fb9198b69feef58b7.ctex"]
+source_file="res://sprites/Objetos/Pedra/32x32-pedra-up.png"
+dest_files=["res://.godot/imported/32x32-pedra-up.png-29953bdeba9959bdd45603a45679e8d6.ctex"]
 
 [params]
 
