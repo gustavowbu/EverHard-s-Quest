@@ -13,4 +13,4 @@ func _on_interactable_area_body_entered(body: Node2D) -> void:
 		self.queue_free()
 func playercollect():
 	player.collect(item)
-	player.select_item(item)
+	#player.select_item(item)
