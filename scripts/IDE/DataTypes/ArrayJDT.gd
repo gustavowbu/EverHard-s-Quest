@@ -23,7 +23,7 @@ func toString() -> JavaDataType:
 func add(other: JavaDataType) -> JavaDataType:
 	if other.classe != classe:
 		return ExceptionJDT.new("", "O operador + não é definido para o(s) tipo(s) de argumento(s) " + classe + ", " + other.classe)
-	return IntJDT.new(value + other.value)
+	return ArrayJDT.new(value + other.value)
 
 func equals(other: JavaDataType) -> BooleanJDT:
 	if other.classe != classe:
@@ -49,6 +49,10 @@ func length() -> IntJDT:
 
 func append(element) -> void:
 	value.append(element)
+
+func extend(other: ArrayJDT) -> void:
+	for i in range(other.length().value):
+		append(other.getElement(IntJDT.new(i)))
 
 func insert(element, index := IntJDT.new(0)):
 	if index.less_than(IntJDT.new(0)) or index.greater_than(length()):

@@ -38,7 +38,7 @@ func atualizar_codigo():
 			$SpriteObjeto.texture = null
 			dropdown.clear()
 			return
-		$SpriteObjeto.texture = load(objeto.sprites["32x32_front"])
+		$SpriteObjeto.texture = load(objeto.sprites["64x64_front"])
 		testes = objeto.testes
 		dropdown.clear()
 		for teste in testes.keys():
@@ -51,8 +51,9 @@ func _on_code_edit_text_changed() -> void:
 	atualizar_codigo()
 
 func _on_run_button_button_down() -> void:
-	var code: String = editor.text
-	var classe := compiler.parse_code(code)
+	var classes = get_classes()
+	var classe = classes.getElement(IntJDT.new(code_index + 2))
+
 	global.objetos[code_index].metodos = []
 	if classe.classe == "Exception":
 		for teste in testes.keys():
@@ -81,7 +82,7 @@ func _on_run_button_button_down() -> void:
 					pass
 				else:
 					parametros.append(valor)
-			var resultado = classe.chamar_metodo(StringJDT.new(metodo), parametros)
+			var resultado = classe.chamar_metodo(StringJDT.new(metodo), parametros, classes)
 			var correto = false
 			if resultado.classe != "Exception" and resultado.classe != "null":
 				if resultado.value == teste["esperado"]:
@@ -97,18 +98,57 @@ func _on_run_button_button_down() -> void:
 		i += 1
 
 func _on_test_button_button_down() -> void:
-	var code: String = global.tabs[0]["codigo"]
-	var classe := compiler.parse_code(code)
+	var classes = get_classes()
+	var classe = classes.getElement(IntJDT.new(2))
+
 	if classe.classe != "Exception":
+		classe.sout.connect(terminal.adicionar_linha)
 		for metodo_key in classe.metodos.keys():
 			var metodo = classe.metodos[metodo_key]
 			if metodo.estatico.value and metodo.tipo.repr() == "void" and metodo.nome.repr() == "main":
-				var resultado = classe.chamar_metodo(StringJDT.new("main"), ArrayJDT.new())
-				terminal.adicionar_linha("Rodando main. Retornou: " + resultado.repr())
+				classe.chamar_metodo(StringJDT.new("main"), ArrayJDT.new(), classes)
 			else:
 				terminal.adicionar_linha("Erro de Sintaxe: faltando public static void main()")
 	else:
 		terminal.adicionar_linha(classe.get_message())
+
+func get_classes() -> ArrayJDT:
+	# classes[0] = System
+	# classes[1] = Out
+	# classes[2] = Main
+	var code: String
+	var classe
+	var classes = get_system_out_classes()
+	for i in range(5):
+		code = global.tabs[i]["codigo"]
+		classe = compiler.parse_code(code)
+		if classe.classe != "Exception":
+			classes.append(classe)
+	return classes
+
+func get_system_out_classes() -> ArrayJDT:
+	var classes = []
+	var code = """public class System {
+	Out out = new Out();
+}
+"""
+	var classe = compiler.parse_code(code)
+	classes.append(classe)
+
+	code = """public class Out {
+	String println(String x) {
+		return x;
+	}
+
+	int println(int x) {
+		return x;
+	}
+}
+"""
+	classe = compiler.parse_code(code)
+	classes.append(classe)
+	return ArrayJDT.new(classes)
+
 # Mudar aba
 
 func update_tabs() -> void:

@@ -19,6 +19,12 @@ func repr() -> String:
 		result += parametros.getElement(IntJDT.new(0)).repr() # nome da variável
 		result += " = "
 		result += parametros.getElement(IntJDT.new(1)).repr() # valor da variável
+	elif nome.repr() == "assign attribute":
+		result += parametros.getElement(IntJDT.new(0)).repr() # objeto
+		result += "."
+		result += parametros.getElement(IntJDT.new(1)).repr() # atributo
+		result += " = "
+		result += parametros.getElement(IntJDT.new(2)).repr() # valor do atributo
 	elif nome.repr() == "declare and assign":
 		result += parametros.getElement(IntJDT.new(0)).repr() # tipo da variável
 		result += " "
@@ -27,6 +33,29 @@ func repr() -> String:
 		result += parametros.getElement(IntJDT.new(2)).repr() # valor da variável
 	elif nome.repr() == "read":
 		result += parametros.getElement(IntJDT.new(0)).repr() # nome da variável
+	elif nome.repr() == "read attribute":
+		result += parametros.getElement(IntJDT.new(0)).repr() # objeto
+		result += "."
+		result += parametros.getElement(IntJDT.new(1)).repr() # nome do atributo
+	elif nome.repr() == "call method":
+		result += parametros.getElement(IntJDT.new(0)).repr() # objeto
+		result += "."
+		result += parametros.getElement(IntJDT.new(1)).repr() # nome do método
+		result += "("
+		for i in range(parametros.getElement(IntJDT.new(2)).length().value): # parâmetros
+			if i != 0:
+				result += ", "
+			result += parametros.getElement(IntJDT.new(2)).getElement(IntJDT.new(i)).repr()
+		result += ")"
+	elif nome.repr() == "new":
+		result += "new "
+		result += parametros.getElement(IntJDT.new(0)).repr() # nome do objeto
+		result += "("
+		for i in range(parametros.getElement(IntJDT.new(1)).length().value): # parâmetros
+			if i != 0:
+				result += ", "
+			result += parametros.getElement(IntJDT.new(1)).getElement(IntJDT.new(i)).repr()
+		result += ")"
 	elif nome.repr() == "addition":
 		result += parametros.getElement(IntJDT.new(0)).repr() # primeiro valor
 		result += " + "

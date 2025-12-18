@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://c3v1237gaeyn1"]
+[gd_scene load_steps=40 format=4 uid="uid://c3v1237gaeyn1"]
 
 [ext_resource type="Script" uid="uid://gyc4o4mglr6f" path="res://scripts/IDE/IDE.gd" id="1_78c8m"]
 [ext_resource type="FontFile" uid="uid://c4il34nb2hyqj" path="res://fonts/CONSOLA.TTF" id="2_h1ns2"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://byxhbnneg3ghq" path="res://sprites/play.png" id="5_g2orf"]
 [ext_resource type="Script" uid="uid://ciqqbt8vr7aqj" path="res://scripts/IDE/terminal.gd" id="6_qfil8"]
 [ext_resource type="Texture2D" uid="uid://cmpbuff5ctqgs" path="res://sprites/Dropdown/seta_voltando.png" id="6_yvh0p"]
-[ext_resource type="Texture2D" uid="uid://cavqkrx1v3axo" path="res://sprites/Objetos/Pedra/64x64-pedra-front.png" id="10_qvh1h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1ns2"]
 texture = ExtResource("2_qkgnc")
@@ -366,6 +365,10 @@ scale = Vector2(0.16831683, 0.16831684)
 texture = ExtResource("5_g2orf")
 centered = false
 
+[node name="SpriteObjeto" type="Sprite2D" parent="."]
+position = Vector2(1084, 210)
+scale = Vector2(6, 6)
+
 [node name="Back button" type="Button" parent="."]
 offset_left = 6.0
 offset_top = 6.0
@@ -387,11 +390,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_45xky")
 scale = Vector2(0.020017793, 0.020017793)
 texture = ExtResource("6_yvh0p")
 centered = false
-
-[node name="SpriteObjeto" type="Sprite2D" parent="."]
-position = Vector2(1103, 256.00003)
-scale = Vector2(5, 5)
-texture = ExtResource("10_qvh1h")
 
 [connection signal="text_changed" from="CodeArea/CodeEdit" to="." method="_on_code_edit_text_changed"]
 [connection signal="button_down" from="CodeArea/Tab0" to="." method="_on_tab_0_button_down"]

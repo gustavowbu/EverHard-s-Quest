@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btgkq2fu34ul"
-path="res://.godot/imported/zumbi-costas-2.png-56a9d253c3f744843e42dec3decf4ce2.ctex"
+uid="uid://dqg8veyvk6pgi"
+path="res://.godot/imported/cobra-todas.png-e38d4f7a44841037994b169b7d1bb315.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Objetos/zumbi-costas-2.png"
-dest_files=["res://.godot/imported/zumbi-costas-2.png-56a9d253c3f744843e42dec3decf4ce2.ctex"]
+source_file="res://sprites/Objetos/Cobra/cobra-todas.png"
+dest_files=["res://.godot/imported/cobra-todas.png-e38d4f7a44841037994b169b7d1bb315.ctex"]
 
 [params]
 

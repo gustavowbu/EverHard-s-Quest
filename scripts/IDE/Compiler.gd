@@ -118,7 +118,7 @@ func parse_code_array(code: Array) -> JavaDataType:
 	# Parte 2: Ler o nome da classe e o '{'
 	if len(code) == i:
 		return raise_syntax_error("Classe não pode ser resolvida a um tipo")
-	if not is_valid_name(code[i]):
+	if not is_valid_name(code[i]) or code[i] in palavras_reservadas:
 		return raise_syntax_error("Erro no token \"" + code[i] + "\", declarador de classe inválido")
 	classe.nome = StringJDT.new(code[i])
 	i += 1
@@ -169,12 +169,12 @@ func parse_code_array(code: Array) -> JavaDataType:
 				i -= 1
 			estado = "tipo"
 		elif estado == "tipo":
-			if not w in tipos:
+			if not is_valid_name(w):
 				return raise_syntax_error(w + " não pode ser resolvido a um tipo")
 			tipo = StringJDT.new(w)
 			estado = "nome"
 		elif estado == "nome":
-			if not is_valid_name(w):
+			if not is_valid_name(w) or w in palavras_reservadas:
 				return raise_syntax_error("Erro no token \"" + w + "\", esperava Identificador")
 			nome = StringJDT.new(w)
 			estado = "corpo_inicio"
@@ -198,10 +198,9 @@ func parse_code_array(code: Array) -> JavaDataType:
 				corpo.append("}")
 				corpo.insert(0, "return")
 				var algoritmo_atributo = parse_algoritmo(corpo)
-				var valor = algoritmo_atributo.exec()[0]
-				if valor.classe == "Exception":
-					return valor
-				classe.declarar_atributo(encapsulamento, tipo, nome, valor)
+				if algoritmo_atributo.classe == "Exception":
+					return algoritmo_atributo
+				classe.declarar_atributo(encapsulamento, tipo, nome, algoritmo_atributo)
 				corpo = []
 				estado = "encapsulamento"
 				i += 1
@@ -212,7 +211,7 @@ func parse_code_array(code: Array) -> JavaDataType:
 				estado = "corpo_metodo_comeco"
 				i += 1
 				continue
-			if not w in tipos_var:
+			if not is_valid_name(w):
 				if w != "void":
 					return raise_syntax_error("O método " + nome.repr() + "() da classe " + classe.nome.repr() + " refere ao tipo faltante " + w)
 				return raise_syntax_error("O método " + nome.repr() + "() não é definido para a classe " + classe.nome.repr())
@@ -221,7 +220,7 @@ func parse_code_array(code: Array) -> JavaDataType:
 		elif estado == "corpo_parametros_nome":
 			if w == ")":
 				return raise_syntax_error("Insira \"IdDeDeclaradorDeVariavel\" para completar a ListaFormalDeParametros")
-			if not is_valid_name(w):
+			if not is_valid_name(w) or w in palavras_reservadas:
 				return raise_syntax_error("Erro no token \"" + w + "\", IdDeDeclaradorDeVariavel inválido")
 			parametros_nomes.append(StringJDT.new(w))
 			estado = "corpo_parametros_virgula"
@@ -261,6 +260,9 @@ func parse_expressao(code: Array) -> JavaDataType:
 	var i = 0
 	var tipo: JavaDataType
 	var value: JavaDataType
+	var result: JavaDataType
+	var parametro := []
+	var num_parenteses = 0
 	var estado := "inicio"
 	while i != len(code):
 		var w: String = code[i]
@@ -284,20 +286,20 @@ func parse_expressao(code: Array) -> JavaDataType:
 				value.nome = StringJDT.new("value")
 				value.parametros = ArrayJDT.new([BooleanJDT.new(false)])
 				estado = "operacao"
-			elif w in tipos_var:
-				tipo = StringJDT.new(w)
-				estado = "nome_variavel"
-			elif w == "this":
-				estado = "."
 			elif w == "return":
 				expressao.nome = StringJDT.new("return")
-				expressao.parametros = ArrayJDT.new([parse_expressao(code.slice(i + 1))])
+				result = parse_expressao(code.slice(i + 1))
+				if result.classe == "Exception":
+					return result
+				expressao.parametros = ArrayJDT.new([result])
 				break
+			elif w == "new":
+				estado = "new_nome"
 			elif is_valid_name(w):
-				value = ExpressionJDT.new(StringJDT.new("read"), ArrayJDT.new([StringJDT.new(w)]))
-				estado = "operacao"
+				value = StringJDT.new(w)
+				estado = "nome_variavel"
 			else:
-				return raise_syntax_error("Expressão inválida")
+				return raise_syntax_error("Insira \"-> CompoLambda\" para completar Expressao")
 		elif estado == "string":
 			value = ExpressionJDT.new()
 			value.nome = StringJDT.new("value")
@@ -307,70 +309,74 @@ func parse_expressao(code: Array) -> JavaDataType:
 			# Não é necessário tratar exceções aqui, pois sempre vai haver um " nesse estado
 			estado = "operacao"
 		elif estado == "nome_variavel":
-			if not is_valid_name(w):
-				return raise_syntax_error("Erro no token \"" + w + "\", esperava IdentificadorDeAtributo")
-			value = StringJDT.new(w)
-			estado = "variable"
-		elif estado == "variable":
+			if is_valid_name(w) and not w in palavras_reservadas:
+				tipo = value
+				value = StringJDT.new(w)
+				estado = "variavel"
+			else:
+				value = ExpressionJDT.new(StringJDT.new("read"), ArrayJDT.new([value]))
+				estado = "operacao"
+				continue
+		elif estado == "variavel":
 			if w == ";":
 				expressao.nome = StringJDT.new("declare")
 				expressao.parametros = ArrayJDT.new([tipo, value])
 				tipo = NullJDT.new()
 			elif w == "=":
-				estado = "operacao"
 				expressao.nome = StringJDT.new("declare and assign")
-				expressao.parametros = ArrayJDT.new([tipo, value, parse_expressao(code.slice(i + 1))])
+				result = parse_expressao(code.slice(i + 1))
+				if result.classe == "Exception":
+					return result
+				expressao.parametros = ArrayJDT.new([tipo, value, result])
 				tipo = NullJDT.new()
+				estado = "operacao"
 			break
-		elif estado == ".":
-			estado = "nome_atributo"
-		elif estado == "nome_atributo":
+		elif estado == "new_nome":
 			if not is_valid_name(w):
-				return raise_syntax_error("Erro no token \"" + w + "\", esperava IdentificadorDeAtributo")
-			value = ExpressionJDT.new(StringJDT.new("read"), ArrayJDT.new([StringJDT.new("this." + w)]))
-			estado = "operacao"
+				return raise_syntax_error(w + " não pode ser resolvido a um tipo")
+			value = ExpressionJDT.new(StringJDT.new("new"), ArrayJDT.new([StringJDT.new(w), ArrayJDT.new([])]))
+			num_parenteses = 1
+			estado = "new_("
+		elif estado == "new_(":
+			if w != "(":
+				return raise_syntax_error("Insira \"( )\" para completar a Expressao")
+			num_parenteses = 1
+			estado = "new_parametros"
+		elif estado == "new_parametros":
+			if (w == "," or w == ")") and num_parenteses == 1:
+				if len(parametro) != 0:
+					parametro.append(";")
+					value.parametros[1].append(parse_expressao(parametro))
+					parametro = []
+				if w == ")":
+					estado = "operacao"
+					i += 1
+					continue
+			elif w == "(":
+				num_parenteses += 1
+			elif w == ")":
+				num_parenteses -= 1
+			parametro.append(w)
 		elif estado == "operacao":
-			if w == "+":
-				expressao.nome = StringJDT.new("addition")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == "-":
-				expressao.nome = StringJDT.new("subtraction")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == "*":
-				expressao.nome = StringJDT.new("multiplication")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == "/":
-				expressao.nome = StringJDT.new("division")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == "==":
-				expressao.nome = StringJDT.new("equals")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == ">":
-				expressao.nome = StringJDT.new("greater than")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == "<":
-				expressao.nome = StringJDT.new("less than")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == ">=":
-				expressao.nome = StringJDT.new("greater than or equal")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
-			elif w == "<=":
-				expressao.nome = StringJDT.new("less than or equal")
-				expressao.parametros = ArrayJDT.new([value, parse_expressao(code.slice(i + 1))])
-				break
+			if w == ".":
+				estado = "."
+				continue
+			elif w == "(":
+				value.parametros.append(ArrayJDT.new())
+				value.nome = StringJDT.new("call method")
+				num_parenteses = 1
+				estado = "parametros"
 			elif w == "=":
 				if value.classe != "Expression":
 					return raise_syntax_error("O lado esquerdo de uma atribuição deve ser uma variável")
-				expressao.nome = StringJDT.new("assign")
-				expressao.parametros = ArrayJDT.new([value.parametros.getElement(IntJDT.new(0)), parse_expressao(code.slice(i + 1))])
+				if value.nome.equals(StringJDT.new("read")).value:
+					expressao.nome = StringJDT.new("assign")
+				elif value.nome.equals(StringJDT.new("read attribute")).value:
+					expressao.nome = StringJDT.new("assign attribute")
+				result = parse_expressao(code.slice(i + 1))
+				if result.classe == "Exception":
+					return result
+				expressao.parametros = value.parametros.add(ArrayJDT.new([result]))
 				break
 			elif w == ";":
 				if value.classe == "Expression": # read
@@ -379,7 +385,64 @@ func parse_expressao(code: Array) -> JavaDataType:
 					expressao.nome = StringJDT.new("value")
 					expressao.parametros = ArrayJDT.new([value])
 				break
+			elif w in ["+", "-", "*", "/", "==", "!=", ">", "<", ">=", "<="]:
+				if w == "+":
+					expressao.nome = StringJDT.new("addition")
+				elif w == "-":
+					expressao.nome = StringJDT.new("subtraction")
+				elif w == "*":
+					expressao.nome = StringJDT.new("multiplication")
+				elif w == "/":
+					expressao.nome = StringJDT.new("division")
+				elif w == "==":
+					expressao.nome = StringJDT.new("equals")
+				elif w == "!=":
+					expressao.nome = StringJDT.new("different")
+				elif w == ">":
+					expressao.nome = StringJDT.new("greater than")
+				elif w == "<":
+					expressao.nome = StringJDT.new("less than")
+				elif w == ">=":
+					expressao.nome = StringJDT.new("greater than or equal")
+				elif w == "<=":
+					expressao.nome = StringJDT.new("less than or equal")
+				result = parse_expressao(code.slice(i + 1))
+				if result.classe == "Exception":
+					return result
+				expressao.parametros = ArrayJDT.new([value, result])
+				break
+			else:
+				return raise_syntax_error("Insira \";\" para completar as FrasesDeBloco")
+		elif estado == ".":
+			estado = "nome_atributo_ou_metodo"
+		elif estado == "nome_atributo_ou_metodo":
+			if not is_valid_name(w) or w in palavras_reservadas:
+				return raise_syntax_error("Erro no token \"" + w + "\", esperava IdentificadorDeAtributo")
+			# Caso seja um atributo
+			value = ArrayJDT.new([value, StringJDT.new(w)])
+			value = ExpressionJDT.new(StringJDT.new("read attribute"), value)
+			estado = "operacao"
+		elif estado == "parametros":
+			if (w == "," or w == ")") and num_parenteses == 1:
+				if len(parametro) != 0:
+					parametro.append(";")
+					result = parse_expressao(parametro)
+					if result.classe == "Exception":
+						return result
+					value.parametros.getElement(IntJDT.new(2)).append(result)
+					parametro = []
+				if w == ")":
+					estado = "operacao"
+					i += 1
+					continue
+			elif w == "(":
+				num_parenteses += 1
+			elif w == ")":
+				num_parenteses -= 1
+			parametro.append(w)
 		i += 1
+	if estado == "parametros":
+		return raise_syntax_error("Esperava )")
 	return expressao
 
 func parse_algoritmo(code: Array) -> JavaDataType:
@@ -415,9 +478,6 @@ func raise_syntax_error(message: String) -> ExceptionJDT:
 	return raise_error("Erro de sintaxe", message)
 
 func is_valid_name(w: String) -> bool:
-	if w in palavras_reservadas:
-		return false
-
 	for i in range(len(w)):
 		if i == 0:
 			if not w[i] in letras_all:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dicngc276h2y5"
-path="res://.godot/imported/32x32-pedra-back.png-0027b6d46bea01668fec05577b3bca9a.ctex"
+uid="uid://c4lsdvmnt4fsd"
+path="res://.godot/imported/32x32-cobra-right.png-e58215c1c719ca2409aa42a76e459351.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Objetos/Pedra/32x32-pedra-back.png"
-dest_files=["res://.godot/imported/32x32-pedra-back.png-0027b6d46bea01668fec05577b3bca9a.ctex"]
+source_file="res://sprites/Objetos/Cobra/32x32-cobra-right.png"
+dest_files=["res://.godot/imported/32x32-cobra-right.png-e58215c1c719ca2409aa42a76e459351.ctex"]
 
 [params]
 

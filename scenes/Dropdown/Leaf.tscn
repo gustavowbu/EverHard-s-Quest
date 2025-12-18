@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8lv1k0hsumkf"]
+[gd_scene load_steps=14 format=3 uid="uid://c8lv1k0hsumkf"]
 
 [ext_resource type="Script" uid="uid://cwcrw3sy27hwm" path="res://scripts/Dropdown/Leaf.gd" id="1_3d0o1"]
 [ext_resource type="Texture2D" uid="uid://b0bkfwvx722" path="res://sprites/caso-de-teste.png" id="2_3u7ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3u7ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1ljw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pct6g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43mtm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qbdyp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6cq3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5abv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mpm8y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywd1k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oiux6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuroc"]
 
 [node name="Leaf" type="Node2D"]
 script = ExtResource("1_3d0o1")
@@ -17,3 +39,19 @@ text = "Leaf"
 scale = Vector2(0.033, 0.033)
 texture = ExtResource("2_3u7ly")
 centered = false
+
+[node name="Button" type="Button" parent="."]
+offset_right = 58.0
+offset_bottom = 17.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3u7ly")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_g1ljw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pct6g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_43mtm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qbdyp")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_g6cq3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i5abv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mpm8y")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ywd1k")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_oiux6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uuroc")
