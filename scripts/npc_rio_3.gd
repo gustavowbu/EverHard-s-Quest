@@ -14,23 +14,15 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"Everhard: Finalmente… alguém conseguiu chegar até aqui.",
-	"Apolo: Quem é você?",
-	"Everhard: Meu nome é Everhard.",
-	"Everhard: Eu era o guardião dos Pilares de POO.",
-	"Everhard: Abstração, Encapsulamento, Herança, Polimorfismo…",
-	"Apolo: Era?",
-	"Everhard: Eu falhei.",
-	"Everhard: Os pilares se perderam. Eu esqueci onde deixei eles.",
-	"Everhard: E sem um deles, não consigo ir atrás dos outros.",
-	"Apolo: E o que isso tem a ver comigo?",
-	"Everhard: Tudo.",
-	"Everhard: Sem abstração, você vê detalhes demais.",
-	"Everhard: Sem encapsulamento, tudo fica exposto.",
-	"Everhard: Sem herança, nada evolui.",
-	"Everhard: Sem polimorfismo… Não quero nem pensar nisso.",
-	"Everhard: Se você recuperar cada pilar…",
-	"Posso voltar a ser o guardião dos pilares e garantir que eles não se percam.",
+	"NPC: Cada classe pode ter sua própria versão do método atacar().",
+	"NPC: Isso se chama sobrescrita de método.",
+	"NPC: Em Java, usamos @Override para deixar isso explícito.",
+	"Apolo: Então o Java decide qual método chamar?",
+	"NPC: Sim, e essa decisão acontece em tempo de execução.",
+	"NPC: Não é o tipo da variável que importa.",
+	"NPC: É o tipo real do objeto apontado.",
+	"NPC: Esse mecanismo garante comportamentos diferentes com a mesma interface."
+
 ]
 
 func _ready() -> void:

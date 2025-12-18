@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpxqxrh3uero7"]
+[gd_scene load_steps=9 format=3 uid="uid://bpxqxrh3uero7"]
 
+[ext_resource type="Script" uid="uid://cusy7h22w0ox7" path="res://scripts/npc_reino_3.gd" id="1_iohn4"]
 [ext_resource type="Texture2D" uid="uid://bl1bh7vu64la0" path="res://sprites/everardo/image_3.png" id="1_w4cky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npl4y"]
@@ -30,6 +31,7 @@ font = SubResource("SystemFont_0jers")
 font_size = 7
 
 [node name="NpcReino3" type="Area2D"]
+script = ExtResource("1_iohn4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iohn4")

@@ -14,23 +14,20 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"Everhard: Finalmente… alguém conseguiu chegar até aqui.",
-	"Apolo: Quem é você?",
-	"Everhard: Meu nome é Everhard.",
-	"Everhard: Eu era o guardião dos Pilares de POO.",
-	"Everhard: Abstração, Encapsulamento, Herança, Polimorfismo…",
-	"Apolo: Era?",
-	"Everhard: Eu falhei.",
-	"Everhard: Os pilares se perderam. Eu esqueci onde deixei eles.",
-	"Everhard: E sem um deles, não consigo ir atrás dos outros.",
-	"Apolo: E o que isso tem a ver comigo?",
-	"Everhard: Tudo.",
-	"Everhard: Sem abstração, você vê detalhes demais.",
-	"Everhard: Sem encapsulamento, tudo fica exposto.",
-	"Everhard: Sem herança, nada evolui.",
-	"Everhard: Sem polimorfismo… Não quero nem pensar nisso.",
-	"Everhard: Se você recuperar cada pilar…",
-	"Posso voltar a ser o guardião dos pilares e garantir que eles não se percam.",
+	"Apolo: Então você não quer que eu entenda como tudo funciona?",
+	"NPC: Exatamente.",
+	"NPC: A abstração define apenas o que um objeto faz, não como ele faz.",
+	"NPC: Em Java, isso acontece quando usamos classes abstratas ou interfaces.",
+	"NPC: Elas declaram métodos, mas não necessariamente a implementação.",
+	"Apolo: Então alguém precisa implementar isso depois?",
+	"NPC: Sim.",
+	"NPC: As subclasses são obrigadas a fornecer o comportamento real.",
+	"NPC: Assim, diferentes objetos seguem o mesmo contrato.",
+	"NPC: Você interage com a abstração, não com os detalhes.",
+	"NPC: Isso reduz acoplamento e facilita a manutenção do código.",
+	"NPC: Se a implementação mudar, quem usa a abstração não precisa mudar.",
+	"NPC: Exatamente como você não precisa saber quem eu sou para aprender comigo."
+
 ]
 
 func _ready() -> void:

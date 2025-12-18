@@ -14,23 +14,16 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"Everhard: Finalmente… alguém conseguiu chegar até aqui.",
-	"Apolo: Quem é você?",
-	"Everhard: Meu nome é Everhard.",
-	"Everhard: Eu era o guardião dos Pilares de POO.",
-	"Everhard: Abstração, Encapsulamento, Herança, Polimorfismo…",
-	"Apolo: Era?",
-	"Everhard: Eu falhei.",
-	"Everhard: Os pilares se perderam. Eu esqueci onde deixei eles.",
-	"Everhard: E sem um deles, não consigo ir atrás dos outros.",
-	"Apolo: E o que isso tem a ver comigo?",
-	"Everhard: Tudo.",
-	"Everhard: Sem abstração, você vê detalhes demais.",
-	"Everhard: Sem encapsulamento, tudo fica exposto.",
-	"Everhard: Sem herança, nada evolui.",
-	"Everhard: Sem polimorfismo… Não quero nem pensar nisso.",
-	"Everhard: Se você recuperar cada pilar…",
-	"Posso voltar a ser o guardião dos pilares e garantir que eles não se percam.",
+	"Apolo: Parece trabalhoso criar tantos métodos.",
+	"NPC: Trabalhoso é corrigir erro depois.",
+	"NPC: Com encapsulamento, você valida dados antes de aceitar mudanças.",
+	"NPC: Evita estados inválidos dentro do objeto.",
+	"NPC: Se a regra mudar, só a classe precisa mudar.",
+	"NPC: O resto do sistema continua intacto.",
+	"Apolo: Então encapsulamento é segurança?",
+	"NPC: É segurança, controle e manutenção.",
+	"NPC: Objetos bem encapsulados são previsíveis."
+
 ]
 
 func _ready() -> void:

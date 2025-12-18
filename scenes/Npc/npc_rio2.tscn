@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b2vnq6t3oiw1t"]
 
 [ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="1_1vphy"]
-[ext_resource type="Script" uid="uid://dwy83xf5d5o4a" path="res://npc_rio_2.gd" id="1_ioyid"]
+[ext_resource type="Script" uid="uid://dwy83xf5d5o4a" path="res://scripts/npc_rio_2.gd" id="1_ioyid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8b8c"]
 atlas = ExtResource("1_1vphy")

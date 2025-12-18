@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://coo7qw8tbyjmi"]
 
 [ext_resource type="Texture2D" uid="uid://bl1bh7vu64la0" path="res://sprites/everardo/image_3.png" id="1_7ybs8"]
-[ext_resource type="Script" uid="uid://uffikpmk2fih" path="res://npc_reino_2.gd" id="1_cjxlr"]
+[ext_resource type="Script" uid="uid://uffikpmk2fih" path="res://scripts/npc_reino_2.gd" id="1_cjxlr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npl4y"]
 atlas = ExtResource("1_7ybs8")
