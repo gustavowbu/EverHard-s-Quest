@@ -1,22 +1,22 @@
 [gd_scene load_steps=12 format=3 uid="uid://dpmjrfa5lpvvn"]
 
-[ext_resource type="Script" uid="uid://dun5m81e0fskm" path="res://scripts/npc_inicial.gd" id="1_m3ndq"]
-[ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="2_b7bhc"]
+[ext_resource type="Script" uid="uid://cx4osw4yvi4ra" path="res://scripts/npc_rio.gd" id="1_4nbr8"]
+[ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="2_82kdk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8b8c"]
-atlas = ExtResource("2_b7bhc")
+atlas = ExtResource("2_82kdk")
 region = Rect2(0, 0, 16, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghyu6"]
-atlas = ExtResource("2_b7bhc")
+atlas = ExtResource("2_82kdk")
 region = Rect2(16, 0, 16, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_for3v"]
-atlas = ExtResource("2_b7bhc")
+atlas = ExtResource("2_82kdk")
 region = Rect2(32, 0, 16, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqp36"]
-atlas = ExtResource("2_b7bhc")
+atlas = ExtResource("2_82kdk")
 region = Rect2(48, 0, 16, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pj1k1"]
@@ -45,15 +45,15 @@ size = Vector2(101, 45)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6ejg"]
 bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
 
-[sub_resource type="SystemFont" id="SystemFont_sk8ai"]
+[sub_resource type="SystemFont" id="SystemFont_4nbr8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_npl4y"]
-font = SubResource("SystemFont_sk8ai")
+font = SubResource("SystemFont_4nbr8")
 font_size = 7
 
 [node name="Npc_inicial" type="Area2D"]
 position = Vector2(1, 0)
-script = ExtResource("1_m3ndq")
+script = ExtResource("1_4nbr8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pj1k1")

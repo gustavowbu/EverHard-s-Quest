@@ -14,16 +14,16 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"NPC: Ei! Veja isso aqui…",
-	"Apolo: … Não tem nada aí.",
-	"NPC: Ah, você não consegue ver? Pois bem, esqueci que era um atributo privado.",
-	"NPC: Pode ir andando.",
-	"NPC: …",
-	"Apolo: E agora? Não posso ver?",
-	"NPC: Pode, mas do jeito certo. Em Java, dados ficam protegidos dentro da classe…",
-	"NPC: … acesso só por métodos públicos.",
-	"NPC: Encapsulamento evita bagunça e erros inesperados.",
-
+	"NPC: Ei, você não tem nada pra reaproveitar?",
+	"Apolo: Tipo o que?" ,
+	"NPC: Sei lá, qualquer coisa." ,
+	"Apolo: Reaproveitar como?",
+	"NPC: Em Java, a gente chama isso de herança.",
+	"NPC: Se uma classe já resolve metade do problema…",
+	"NPC: por que começar tudo do zero?",
+	"NPC: Você cria outra classe e usa extends.",
+	"NPC: A nova classe herda o que já funciona e só muda o que precisa.",
+	"NPC: Menos código repetido, menos dor de cabeça.",
 ]
 
 func _ready() -> void:

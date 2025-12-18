@@ -14,16 +14,14 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"NPC: Ei! Veja isso aqui…",
-	"Apolo: … Não tem nada aí.",
-	"NPC: Ah, você não consegue ver? Pois bem, esqueci que era um atributo privado.",
-	"NPC: Pode ir andando.",
-	"NPC: …",
-	"Apolo: E agora? Não posso ver?",
-	"NPC: Pode, mas do jeito certo. Em Java, dados ficam protegidos dentro da classe…",
-	"NPC: … acesso só por métodos públicos.",
-	"NPC: Encapsulamento evita bagunça e erros inesperados.",
-
+	"NPC: Chame o método atacar().",
+	"Apolo: … Mas de qual classe?",
+	"NPC: Não importa qual.",
+	"NPC: O que importa é que todos sabem atacar.",
+	"NPC: Se o objeto for um guerreiro, ele ataca com a espada.",
+	"NPC: Se for um mago, ele ataca usando magia.",
+	"NPC: O nome do método é o mesmo, mas o comportamento muda conforme a classe. Isso se chama polimorfismo.",
+	"NPC: Em Java, ele acontece quando uma classe herda de outra.",
 ]
 
 func _ready() -> void:
