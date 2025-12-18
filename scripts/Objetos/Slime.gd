@@ -13,9 +13,10 @@ func _ready():
 	else:
 		print("❌ Jogador NÃO encontrado! (confirme o grupo player no jogador.tscn)")
 
-func _init(metodos_in := []) -> void:
+func _init(metodos_in := [], codigo_in := "") -> void:
 	nome = "Slime"
 	metodos = metodos_in
+	codigo = codigo_in
 
 	vida = 10
 	forca = 3

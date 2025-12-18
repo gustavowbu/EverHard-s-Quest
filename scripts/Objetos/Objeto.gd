@@ -58,6 +58,7 @@ func entrar_batalha():
 
 var nome := "Objeto nulo"
 var metodos := []
+var codigo := ""
 
 var vida:= 10
 var forca:= 5

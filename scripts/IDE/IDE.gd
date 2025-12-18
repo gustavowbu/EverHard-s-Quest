@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var dropdown = $Dropdown
 @onready var terminal = $Terminal
 var compiler = Compiler.new()
-var objeto
 var testes = {}
 var testes_dropdown = {}
 
@@ -18,27 +17,28 @@ func _ready() -> void:
 
 func alterar_codigo(index: int) -> void:
 	code_index = index
-	editor.text = global.tabs[code_index]["codigo"]
+	editor.text = get_codigo(index)
 	atualizar_codigo()
 
 func atualizar_codigo():
-	global.tabs[code_index]["codigo"] = editor.text
 	var code: String = editor.text
 	var classe = compiler.parse_code(code)
 
 	if classe.classe != "Exception":
-		global.tabs[code_index]["codigo"] = editor.text
-		global.tabs[code_index]["nome"] = classe.nome.repr()
-		if classe.nome.repr() == "Pedra":
-			objeto = Pedra.new()
-		elif classe.nome.repr() == "Zumbi":
-			objeto = Zumbi.new()
-		else:
-			objeto = null
-			$SpriteObjeto.texture = null
-			dropdown.clear()
-			return
-		$SpriteObjeto.texture = load(objeto.sprites["64x64_front"])
+		var nome = classe.nome.repr()
+		global.tabs[code_index] = nome
+		if not nome in global.objetos.keys():
+			if nome == "Pedra":
+				global.objetos[nome] = Pedra.new()
+			elif nome == "Slime":
+				global.objetos[nome] = Slime.new()
+			else:
+				$Objeto/Sprite.texture = null
+				dropdown.clear()
+				return
+		set_codigo(code_index, editor.text, nome)
+		var objeto = global.objetos[nome]
+		$Objeto/Sprite.texture = load(objeto.sprites["64x64_front"])
 		testes = objeto.testes
 		dropdown.clear()
 		for teste in testes.keys():
@@ -97,9 +97,13 @@ func _on_run_button_button_down() -> void:
 			global.objetos[code_index]["metodos"].append(metodo)
 		i += 1
 
-func _on_test_button_button_down() -> void:
+func _on_test_button_button_down() -> void: # Rodar a main
 	var classes = get_classes()
 	var classe = classes.getElement(IntJDT.new(2))
+	var objetos_str = ""
+	for i in range(len(global.objetos)):
+		objetos_str += global.objetos[i].nome
+	print(objetos_str)
 
 	if classe.classe != "Exception":
 		classe.sout.connect(terminal.adicionar_linha)
@@ -120,7 +124,10 @@ func get_classes() -> ArrayJDT:
 	var classe
 	var classes = get_system_out_classes()
 	for i in range(5):
-		code = global.tabs[i]["codigo"]
+		if i != 0:
+			code = global.tabs[i]["codigo"]
+		else:
+			code = global.codigo_main
 		classe = compiler.parse_code(code)
 		if classe.classe != "Exception":
 			classes.append(classe)
@@ -149,11 +156,35 @@ func get_system_out_classes() -> ArrayJDT:
 	classes.append(classe)
 	return ArrayJDT.new(classes)
 
+func get_codigo(i: int) -> String:
+	var codigo = ""
+	if i != 0:
+		var nome_objeto = global.tabs[i]
+		if nome_objeto != "Objeto vazio":
+			codigo = global.objetos[nome_objeto].codigo
+	else:
+		codigo = global.codigo_main
+	return codigo
+
+func set_codigo(i: int, codigo: String, nome_objeto = null) -> void:
+	if nome_objeto == null:
+		if i != 0:
+			nome_objeto = global.tabs[i]
+			if nome_objeto != "Objeto vazio":
+				global.objetos[nome_objeto].codigo = codigo
+		else:
+			global.codigo_main = codigo
+	else:
+		if nome_objeto == "Main":
+			global.codigo_main = codigo
+		else:
+			global.objetos[nome_objeto].codigo = codigo
+
 # Mudar aba
 
 func update_tabs() -> void:
 	for i in range(5):
-		get_node("CodeArea/Tab" + str(i)).update_text(global.tabs[i]["nome"])
+		get_node("CodeArea/Tab" + str(i)).update_text(get_codigo(i))
 
 func change_tab(tab: int) -> void:
 	for i in range(5):
@@ -161,7 +192,7 @@ func change_tab(tab: int) -> void:
 	get_node("CodeArea/Tab" + str(tab)).open()
 	# Alterar código
 	dropdown.clear()
-	$SpriteObjeto.texture = null
+	$Objeto/Sprite.texture = null
 	alterar_codigo(tab)
 	dropdown.update()
 
