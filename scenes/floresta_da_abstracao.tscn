@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bahh0ovdvc2th"]
+[gd_scene load_steps=30 format=4 uid="uid://bahh0ovdvc2th"]
 
 [ext_resource type="Script" uid="uid://b2mvffkbwbucc" path="res://scripts/floresta_da_abstracao.gd" id="1_6fifn"]
 [ext_resource type="Texture2D" uid="uid://dbw3lavju3ssm" path="res://sprites/tilesets/7.png" id="2_tmlbr"]
@@ -14,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/jogador.tscn" id="12_15aux"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_ueubi"]
 [ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/Objetos/Slime.tscn" id="14_b5exp"]
-[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://scenes/Inventário/inv_ui.tscn" id="14_tmlbr"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="15_xc05o"]
+[ext_resource type="PackedScene" uid="uid://ce0aj2242ow4l" path="res://scenes/Npc/npc_floresta.tscn" id="16_7jtjw"]
+[ext_resource type="PackedScene" uid="uid://dn44ulqm6b3vh" path="res://scenes/Npc/npc_floresta2.tscn" id="17_qb6mp"]
+[ext_resource type="PackedScene" uid="uid://dens2k11rjs0b" path="res://scenes/Npc/npc_floresta3.tscn" id="18_y54ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mgxn"]
 texture = ExtResource("2_tmlbr")
@@ -2357,6 +2359,7 @@ grow_vertical = 1
 scale = Vector2(0.3, 0.3)
 
 [node name="FadeLayer" parent="jogador" instance=ExtResource("15_xc05o")]
+visible = false
 z_index = 3
 offset_left = -124.23077
 offset_top = -70.0
@@ -2387,3 +2390,12 @@ distancia_max = 300.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../jogador/Camera2D2")
+
+[node name="NpcFloresta" parent="." instance=ExtResource("16_7jtjw")]
+position = Vector2(-28.5, -69)
+
+[node name="NpcFloresta2" parent="." instance=ExtResource("17_qb6mp")]
+position = Vector2(397.5, 68.25)
+
+[node name="NpcFloresta3" parent="." instance=ExtResource("18_y54ee")]
+position = Vector2(-126.75, 27.5)

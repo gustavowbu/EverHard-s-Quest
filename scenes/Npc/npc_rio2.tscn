@@ -1,38 +1,49 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2vnq6t3oiw1t"]
+[gd_scene load_steps=17 format=3 uid="uid://b2vnq6t3oiw1t"]
 
-[ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="1_1vphy"]
 [ext_resource type="Script" uid="uid://dwy83xf5d5o4a" path="res://scripts/npc_rio_2.gd" id="1_ioyid"]
+[ext_resource type="Texture2D" uid="uid://dnfllwcfbo3ek" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/king/king_00.png" id="2_acivs"]
+[ext_resource type="Texture2D" uid="uid://c7eh4kgbs15sg" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/king/king_01.png" id="3_wwtec"]
+[ext_resource type="Texture2D" uid="uid://bj1x258alclfi" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/king/king_02.png" id="4_wldvo"]
+[ext_resource type="Texture2D" uid="uid://b6dof7rvh04md" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/king/king_03.png" id="5_3lile"]
+[ext_resource type="Texture2D" uid="uid://bsvljrarnj3h0" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/king/king_04.png" id="6_m3rl0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8b8c"]
-atlas = ExtResource("1_1vphy")
-region = Rect2(0, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_alxd0"]
+atlas = ExtResource("2_acivs")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghyu6"]
-atlas = ExtResource("1_1vphy")
-region = Rect2(16, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgpel"]
+atlas = ExtResource("3_wwtec")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_for3v"]
-atlas = ExtResource("1_1vphy")
-region = Rect2(32, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ywir"]
+atlas = ExtResource("4_wldvo")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqp36"]
-atlas = ExtResource("1_1vphy")
-region = Rect2(48, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0io4i"]
+atlas = ExtResource("5_3lile")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kb0"]
+atlas = ExtResource("6_m3rl0")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ioyid"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h8b8c")
+"texture": SubResource("AtlasTexture_alxd0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ghyu6")
+"texture": SubResource("AtlasTexture_cgpel")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_for3v")
+"texture": SubResource("AtlasTexture_3ywir")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tqp36")
+"texture": SubResource("AtlasTexture_0io4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kb0")
 }],
 "loop": true,
 "name": &"default",

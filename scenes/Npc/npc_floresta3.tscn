@@ -1,38 +1,41 @@
-[gd_scene load_steps=12 format=3 uid="uid://dens2k11rjs0b"]
+[gd_scene load_steps=15 format=3 uid="uid://dens2k11rjs0b"]
 
 [ext_resource type="Script" uid="uid://cpqn8px2ibunk" path="res://scripts/npc_floresta_3.gd" id="1_bml0h"]
-[ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="1_s2muf"]
+[ext_resource type="Texture2D" uid="uid://b5f71i5r35335" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/water_priestess/water_priestess_1.png" id="2_ddbl7"]
+[ext_resource type="Texture2D" uid="uid://dnk722h2bj01f" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/water_priestess/water_priestess_2.png" id="3_31ddc"]
+[ext_resource type="Texture2D" uid="uid://cyuc6l55c2ujt" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/water_priestess/water_priestess_3.png" id="4_xkkhj"]
+[ext_resource type="Texture2D" uid="uid://uclequijp1wa" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/water_priestess/water_priestess_4.png" id="5_mxmnk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8b8c"]
-atlas = ExtResource("1_s2muf")
-region = Rect2(0, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_g73k6"]
+atlas = ExtResource("2_ddbl7")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghyu6"]
-atlas = ExtResource("1_s2muf")
-region = Rect2(16, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t038p"]
+atlas = ExtResource("3_31ddc")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_for3v"]
-atlas = ExtResource("1_s2muf")
-region = Rect2(32, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjwhj"]
+atlas = ExtResource("4_xkkhj")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqp36"]
-atlas = ExtResource("1_s2muf")
-region = Rect2(48, 0, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoyfg"]
+atlas = ExtResource("5_mxmnk")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bml0h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h8b8c")
+"texture": SubResource("AtlasTexture_g73k6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ghyu6")
+"texture": SubResource("AtlasTexture_t038p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_for3v")
+"texture": SubResource("AtlasTexture_gjwhj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tqp36")
+"texture": SubResource("AtlasTexture_xoyfg")
 }],
 "loop": true,
 "name": &"default",
@@ -57,6 +60,7 @@ script = ExtResource("1_bml0h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bml0h")
 autoplay = "default"
+frame_progress = 0.13730495
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)

@@ -1,17 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpxqxrh3uero7"]
+[gd_scene load_steps=17 format=3 uid="uid://bpxqxrh3uero7"]
 
 [ext_resource type="Script" uid="uid://cusy7h22w0ox7" path="res://scripts/npc_reino_3.gd" id="1_iohn4"]
-[ext_resource type="Texture2D" uid="uid://bl1bh7vu64la0" path="res://sprites/everardo/image_3.png" id="1_w4cky"]
+[ext_resource type="Texture2D" uid="uid://fjla8xl0yhqs" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_01/villager_01_00.png" id="2_lsnom"]
+[ext_resource type="Texture2D" uid="uid://dojbm26lmfgrk" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_01/villager_01_01.png" id="3_xspjo"]
+[ext_resource type="Texture2D" uid="uid://bm02r8nfvormt" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_01/villager_01_02.png" id="4_umsww"]
+[ext_resource type="Texture2D" uid="uid://bx8528lxcs84x" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_01/villager_01_03.png" id="5_t5ltn"]
+[ext_resource type="Texture2D" uid="uid://di5hoxedjd8i8" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_01/villager_01_04.png" id="6_bu3uh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_npl4y"]
-atlas = ExtResource("1_w4cky")
+[sub_resource type="AtlasTexture" id="AtlasTexture_duk8i"]
+atlas = ExtResource("2_lsnom")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct3al"]
+atlas = ExtResource("3_xspjo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73nfs"]
+atlas = ExtResource("4_umsww")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh4bv"]
+atlas = ExtResource("5_t5ltn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6nsx"]
+atlas = ExtResource("6_bu3uh")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iohn4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_npl4y")
+"texture": SubResource("AtlasTexture_duk8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct3al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73nfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh4bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6nsx")
 }],
 "loop": true,
 "name": &"default",

@@ -1,17 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://by7aic05pajs7"]
+[gd_scene load_steps=15 format=3 uid="uid://by7aic05pajs7"]
 
-[ext_resource type="Texture2D" uid="uid://bl1bh7vu64la0" path="res://sprites/everardo/image_3.png" id="1_5h0s1"]
 [ext_resource type="Script" uid="uid://dm5q5bqyadtw8" path="res://scripts/npc_rio_3.gd" id="1_gcfei"]
+[ext_resource type="Texture2D" uid="uid://dod5lsvff328i" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/princess/princess_1.png" id="2_ydq5n"]
+[ext_resource type="Texture2D" uid="uid://deh0qagfns2hl" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/princess/princess_2.png" id="3_waidb"]
+[ext_resource type="Texture2D" uid="uid://b4htpbrim51fq" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/princess/princess_3.png" id="4_p1gul"]
+[ext_resource type="Texture2D" uid="uid://c57w47qyodmp1" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/princess/princess_4.png" id="5_ffyig"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_npl4y"]
-atlas = ExtResource("1_5h0s1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o500"]
+atlas = ExtResource("2_ydq5n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoi7k"]
+atlas = ExtResource("3_waidb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkjj4"]
+atlas = ExtResource("4_p1gul")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0vab"]
+atlas = ExtResource("5_ffyig")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gcfei"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_npl4y")
+"texture": SubResource("AtlasTexture_2o500")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoi7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkjj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0vab")
 }],
 "loop": true,
 "name": &"default",
