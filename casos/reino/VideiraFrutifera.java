@@ -1,5 +1,3 @@
-package reino;
-
 class VideiraFrutifera extends Grama {
 
 	int frutos = 2;

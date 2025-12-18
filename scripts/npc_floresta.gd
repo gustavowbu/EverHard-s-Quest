@@ -14,10 +14,15 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"Olá, jogador!",
-	"Eu estou controlando este diálogoaaaaaaa.",
-	"Você não precisa apertar nada para continuar.",
-	"Eu avanço sozinho. :)"
+	"Apolo: Como sabe meu nome?",
+	"NPC: Eu sei de tudo.", 
+	"Apolo: Tô sabendo… Mas o que você é? Roupa meio esquisita essa sua.", 
+	"NPC: O que eu sou… não importa. Importa o que eu faço.",
+	"Apolo: Isso não respondeu nada.",
+	"NPC: Você não precisa saber como eu funciono. Só precisa saber o que esperar de mim.",
+	"NPC: No caso, estou te dando conhecimento.",
+	"NPC: Em Java, isso se chama abstração. O resto fica escondido.",
+
 ]
 
 func _ready() -> void:

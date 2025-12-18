@@ -1,6 +1,5 @@
-package Rio;
 
-class Tronco {
+class Tronco{
 
 	int dureza = 5;
 

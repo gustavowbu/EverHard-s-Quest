@@ -1,4 +1,3 @@
-package Rio;
 
 class Corda {
 
@@ -18,5 +17,8 @@ class Corda {
 
 	int lacar(int alvo) {
 		return alvo * 2;
+	}
+	Tronco prender(Tronco t) {
+		return t;
 	}
 }

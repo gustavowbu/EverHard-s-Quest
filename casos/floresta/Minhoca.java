@@ -1,4 +1,4 @@
-package floresta;
+
 class Minhoca {
 
 	int comprimento = 2;

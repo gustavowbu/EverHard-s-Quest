@@ -1,4 +1,3 @@
-package reino;
 
 class Sabia extends Passaro {
 

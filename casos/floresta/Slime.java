@@ -1,4 +1,4 @@
-package floresta;
+
 class Slime {
 	int massa = 3;
 
