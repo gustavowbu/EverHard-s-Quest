@@ -15,14 +15,20 @@ var fala_index = 0
 
 var falas = [
 	"NPC: Agora observe algo importante.",
-	"NPC: Eu posso guardar um Guerreiro ou um Mago em uma variável do tipo Personagem.",
+	"NPC: Posso guardar um Guerreiro ou um Mago",
+	"NPC: em uma variável do tipo Personagem.",
 	"Apolo: Mesmo eles sendo classes diferentes?",
-	"NPC: Exatamente.",
-	"NPC: A variável olha para o tipo da superclasse.",
-	"NPC: Mas quando o método atacar() é chamado...",
-	"NPC: O Java executa o método da classe real do objeto.",
-	"NPC: Isso permite escrever código genérico, reutilizável e flexível.",
-	"NPC: Esse é o verdadeiro poder do polimorfismo."
+	"NPC: Sim.",
+	"NPC: Porque ambos são Personagem.",
+	"NPC: A variável enxerga o tipo da superclasse.",
+	"NPC: Mas o objeto real continua sendo o que ele é.",
+	"NPC: Quando atacar() é chamado…",
+	"NPC: Java executa o método da classe real do objeto.",
+	"NPC: Isso permite código genérico.",
+	"NPC: Código reutilizável.",
+	"NPC: Código flexível.",
+	"NPC: Esse é o poder do polimorfismo."
+
 
 ]
 

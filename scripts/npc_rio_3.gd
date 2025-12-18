@@ -14,14 +14,18 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"NPC: Cada classe pode ter sua própria versão do método atacar().",
+	"NPC: Cada classe pode ter sua própria versão de atacar().",
 	"NPC: Isso se chama sobrescrita de método.",
 	"NPC: Em Java, usamos @Override para deixar isso explícito.",
-	"Apolo: Então o Java decide qual método chamar?",
-	"NPC: Sim, e essa decisão acontece em tempo de execução.",
+	"Apolo: Então o Java escolhe qual método chamar?",
+	"NPC: Exatamente.",
+	"NPC: Essa escolha acontece em tempo de execução.",
 	"NPC: Não é o tipo da variável que importa.",
 	"NPC: É o tipo real do objeto apontado.",
-	"NPC: Esse mecanismo garante comportamentos diferentes com a mesma interface."
+	"NPC: Esse mecanismo é chamado de despacho dinâmico.",
+	"NPC: Ele garante comportamentos diferentes",
+	"NPC: usando a mesma interface."
+
 
 ]
 

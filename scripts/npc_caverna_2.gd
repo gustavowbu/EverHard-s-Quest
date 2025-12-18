@@ -16,13 +16,19 @@ var fala_index = 0
 var falas = [
 	"Apolo: Então eu nunca posso acessar os dados direto?",
 	"NPC: Não deveria.",
-	"NPC: Atributos privados só existem para a própria classe.",
-	"NPC: Se alguém de fora quiser acesso, precisa pedir.",
+	"NPC: Atributos privados pertencem apenas à própria classe.",
+	"NPC: Eles guardam o estado do objeto.",
+	"Apolo: E se alguém precisar desses dados?",
+	"NPC: Precisa pedir do jeito certo.",
 	"Apolo: Pedir como?",
-	"NPC: Usando métodos públicos, chamados getters e setters.",
-	"NPC: Eles controlam como o valor é lido ou modificado.",
-	"NPC: Assim, a classe protege seu próprio estado.",
-	"NPC: Não é esconder por esconder, é manter consistência."
+	"NPC: Usando métodos públicos.",
+	"NPC: Normalmente chamados de getters e setters.",
+	"NPC: O getter permite ler.",
+	"NPC: O setter decide se pode mudar.",
+	"NPC: Assim, a classe controla seu próprio estado.",
+	"NPC: Não é esconder por esconder.",
+	"NPC: É garantir que o objeto continue válido."
+
 
 ]
 

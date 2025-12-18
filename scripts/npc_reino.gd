@@ -15,15 +15,20 @@ var fala_index = 0
 
 var falas = [
 	"NPC: Ei, você não tem nada pra reaproveitar?",
-	"Apolo: Tipo o que?" ,
-	"NPC: Sei lá, qualquer coisa." ,
-	"Apolo: Reaproveitar como?",
+	"Apolo: Reaproveitar o quê?",
+	"NPC: Código.",
+	"Apolo: Código usado?",
+	"NPC: Código que já funciona.",
+	"Apolo: E dá pra fazer isso?",
 	"NPC: Em Java, a gente chama isso de herança.",
-	"NPC: Se uma classe já resolve metade do problema…",
-	"NPC: por que começar tudo do zero?",
+	"NPC: Se uma classe já resolve parte do problema…",
+	"NPC: não faz sentido começar tudo do zero.",
 	"NPC: Você cria outra classe e usa extends.",
-	"NPC: A nova classe herda o que já funciona e só muda o que precisa.",
-	"NPC: Menos código repetido, menos dor de cabeça.",
+	"NPC: A nova classe reaproveita atributos e métodos.",
+	"NPC: E muda apenas o que for diferente.",
+	"NPC: Menos repetição.",
+	"NPC: Menos erro."
+
 ]
 
 func _ready() -> void:

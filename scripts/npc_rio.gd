@@ -15,13 +15,16 @@ var fala_index = 0
 
 var falas = [
 	"NPC: Chame o método atacar().",
-	"Apolo: … Mas de qual classe?",
-	"NPC: Não importa qual.",
+	"Apolo: …Mas de qual classe?",
+	"NPC: Não importa.",
 	"NPC: O que importa é que todos sabem atacar.",
-	"NPC: Se o objeto for um guerreiro, ele ataca com a espada.",
-	"NPC: Se for um mago, ele ataca usando magia.",
-	"NPC: O nome do método é o mesmo, mas o comportamento muda conforme a classe. Isso se chama polimorfismo.",
-	"NPC: Em Java, ele acontece quando uma classe herda de outra.",
+	"NPC: Um Guerreiro ataca com a espada.",
+	"NPC: Um Mago ataca usando magia.",
+	"NPC: O nome do método é o mesmo.",
+	"NPC: O comportamento muda conforme a classe do objeto.",
+	"NPC: Isso se chama polimorfismo.",
+	"NPC: Muitos comportamentos para uma mesma chamada."
+
 ]
 
 func _ready() -> void:

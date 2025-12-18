@@ -15,14 +15,17 @@ var fala_index = 0
 
 var falas = [
 	"Apolo: E se eu quiser mudar algo que já foi herdado?",
-"NPC: Você pode sobrescrever métodos.",
-"NPC: A subclasse pode redefinir o comportamento da superclasse.",
-"NPC: Mas ainda pode chamar a versão original usando super.",
-"NPC: Herança é poderosa, mas exige cuidado.",
-"NPC: Nem tudo deve ser herdado.",
-"NPC: Use quando houver relação clara.",
-"NPC: Caso contrário, composição é melhor.",
-"NPC: Código bem estruturado evita problemas no futuro."
+	"NPC: Você pode sobrescrever métodos.",
+	"NPC: A subclasse redefine o comportamento.",
+	"NPC: Usando o mesmo método, mas com outra lógica.",
+	"NPC: Se quiser, ainda pode chamar o original com super.",
+	"NPC: Isso permite estender sem quebrar.",
+	"NPC: Mas herança não é brincadeira.",
+	"NPC: Usar sem pensar cria classes frágeis.",
+	"NPC: Só herde quando a relação for clara.",
+	"NPC: Caso contrário, prefira composição.",
+	"NPC: Bons sistemas escolhem bem suas relações."
+
 
 ]
 

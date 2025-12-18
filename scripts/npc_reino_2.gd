@@ -15,14 +15,19 @@ var fala_index = 0
 
 var falas = [
 	"Apolo: Então herdar é copiar código?",
-"NPC: Não.",
-"NPC: Herdar é assumir uma relação do tipo 'é um'.",
-"NPC: Um Guerreiro é um Personagem.",
-"NPC: Um Mago também é um Personagem.",
-"NPC: A superclasse define o que é comum.",
-"NPC: A subclasse especializa o comportamento.",
-"NPC: Assim, o código compartilhado fica em um só lugar.",
-"NPC: E as diferenças ficam onde devem estar."
+	"NPC: Não.",
+	"NPC: Copiar código gera problema.",
+	"NPC: Herdar cria uma relação.",
+	"NPC: Uma relação do tipo 'é um'.",
+	"NPC: Um Guerreiro é um Personagem.",
+	"NPC: Um Mago também é um Personagem.",
+	"NPC: A superclasse define o que todos têm em comum.",
+	"NPC: Vida, nome, ataque básico.",
+	"NPC: A subclasse adiciona ou modifica o comportamento.",
+	"NPC: Magia, força, habilidades especiais.",
+	"NPC: O que é comum fica em um só lugar.",
+	"NPC: O que muda, fica onde deve mudar."
+
 
 ]
 

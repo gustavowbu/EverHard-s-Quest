@@ -15,15 +15,17 @@ var fala_index = 0
 
 var falas = [
 	"Apolo: Parece trabalhoso criar tantos métodos.",
-	"NPC: Trabalhoso é corrigir erro depois.",
-	"NPC: Com encapsulamento, você valida dados antes de aceitar mudanças.",
-	"NPC: Evita estados inválidos dentro do objeto.",
-	"NPC: Se a regra mudar, só a classe precisa mudar.",
-	"NPC: O resto do sistema continua intacto.",
-	"Apolo: Então encapsulamento é segurança?",
+	"NPC: Trabalhoso é consertar sistema quebrado.",
+	"NPC: Sem encapsulamento, qualquer um pode causar estrago.",
+	"NPC: Com encapsulamento, você valida antes de mudar.",
+	"NPC: Impede valores inválidos.",
+	"NPC: Mantém regras dentro do objeto.",
+	"NPC: Se a regra mudar, só a classe muda.",
+	"NPC: O resto do sistema continua funcionando.",
+	"Apolo: Então encapsulamento é só segurança?",
 	"NPC: É segurança, controle e manutenção.",
-	"NPC: Objetos bem encapsulados são previsíveis."
-
+	"NPC: Objetos bem encapsulados são confiáveis.",
+	"NPC: E sistemas confiáveis sobrevivem mais tempo."
 ]
 
 func _ready() -> void:

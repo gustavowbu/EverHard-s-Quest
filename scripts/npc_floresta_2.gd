@@ -15,18 +15,24 @@ var fala_index = 0
 
 var falas = [
 	"Apolo: Então você não quer que eu entenda como tudo funciona?",
-	"NPC: Exatamente.",
-	"NPC: A abstração define apenas o que um objeto faz, não como ele faz.",
-	"NPC: Em Java, isso acontece quando usamos classes abstratas ou interfaces.",
-	"NPC: Elas declaram métodos, mas não necessariamente a implementação.",
-	"Apolo: Então alguém precisa implementar isso depois?",
-	"NPC: Sim.",
-	"NPC: As subclasses são obrigadas a fornecer o comportamento real.",
-	"NPC: Assim, diferentes objetos seguem o mesmo contrato.",
-	"NPC: Você interage com a abstração, não com os detalhes.",
-	"NPC: Isso reduz acoplamento e facilita a manutenção do código.",
-	"NPC: Se a implementação mudar, quem usa a abstração não precisa mudar.",
-	"NPC: Exatamente como você não precisa saber quem eu sou para aprender comigo."
+	"NPC: Não no começo.",
+	"NPC: A abstração define apenas o comportamento.",
+	"NPC: Não define os detalhes.",
+	"NPC: Em Java, fazemos isso com interfaces ou classes abstratas.",
+	"NPC: Elas dizem quais métodos existem.",
+	"NPC: Mas não dizem como esses métodos funcionam.",
+	"Apolo: Então o código fica incompleto?",
+	"NPC: Temporariamente.",
+	"NPC: Alguém precisa implementar esse comportamento depois.",
+	"NPC: As subclasses são obrigadas a fazer isso.",
+	"NPC: Todas seguem o mesmo contrato.",
+	"NPC: Assim, objetos diferentes podem ser usados do mesmo jeito.",
+	"NPC: Você conversa com a abstração, não com a implementação.",
+	"NPC: Isso reduz o acoplamento.",
+	"NPC: E facilita manter e evoluir o sistema.",
+	"NPC: Se o interior mudar, quem usa não percebe.",
+	"NPC: Exatamente como você aprende comigo sem saber quem eu sou."
+
 
 ]
 
