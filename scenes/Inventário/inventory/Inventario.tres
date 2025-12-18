@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=6 format=3 uid="uid://bxtt48ro38hrm"]
+
+[ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_knutq"]
+[ext_resource type="Resource" uid="uid://bc763noybndnr" path="res://scenes/Inventário/Items inventário/Pedra.tres" id="2_3nl5d"]
+[ext_resource type="Resource" uid="uid://xguh752gtc7i" path="res://scenes/Inventário/Items inventário/menino.tres" id="3_0xp2f"]
+[ext_resource type="Resource" uid="uid://cogfcmrx0tvat" path="res://scenes/Inventário/Items inventário/Cobra.tres" id="3_dmsuc"]
+[ext_resource type="Script" uid="uid://cu605quuo7nkk" path="res://scripts/Inventário/inventory.gd" id="4_m2v4j"]
+
+[resource]
+script = ExtResource("4_m2v4j")
+items = Array[ExtResource("1_knutq")]([null, null, null, ExtResource("2_3nl5d"), ExtResource("3_dmsuc"), null, ExtResource("3_0xp2f"), null, null, null, null, null])
+metadata/_custom_type_script = "uid://cu605quuo7nkk"

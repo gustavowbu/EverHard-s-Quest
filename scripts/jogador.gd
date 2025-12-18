@@ -6,6 +6,7 @@ var direction := "down"
 var state := "run"
 @onready var interact_area = $InteractArea
 @export var inv: Inv
+@export var selectedObjecs: Inv 
 @onready var animation = $AnimatedSprite2D
 
 func _ready():

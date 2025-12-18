@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7ix8l77h42hh"]
 
-[ext_resource type="Script" uid="uid://bxviur3p11jnw" path="res://scripts/Inventário/inv_ui_slot.gd" id="1_86fk5"]
+[ext_resource type="Script" uid="uid://rngd0slbdwbq" path="res://scripts/Inventário/inv_ui_object.gd" id="1_efecj"]
 [ext_resource type="Texture2D" uid="uid://cpj1exrf6vr7f" path="res://sprites/inventory_object.png" id="2_86fk5"]
 
 [node name="Inv_UI_object" type="Panel"]
@@ -15,7 +15,7 @@ offset_left = -8.240001
 offset_top = -8.08
 offset_right = 7.7599993
 offset_bottom = 7.92
-script = ExtResource("1_86fk5")
+script = ExtResource("1_efecj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-27, -25)
@@ -39,3 +39,4 @@ offset_bottom = 8.0
 layout_mode = 2
 
 [node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(0.5, 0.5)
