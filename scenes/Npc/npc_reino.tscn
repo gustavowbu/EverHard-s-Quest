@@ -1,3 +1,55 @@
-[gd_scene format=3 uid="uid://dka8k0xci7g00"]
+[gd_scene load_steps=7 format=3 uid="uid://dka8k0xci7g00"]
+
+[ext_resource type="Script" uid="uid://coggp5oybwg6h" path="res://scripts/npc_reino.gd" id="1_cdklc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qbup"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqquw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qykua"]
+bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
+
+[sub_resource type="SystemFont" id="SystemFont_sk8ai"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqqh2"]
+font = SubResource("SystemFont_sk8ai")
+font_size = 7
 
 [node name="NpcReino" type="Area2D"]
+script = ExtResource("1_cdklc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0qbup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wqquw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 101.0
+offset_top = 507.0
+offset_right = 1201.0
+offset_bottom = 657.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qykua")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 146.0
+offset_top = 521.0
+offset_right = 1146.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 21
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="LabelInteracao" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -24.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_iqqh2")
+metadata/_edit_use_anchors_ = true
