@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://dens2k11rjs0b"]
+
+[ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="1_s2muf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8b8c"]
+atlas = ExtResource("1_s2muf")
+region = Rect2(0, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghyu6"]
+atlas = ExtResource("1_s2muf")
+region = Rect2(16, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_for3v"]
+atlas = ExtResource("1_s2muf")
+region = Rect2(32, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqp36"]
+atlas = ExtResource("1_s2muf")
+region = Rect2(48, 0, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bml0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8b8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghyu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_for3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqp36")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmdfc"]
+size = Vector2(101, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsrec"]
+bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
+
+[sub_resource type="SystemFont" id="SystemFont_ddbl7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_31ddc"]
+font = SubResource("SystemFont_ddbl7")
+font_size = 7
+
+[node name="NpcFloresta3" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bml0h")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_jmdfc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 101.0
+offset_top = 507.0
+offset_right = 1201.0
+offset_bottom = 657.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rsrec")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 146.0
+offset_top = 521.0
+offset_right = 1146.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 21
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="LabelInteracao" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -24.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_31ddc")
+metadata/_edit_use_anchors_ = true
