@@ -283,7 +283,7 @@ radius = 22.022715
 [node name="jogador" type="CharacterBody2D"]
 script = ExtResource("1_g1ob3")
 inv = ExtResource("2_s760d")
-selectedObjecs = ExtResource("3_s760d")
+selectedObjects = ExtResource("3_s760d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
