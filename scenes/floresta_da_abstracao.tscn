@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/jogador.tscn" id="12_15aux"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_ueubi"]
 [ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/Objetos/Slime.tscn" id="14_b5exp"]
+
+[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://scenes/Inventário/InventoryScenes/inv_ui.tscn" id="14_tmlbr"]
+
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="15_xc05o"]
 [ext_resource type="PackedScene" uid="uid://ce0aj2242ow4l" path="res://scenes/Npc/npc_floresta.tscn" id="16_7jtjw"]
 [ext_resource type="PackedScene" uid="uid://dn44ulqm6b3vh" path="res://scenes/Npc/npc_floresta2.tscn" id="17_qb6mp"]

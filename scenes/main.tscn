@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://1utk2dlwq3ty" path="res://sprites/Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bspr1m1lfwryx" path="res://sprites/Maps/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_trceg"]
-[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://scenes/Inventário/inv_ui.tscn" id="15_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://scenes/Inventário/InventoryScenes/inv_ui.tscn" id="15_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/Objetos/Slime.tscn" id="17_muem4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
