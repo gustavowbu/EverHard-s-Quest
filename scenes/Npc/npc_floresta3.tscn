@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dens2k11rjs0b"]
+[gd_scene load_steps=12 format=3 uid="uid://dens2k11rjs0b"]
 
+[ext_resource type="Script" uid="uid://cpqn8px2ibunk" path="res://scripts/npc_floresta_3.gd" id="1_bml0h"]
 [ext_resource type="Texture2D" uid="uid://bkgmyhsovxhl5" path="res://sprites/Personagem/Eris Esra's Character Template/16x16 Idle-Sheet 2.png" id="1_s2muf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8b8c"]
@@ -51,6 +52,7 @@ font = SubResource("SystemFont_ddbl7")
 font_size = 7
 
 [node name="NpcFloresta3" type="Area2D"]
+script = ExtResource("1_bml0h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bml0h")
