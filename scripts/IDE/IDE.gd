@@ -24,18 +24,29 @@ func atualizar_codigo():
 	var code: String = editor.text
 	var classe = compiler.parse_code(code)
 
+	if code == "":
+		if not global.tabs[code_index] in ["Main", "Objeto vazio"]:
+			global.objetos.erase(global.tabs[code_index])
+		global.tabs[code_index] = "Objeto vazio"
+		$Objeto/Sprite.texture = null
+		dropdown.clear()
+		return
 	if classe.classe != "Exception":
 		var nome = classe.nome.repr()
-		global.tabs[code_index] = nome
 		if not nome in global.objetos.keys():
 			if nome == "Pedra":
 				global.objetos[nome] = Pedra.new()
 			elif nome == "Slime":
 				global.objetos[nome] = Slime.new()
 			else:
+				if not global.tabs[code_index] in ["Main", "Objeto vazio"]:
+					global.objetos.erase(global.tabs[code_index])
+				global.tabs[code_index] = "Objeto vazio"
 				$Objeto/Sprite.texture = null
 				dropdown.clear()
 				return
+		global.tabs[code_index] = nome
+		global.atualizar_objetos_selecionados()
 		set_codigo(code_index, editor.text, nome)
 		var objeto = global.objetos[nome]
 		$Objeto/Sprite.texture = load(objeto.sprites["64x64_front"])
@@ -53,8 +64,10 @@ func _on_code_edit_text_changed() -> void:
 func _on_run_button_button_down() -> void:
 	var classes = get_classes()
 	var classe = classes.getElement(IntJDT.new(code_index + 2))
+	var nome = classe.nome.repr()
 
-	global.objetos[code_index].metodos = []
+	var objeto = global.objetos[nome]
+	objeto.metodos = []
 	if classe.classe == "Exception":
 		for teste in testes.keys():
 			for i in range(len(testes[teste])):
@@ -94,16 +107,22 @@ func _on_run_button_button_down() -> void:
 				dropdown.elements[i].elements[j].alterar_icone("res://sprites/errado.png")
 			j += 1
 		if metodo_correto:
-			global.objetos[code_index]["metodos"].append(metodo)
+			objeto.metodos.append(metodo)
 		i += 1
 
 func _on_test_button_button_down() -> void: # Rodar a main
+	terminal.limpar()
+
 	var classes = get_classes()
 	var classe = classes.getElement(IntJDT.new(2))
 	var objetos_str = ""
 	for i in range(len(global.objetos)):
-		objetos_str += global.objetos[i].nome
-	print(objetos_str)
+		if i != 0:
+			objetos_str += ", "
+		var key = global.objetos.keys()[i]
+		objetos_str += global.objetos[key].nome + "(" + str(global.objetos[key].metodos) + ")"
+	print("Objetos: ", objetos_str)
+	print("Objetos selecionados: ", global.objetos_selecionados)
 
 	if classe.classe != "Exception":
 		classe.sout.connect(terminal.adicionar_linha)
@@ -124,10 +143,7 @@ func get_classes() -> ArrayJDT:
 	var classe
 	var classes = get_system_out_classes()
 	for i in range(5):
-		if i != 0:
-			code = global.tabs[i]["codigo"]
-		else:
-			code = global.codigo_main
+		code = get_codigo(i)
 		classe = compiler.parse_code(code)
 		if classe.classe != "Exception":
 			classes.append(classe)
@@ -184,7 +200,7 @@ func set_codigo(i: int, codigo: String, nome_objeto = null) -> void:
 
 func update_tabs() -> void:
 	for i in range(5):
-		get_node("CodeArea/Tab" + str(i)).update_text(get_codigo(i))
+		get_node("CodeArea/Tab" + str(i)).update_text(global.tabs[i])
 
 func change_tab(tab: int) -> void:
 	for i in range(5):

@@ -127,7 +127,7 @@ func computar_expressao(expressao: JavaDataType, escopo: Dictionary, this: Class
 		if valor1.classe == "Exception":
 			resultado = valor1
 			return [resultado, escopo]
-		var tipo_valor = valor1.classe
+		var tipo_valor = StringJDT.new(valor1.classe)
 		if valor1.classe == "Class":
 			tipo_valor = valor1.nome
 		if par[0].different(tipo_valor).value:

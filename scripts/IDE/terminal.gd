@@ -15,3 +15,6 @@ func alterar_terminal(linhas_in: Array) -> void:
 			linhas_string += "\n"
 		linhas_string += linhas_in[i]
 	$Text.text = linhas_string
+
+func limpar() -> void:
+	linhas = []

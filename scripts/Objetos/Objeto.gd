@@ -60,9 +60,9 @@ var nome := "Objeto nulo"
 var metodos := []
 var codigo := ""
 
-var vida:= 10
-var forca:= 5
-var defesa:= 5
+var vida := 10.0
+var forca := 5
+var defesa := 5
 var mvida := 1.0
 var mforca := 1.0
 var mdefesa := 1.0
@@ -77,3 +77,9 @@ var sprites = {
 	"64x64_front": null,
 	"64x64_back": null
 }
+
+func atacar(poder: int) -> float:
+	return forca * mforca + poder
+
+func levar_hit(dano: float) -> void:
+	vida -= dano - float(defesa * mdefesa)

@@ -29,11 +29,17 @@ func _ready():
 	btn_run.pressed.connect(_on_run)
 	btn_party.pressed.connect(_on_party)
 
+	var objeto = global.objetos[global.objetos.keys()[0]]
+	var metodos = objeto.metodos
 	# Conectar botões dos ataques
-	attack1.pressed.connect(func(): _on_attack_pressed("Jogar Pedra"))
-	attack2.pressed.connect(func(): _on_attack_pressed("Gosma de SLime"))
-	attack3.pressed.connect(func(): _on_attack_pressed("Bola de Fogo"))
-	attack4.pressed.connect(func(): _on_attack_pressed("Gorfo de Zumbi"))
+	if len(metodos) >= 1:
+		attack1.pressed.connect(func(): _on_attack_pressed(metodos[0]))
+	if len(metodos) >= 2:
+		attack2.pressed.connect(func(): _on_attack_pressed(metodos[1]))
+	if len(metodos) >= 3:
+		attack3.pressed.connect(func(): _on_attack_pressed(metodos[2]))
+	if len(metodos) >= 4:
+		attack4.pressed.connect(func(): _on_attack_pressed(metodos[3]))
 
 	# Conectar botão BACK
 	back_btn.pressed.connect(_on_back)

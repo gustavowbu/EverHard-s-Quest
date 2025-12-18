@@ -207,9 +207,10 @@ offset_bottom = 25.0
 
 [node name="Objeto" type="Sprite2D" parent="."]
 position = Vector2(584, 440)
-scale = Vector2(0.634, 0.634)
+scale = Vector2(5, 5)
 
 [node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
+visible = false
 offset_right = 1282.0
 offset_bottom = 721.0
 mouse_filter = 2
