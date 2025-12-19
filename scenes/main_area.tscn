@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bj41cp1alig7f"]
+[gd_scene load_steps=24 format=4 uid="uid://bj41cp1alig7f"]
 
 [ext_resource type="Script" uid="uid://dvexr0u3m6w31" path="res://scripts/main_area.gd" id="1_2642x"]
 [ext_resource type="Texture2D" uid="uid://b3iopxqvrn3b2" path="res://sprites/tilesets/RF_Catacombs_v1.0/mainlevbuild.png" id="1_u8dlq"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="12_jrhcm"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="13_xqdwv"]
 [ext_resource type="AudioStream" uid="uid://ci0fq4ma4fbxs" path="res://music/main area.wav" id="17_88tdv"]
-[ext_resource type="PackedScene" uid="uid://dv1p42216kgmv" path="res://scenes/Inventário/collectables/snake_collectable.tscn" id="17_u7t1b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1lj0"]
 texture = ExtResource("1_u8dlq")
@@ -2572,7 +2571,6 @@ texture = ExtResource("5_nx8rg")
 script = ExtResource("7_nx8rg")
 
 [node name="DoorToForest(Area2D)" type="Area2D" parent="."]
-visible = false
 script = ExtResource("3_8pu0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToForest(Area2D)"]
@@ -2593,7 +2591,7 @@ script = ExtResource("7_nx8rg")
 script = ExtResource("3_8pu0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToKingdom(Area2D)2"]
-position = Vector2(253.25, -145.75)
+position = Vector2(-249.5, -143.5)
 shape = SubResource("RectangleShape2D_baxvn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="DoorToKingdom(Area2D)2"]
@@ -2605,9 +2603,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_nx8rg")
 script = ExtResource("7_nx8rg")
-
-[node name="stone_collectable2" parent="." instance=ExtResource("17_u7t1b")]
-position = Vector2(-85.25, -63.75)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_88tdv")

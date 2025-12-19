@@ -53,13 +53,14 @@ var current_scene = "res://scenes/main.tscn"
 
 var metodos = {
 	"jogar": {"tipo": "ataque", "poder": 10.0},
+	"bater": {"tipo": "ataque", "poder": 50.0},
 	"aumentar": {"tipo": "status", "poder": 0.0},
 	"rastejar": {"tipo": "status", "poder": 0.0},
 	"veneno": {"tipo": "ataque", "poder": 5.0},
 	"enrolar": {"tipo": "ataque", "poder": 15.0},
 	"crescer": {"tipo": "status", "poder": 0.0},
 	"cair": {"tipo": "ataque", "poder": 1.0},
-	"balançar": {"tipo": "ataque", "poder": 5.0},
+	"balancar": {"tipo": "ataque", "poder": 5.0},
 	"quebrarGalho": {"tipo": "ataque", "poder": 20.0},
 	"fotossintese": {"tipo": "status", "poder": 0.0},
 	"bicar": {"tipo": "ataque", "poder": 12.0},
