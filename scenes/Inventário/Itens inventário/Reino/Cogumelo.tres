@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://ds6e4tgitg4mk"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://ds6e4tgitg4mk"]
 
 [ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_p0b0c"]
+[ext_resource type="Texture2D" uid="uid://7qsvhfj7he3j" path="res://sprites/Objetos/Caverna/Cogumelo/32x32-cogumelo-down.png" id="2_2v56j"]
 
 [resource]
 script = ExtResource("1_p0b0c")
 name = "Cogumelo"
+texture = ExtResource("2_2v56j")
 metadata/_custom_type_script = "uid://c4av2irg6eps5"

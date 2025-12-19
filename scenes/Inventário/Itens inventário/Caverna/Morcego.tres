@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://d1x4s64t5dksa"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://d1x4s64t5dksa"]
 
 [ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_2ijm7"]
+[ext_resource type="Texture2D" uid="uid://coy1o5dyj57t6" path="res://sprites/Objetos/Caverna/Morcego/32x32-morcego-down.png" id="2_k708l"]
 
 [resource]
 script = ExtResource("1_2ijm7")
 name = "Morcego"
+texture = ExtResource("2_k708l")
 metadata/_custom_type_script = "uid://c4av2irg6eps5"

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://cdu5sip4yjmcu"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cdu5sip4yjmcu"]
 
 [ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_317dq"]
+[ext_resource type="Texture2D" uid="uid://ckap0bwmdv7nq" path="res://sprites/Objetos/Caverna/Vespa/32x32-vespa-down.png" id="2_ilwmm"]
 
 [resource]
 script = ExtResource("1_317dq")
-name = "Vespas"
+name = "Vespa"
+texture = ExtResource("2_ilwmm")
 metadata/_custom_type_script = "uid://c4av2irg6eps5"

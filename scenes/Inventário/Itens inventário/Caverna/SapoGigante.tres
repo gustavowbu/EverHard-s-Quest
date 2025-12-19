@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://c8446mp78isf6"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c8446mp78isf6"]
 
 [ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_s3kr6"]
+[ext_resource type="Texture2D" uid="uid://cpmdem21divw5" path="res://sprites/Objetos/Caverna/Sapo Gigante/32x32-sapo_gigante-down.png" id="2_bychl"]
 
 [resource]
 script = ExtResource("1_s3kr6")
 name = "SapoGigante"
+texture = ExtResource("2_bychl")
 metadata/_custom_type_script = "uid://c4av2irg6eps5"
