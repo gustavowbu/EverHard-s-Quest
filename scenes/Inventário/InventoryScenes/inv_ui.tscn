@@ -8,11 +8,12 @@
 
 [node name="Inv_UI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = -65.0
-offset_top = -43.0
-offset_right = 64.0
-offset_bottom = 35.0
+anchor_top = -0.053000003
+anchor_bottom = -0.053000003
+offset_left = -64.0
+offset_top = -39.839996
+offset_right = 65.0
+offset_bottom = 38.160004
 script = ExtResource("1_2dxkv")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -22,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 0.54700005
 anchor_right = 0.5
 anchor_bottom = 0.54700005
-offset_left = -64.5
-offset_top = -42.666004
-offset_right = 64.5
-offset_bottom = 35.333996
+offset_left = -65.5
+offset_top = -43.666004
+offset_right = 63.5
+offset_bottom = 34.333996
 texture = ExtResource("2_qnoh4")
 region_rect = Rect2(26.863907, 25.005798, 16.295273, 16.024918)
 patch_margin_left = 6
@@ -106,18 +107,6 @@ layout_mode = 2
 [node name="Inv_UI_object4" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.837
-anchor_top = 0.75600004
-anchor_right = 0.837
-anchor_bottom = 0.75600004
-offset_left = -12.973
-offset_top = 6.0319977
-offset_right = 13.027
-offset_bottom = 14.031998
-
 [node name="MoveButton" type="Button" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = -1
@@ -125,8 +114,8 @@ anchor_left = 0.837
 anchor_top = 0.75600004
 anchor_right = 0.837
 anchor_bottom = 0.75600004
-offset_left = -12.973
-offset_top = -3.9680023
-offset_right = 13.027
-offset_bottom = 4.0319977
+offset_left = -13.973
+offset_top = 2.0319977
+offset_right = 11.027
+offset_bottom = 10.031998
 script = ExtResource("5_lq7j1")

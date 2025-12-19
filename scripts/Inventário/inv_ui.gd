@@ -14,20 +14,51 @@ func _ready():
 	close()
 	
 	setup_slots()
+	
+	sync_selected_to_global()
 
 func setup_slots():
 	for i in range(slots.size()):
 		if slots[i] is DragSlot:  # Verifica se é do tipo correto
 			slots[i].setup(i)  # Passa apenas o índice
-		else:
-			print("ERRO: Slot ", i, " não é do tipo DragSlot!")
 	
 	# Configura slots vermelhos  
 	for i in range(red_slots.size()):
 		if red_slots[i] is DragSlotRed:  
 			red_slots[i].setup(i) 
+			
+
+func _on_selected_items_changed():
+	# Chamado quando os itens selecionados mudam
+	print("Itens selecionados mudaram! Sincronizando com global...")
+	sync_selected_to_global()
+
+func sync_selected_to_global():
+	# Obtém os nomes dos itens dos slots vermelhos
+	var item_names = selectedObjects.get_item_names()
+	
+	# Atualiza o array tabs do global
+	update_global_tabs(item_names)
+
+func update_global_tabs(item_names: Array[String]):
+	# O array tabs deve ter: ["Main"] + [4 itens dos slots vermelhos]
+	var new_tabs = ["Main"]
+	
+	# Adiciona os 4 itens (ou "Objeto vazio" se não tiver item)
+	for i in range(4):  # Sempre 4 slots
+		if i < item_names.size():
+			new_tabs.append(item_names[i])
 		else:
-			print("ERRO: Slot vermelho ", i, " não é do tipo DragSlotRed!")
+			new_tabs.append("Objeto vazio")
+	
+	# Atualiza o global
+	global.tabs = new_tabs
+	
+	# Atualiza a lista de objetos selecionados
+	global.atualizar_objetos_selecionados()
+	
+	print("Global.tabs atualizado: ", global.tabs)
+	print("Objetos selecionados: ", global.objetos_selecionados)
 
 func process_drag_drop(from_index: int, from_is_red: bool, to_index: int, to_is_red: bool):
 	print("Processando drag & drop:")
@@ -55,6 +86,10 @@ func process_drag_drop(from_index: int, from_is_red: bool, to_index: int, to_is_
 	else:
 		# Vermelho → Vermelho (troca dentro do inventário selecionado)
 		swap_red_slots(from_index, to_index)
+	if from_is_red or to_is_red:
+		sync_selected_to_global()
+		
+
 
 func move_to_red_slot(main_index: int, red_index: int):
 	if main_index >= inv.slots.size() or red_index >= selectedObjects.slots.size():

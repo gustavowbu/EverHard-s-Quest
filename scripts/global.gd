@@ -43,6 +43,8 @@ func atualizar_objetos_selecionados() -> void:
 	for tab in tabs:
 		if not tab in ["Main", "Objeto vazio"]:
 			objetos_selecionados.append(tab)
+	print("Objetos selecionados atualizados: ", objetos_selecionados)
+	
 
 var current_scene = "res://scenes/main.tscn"
 
@@ -50,3 +52,12 @@ var metodos = {
 	"jogar": {"tipo": "ataque", "poder": 10},
 	"aumentar": {"tipo": "status", "poder": 0}
 }
+
+func objeto_disponivel(nome_objeto: String) -> bool:
+	return nome_objeto in objetos_selecionados
+
+# Função para obter o código de um objeto
+func obter_codigo_objeto(nome_objeto: String) -> String:
+	if nome_objeto in objetos:
+		return objetos[nome_objeto].codigo
+	return ""
