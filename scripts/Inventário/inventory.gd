@@ -3,6 +3,7 @@ extends Resource
 class_name Inv
 
 signal update
+signal items_changed
 @export var slots: Array[InvSlot]
 
 func insert(item: InvItem):
@@ -15,3 +16,13 @@ func insert(item: InvItem):
 			emptyslots[0].item = item
 			emptyslots[0].amount = 1
 	update.emit()
+	items_changed.emit()
+
+func get_item_names() -> Array[String]:
+	var names: Array[String] = []
+	for slot in slots:
+		if slot.item:
+			names.append(slot.item.name)
+		else:
+			names.append("Objeto vazio")
+	return names
