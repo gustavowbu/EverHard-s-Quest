@@ -27,8 +27,6 @@ var falas = [
 	"NPC: Acesso só acontece por métodos públicos.",
 	"NPC: Isso se chama encapsulamento.",
 	"NPC: Menos bagunça. Menos erro."
-
-
 ]
 
 func _ready() -> void:

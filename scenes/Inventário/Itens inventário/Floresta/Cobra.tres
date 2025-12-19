@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cogfcmrx0tvat"]
 
 [ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_kbs4l"]
-[ext_resource type="Texture2D" uid="uid://xq1b7nqnwrnu" path="res://sprites/Objetos/Cobra/32x32-cobra-down.png" id="2_kbs4l"]
+[ext_resource type="Texture2D" uid="uid://xq1b7nqnwrnu" path="res://sprites/Objetos/Floresta/Cobra/32x32-cobra-down.png" id="2_kbs4l"]
 
 [resource]
 script = ExtResource("1_kbs4l")

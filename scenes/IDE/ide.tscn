@@ -387,6 +387,7 @@ offset_left = 6.0
 offset_top = 6.0
 offset_right = 23.0
 offset_bottom = 23.0
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j6rtg")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sjxxe")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qfil8")
@@ -400,6 +401,7 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gfr3l")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_45xky")
 
 [node name="SetaVoltando" type="Sprite2D" parent="Back button"]
+position = Vector2(8, 8)
 scale = Vector2(0.020017793, 0.020017793)
 texture = ExtResource("6_yvh0p")
 centered = false
