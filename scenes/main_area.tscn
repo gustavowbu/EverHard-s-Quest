@@ -2520,7 +2520,7 @@ tile_map_data = PackedByteArray("AAD9////BAAHAAEAAAD9/wAABAAHAAIAAAD9/wEABAAHAAA
 tile_set = SubResource("TileSet_xqdwv")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AADv/wIABAAGAAQAAADv/wMABAAGAAUAAAD///L/BAAGAAMAAAAAAPL/BAAHAAMAAAD2/wUABAAEAAYAAAD5//7/BAAHAAcAAAD2////BAAIAAYAAAD1/wEABAAAAAkAAADw/wEABAAAAAkAAAD2/wAABAABAAkAAAD2/wQABAABAAkAAAD+/wUABAAIAAgAAAADAAMABAAJAAUAAAADAAEABAAJAAUAAAD9//3/BAAJAAUAAAAJAAEABAAFAAYAAAD2/wEABQACAAAAAAADAAAABQAEAAEAABD4/wEABAAFAAkAAAD4/wQABAAFAAkAAAD9/wAABAAFAAkAAAD7/wEABAAFAAkAAAD7/wQABAAFAAkAAAD+/wQABAAFAAkAAAD///7/BAAFAAkAAAABAAQABAAFAAkAAAA=")
+tile_map_data = PackedByteArray("AADv/wIABAAGAAQAAADv/wMABAAGAAUAAAD///L/BAAGAAMAAAAAAPL/BAAHAAMAAAD2/wUABAAEAAYAAAD5//7/BAAHAAcAAAD2////BAAIAAYAAAD1/wEABAAAAAkAAADw/wEABAAAAAkAAAD2/wAABAABAAkAAAD2/wQABAABAAkAAAD+/wUABAAIAAgAAAADAAMABAAJAAUAAAADAAEABAAJAAUAAAD9//3/BAAJAAUAAAAJAAEABAAFAAYAAAD2/wEABQACAAAAAAADAAAABQAEAAEAABD4/wEABAAFAAkAAAD4/wQABAAFAAkAAAD9/wAABAAFAAkAAAD7/wEABAAFAAkAAAD7/wQABAAFAAkAAAD+/wQABAAFAAkAAAD///7/BAAFAAkAAAABAAQABAAFAAkAAADw//b/BAAGAAQAAADw//f/BAAGAAUAAAA=")
 tile_set = SubResource("TileSet_xqdwv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -2571,6 +2571,23 @@ offset_bottom = 40.0
 texture = ExtResource("5_nx8rg")
 script = ExtResource("7_nx8rg")
 
+[node name="DoorToKingdom(Area2D)2" type="Area2D" parent="."]
+script = ExtResource("3_8pu0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToKingdom(Area2D)2"]
+position = Vector2(-248.5, -144.5)
+shape = SubResource("RectangleShape2D_baxvn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DoorToKingdom(Area2D)2"]
+visible = false
+script = ExtResource("5_k78ul")
+
+[node name="TextureRect" type="TextureRect" parent="DoorToKingdom(Area2D)2/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_nx8rg")
+script = ExtResource("7_nx8rg")
+
 [node name="stone_collectable2" parent="." instance=ExtResource("17_u7t1b")]
 position = Vector2(-114.25, -88.5)
 
@@ -2579,3 +2596,4 @@ stream = ExtResource("17_88tdv")
 autoplay = true
 
 [connection signal="body_entered" from="DoorToForest(Area2D)" to="." method="_on_door_to_forest_area_2d_body_entered"]
+[connection signal="body_entered" from="DoorToKingdom(Area2D)2" to="." method="_on_door_to_forest_area_2d_body_entered"]
