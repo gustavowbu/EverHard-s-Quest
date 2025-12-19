@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7eqmvtyuly1s"]
+[gd_scene load_steps=8 format=3 uid="uid://c7eqmvtyuly1s"]
 
 [ext_resource type="Script" uid="uid://cbvbwgt1p30kw" path="res://scripts/battle/BattleScene.gd" id="1_2fq3d"]
 [ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_8e0o3"]
 [ext_resource type="Texture2D" uid="uid://c25pueiyo0b1d" path="res://sprites/Player/64x64_back.png" id="3_2fq3d"]
 [ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="5_e0cih"]
+[ext_resource type="AudioStream" uid="uid://bx0hh8nx8qvk6" path="res://music/BATTLE THEME.wav" id="6_jnwg1"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="6_ndsvx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w5rgc"]
@@ -215,3 +216,7 @@ offset_right = 1282.0
 offset_bottom = 721.0
 mouse_filter = 2
 mouse_behavior_recursive = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jnwg1")
+autoplay = true

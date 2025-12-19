@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cm6cpyd0xxnta"
+path="res://.godot/imported/CAVERNAAAAAAAAAAAAAAAA eu acho.wav-6c5fe6d3043b9b4406bca8ffcc698f13.sample"
+
+[deps]
+
+source_file="res://music/CAVERNAAAAAAAAAAAAAAAA eu acho.wav"
+dest_files=["res://.godot/imported/CAVERNAAAAAAAAAAAAAAAA eu acho.wav-6c5fe6d3043b9b4406bca8ffcc698f13.sample"]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

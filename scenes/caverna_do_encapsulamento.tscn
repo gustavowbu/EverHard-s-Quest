@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://ir8xp7o8mcfm"]
+[gd_scene load_steps=27 format=4 uid="uid://ir8xp7o8mcfm"]
 
 [ext_resource type="Texture2D" uid="uid://6o6aqkwfa1kq" path="res://sprites/DampDungeons/DampDungeons/Tiles/Dungeon_WallsAndFloors.png" id="1_82ete"]
 [ext_resource type="Texture2D" uid="uid://bxxmb0k0osldv" path="res://sprites/DampDungeons/DampDungeons/Tiles/DungeonDecorations.png" id="2_oi2wp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cekjls12kypke" path="res://scenes/Npc/npc_caaverna.tscn" id="11_gg4ug"]
 [ext_resource type="PackedScene" uid="uid://n0anw4x5ooj3" path="res://scenes/Npc/npc_caverna2.tscn" id="12_dyt5b"]
 [ext_resource type="PackedScene" uid="uid://bye4hljyt2fsf" path="res://scenes/Npc/npc_caverna3.tscn" id="13_80p2q"]
+[ext_resource type="AudioStream" uid="uid://cm6cpyd0xxnta" path="res://music/CAVERNAAAAAAAAAAAAAAAA eu acho.wav" id="14_lux2j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyt5b"]
 texture = ExtResource("1_82ete")
@@ -23858,3 +23859,7 @@ position = Vector2(410.28568, -332.85712)
 
 [node name="NpcCaverna3" parent="." instance=ExtResource("13_80p2q")]
 position = Vector2(-594.8571, 23.142883)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_lux2j")
+autoplay = true

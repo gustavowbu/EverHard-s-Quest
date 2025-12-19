@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bahh0ovdvc2th"]
+[gd_scene load_steps=34 format=4 uid="uid://bahh0ovdvc2th"]
 
 [ext_resource type="Script" uid="uid://b2mvffkbwbucc" path="res://scripts/floresta_da_abstracao.gd" id="1_6fifn"]
 [ext_resource type="Texture2D" uid="uid://dbw3lavju3ssm" path="res://sprites/tilesets/7.png" id="2_tmlbr"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b6tubsioidgk3" path="res://scenes/Objetos/Floresta/Arvore.tscn" id="19_l3ery"]
 [ext_resource type="PackedScene" uid="uid://di4wayxqepnul" path="res://scenes/Objetos/Floresta/Minhoca.tscn" id="20_kjq1t"]
 [ext_resource type="PackedScene" uid="uid://bmiv2pgstv60r" path="res://scenes/Objetos/Floresta/Passaro.tscn" id="21_wmct8"]
+[ext_resource type="AudioStream" uid="uid://bvkmdea8ytjja" path="res://music/boss.wav" id="22_kjq1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mgxn"]
 texture = ExtResource("2_tmlbr")
@@ -2410,3 +2411,7 @@ metodos = ["quebrarGalho"]
 
 [node name="Cobra2" parent="." instance=ExtResource("18_7jtjw")]
 position = Vector2(314.5, 56.25)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_kjq1t")
+autoplay = true

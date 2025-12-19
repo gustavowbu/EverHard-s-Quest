@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cnyev33883wjr"]
+[gd_scene load_steps=25 format=4 uid="uid://cnyev33883wjr"]
 
 [ext_resource type="Texture2D" uid="uid://vnaf1uh1qyck" path="res://sprites/Pixel Crawler - Free Pack/Environment/Tilesets/Water_tiles.png" id="1_xx1cl"]
 [ext_resource type="Texture2D" uid="uid://bknpvifvlneve" path="res://sprites/Pixel Crawler - Free Pack/Environment/Tilesets/Floors_Tiles.png" id="2_iyh6g"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b2vnq6t3oiw1t" path="res://scenes/Npc/npc_rio2.tscn" id="11_1rlfs"]
 [ext_resource type="PackedScene" uid="uid://by7aic05pajs7" path="res://scenes/Npc/npc_rio3.tscn" id="12_837ox"]
 [ext_resource type="PackedScene" uid="uid://dpmjrfa5lpvvn" path="res://scenes/Npc/npc_rio.tscn" id="13_rqw06"]
+[ext_resource type="AudioStream" uid="uid://dc2ulhq3l6bso" path="res://music/poly.wav" id="14_837ox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6mrr"]
 texture = ExtResource("1_xx1cl")
@@ -2447,3 +2448,7 @@ position = Vector2(-211.99998, 151.14285)
 
 [node name="Npc_inicial" parent="." instance=ExtResource("13_rqw06")]
 position = Vector2(288.14285, 302.2857)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_837ox")
+autoplay = true

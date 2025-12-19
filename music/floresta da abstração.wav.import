@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dx4eneqdq1aah"
+path="res://.godot/imported/floresta da abstração.wav-8068c1298dac933e6303c8cc26f83269.sample"
+
+[deps]
+
+source_file="res://music/floresta da abstração.wav"
+dest_files=["res://.godot/imported/floresta da abstração.wav-8068c1298dac933e6303c8cc26f83269.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

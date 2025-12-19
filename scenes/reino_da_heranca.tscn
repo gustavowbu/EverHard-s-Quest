@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://d3di2xukmltp4"]
+[gd_scene load_steps=33 format=4 uid="uid://d3di2xukmltp4"]
 
 [ext_resource type="Texture2D" uid="uid://cwi45f15vh6gu" path="res://sprites/Pixel Art Top Down basic 1.2.2/TX Tileset Grass.png" id="1_1dhon"]
 [ext_resource type="Texture2D" uid="uid://c7g83fhewmolq" path="res://sprites/Pixel Art Top Down basic 1.2.2/TX Tileset Stone Ground.png" id="2_kl8v5"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dka8k0xci7g00" path="res://scenes/Npc/npc_reino.tscn" id="11_upjuc"]
 [ext_resource type="PackedScene" uid="uid://coo7qw8tbyjmi" path="res://scenes/Npc/npc_reino2.tscn" id="12_d3s61"]
 [ext_resource type="PackedScene" uid="uid://bpxqxrh3uero7" path="res://scenes/Npc/npc_reino3.tscn" id="13_naxjy"]
+[ext_resource type="AudioStream" uid="uid://kko6d6uauwl5" path="res://music/reino.wav" id="14_d3s61"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jr67o"]
 texture = ExtResource("1_1dhon")
@@ -3341,3 +3342,7 @@ position = Vector2(745.4285, 319.99997)
 
 [node name="NpcReino3" parent="." instance=ExtResource("13_naxjy")]
 position = Vector2(-17.714285, 916.28564)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_d3s61")
+autoplay = true
