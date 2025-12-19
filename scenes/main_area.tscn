@@ -2573,12 +2573,12 @@ texture = ExtResource("5_nx8rg")
 script = ExtResource("7_nx8rg")
 
 [node name="stone_collectable" parent="." instance=ExtResource("16_85b0o")]
-position = Vector2(77.25, -99.25)
+position = Vector2(84.5, -80.25)
 
 [node name="stone_collectable2" parent="." instance=ExtResource("17_u7t1b")]
 position = Vector2(-114.25, -88.5)
 
 [node name="stone_collectable3" parent="." instance=ExtResource("18_88tdv")]
-position = Vector2(-18.5, -95.5)
+position = Vector2(-6, -105.25)
 
 [connection signal="body_entered" from="DoorToForest(Area2D)" to="." method="_on_door_to_forest_area_2d_body_entered"]
