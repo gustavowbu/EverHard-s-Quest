@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dhuvhfot64dxo" path="res://scripts/jogador.gd" id="1_g1ob3"]
 [ext_resource type="Resource" uid="uid://bxtt48ro38hrm" path="res://sprites/inventory/Inventario.tres" id="2_s760d"]
-[ext_resource type="Texture2D" uid="uid://b81rj4uaotyw7" path="res://sprites/apolo running.png" id="3_g1ob3"]
-[ext_resource type="Texture2D" uid="uid://bl036pi1yailf" path="res://sprites/apolo.png" id="4_qcln2"]
+[ext_resource type="Texture2D" uid="uid://bvrtssgnx0uh7" path="res://sprites/Player/32x32_apolo_running.png" id="3_g1ob3"]
+[ext_resource type="Texture2D" uid="uid://bkavav57mxiq3" path="res://sprites/Player/32x32_apolo.png" id="4_qcln2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcln2"]
 atlas = ExtResource("4_qcln2")

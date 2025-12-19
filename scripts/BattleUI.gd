@@ -18,8 +18,9 @@ signal battle_ended
 @onready var attack4 = $BoxPanel/FightBox/Attack4
 @onready var back_btn = $BoxPanel/VBox/BackButton
 
-# Estados possíveis: "message", "actions", "fight"
-var state: String = "message"
+# Estados possíveis: "message", "actions", "fight", "victory"
+var state := "message"
+var messages := []
 
 func _ready():
 	update_status_boxes()
@@ -47,7 +48,11 @@ func _ready():
 	# Inicial
 	fight_box.visible = false
 	action_box.visible = false
-	show_message("Um inimigo apareceu!")
+
+	var artigo = "Um"
+	if global.enemy.pronomes == "ela/dela":
+		artigo += "a"
+	show_message(artigo + " " + global.enemy.nome + " selvagem apareceu!")
 
 #  SISTEMA DE MENSAGENS
 func show_message(text: String):
@@ -57,22 +62,21 @@ func show_message(text: String):
 	message_box.visible = true
 	message_label.text = text
 
-
 func show_actions():
 	state = "actions"
-	message_box.visible = false
 	fight_box.visible = false
 	action_box.visible = true
-
+	message_box.visible = true
+	message_label.text = ""
 
 func show_fight():
 	state = "fight"
-	message_box.visible = false
-	action_box.visible = false
 	fight_box.visible = true
+	action_box.visible = false
+	message_box.visible = true
+	message_label.text = ""
 
 func _close_battle_ui():
-	
 	self.visible = false   # desativa TODO o BattleUI
 
 	# Se quiser despausar o jogo quando acabar:
@@ -81,7 +85,6 @@ func _close_battle_ui():
 # Enter automaticamente sai das mensagens
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept"):
-
 		if state == "message":
 			show_actions()
 
@@ -134,18 +137,17 @@ var enemy_max_hp = 40
 var enemy_hp = 40
 
 func update_status_boxes():
-	
 	update_hp_color(player_hp_bar, player_hp, player_max_hp)
 	update_hp_color(enemy_hp_bar, enemy_hp, enemy_max_hp)
 
 	# Player
-	player_name.text = "Diluc"
+	player_name.text = "Apolo"
 	player_hp_label.text = str(player_hp, " / ", player_max_hp)
 	player_hp_bar.max_value = player_max_hp
 	player_hp_bar.value = player_hp
 
 	# Enemy
-	enemy_name.text = "Slime"
+	enemy_name.text = global.enemy.nome
 	enemy_hp_label.text = str(enemy_hp, " / ", enemy_max_hp)
 	enemy_hp_bar.max_value = enemy_max_hp
 	enemy_hp_bar.value = enemy_hp
@@ -193,8 +195,8 @@ func end_battle():
 	fight_box.visible = false
 
 	message_label.text = "Você derrotou o inimigo!\nGanhou %d XP!" % xp_reward
-	
+
 	# Espera o jogador ver a mensagem
 	await get_tree().create_timer(1.5).timeout
-	
+
 	emit_signal("battle_ended")

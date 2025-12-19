@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://c5m0fm6cvdmgl"]
+[gd_scene load_steps=4 format=3 uid="uid://bmiv2pgstv60r"]
+
+[ext_resource type="Script" uid="uid://beo83fjxy1syf" path="res://scripts/Objetos/Floresta/Passaro.gd" id="1_6jk35"]
+[ext_resource type="Texture2D" uid="uid://by762vax7b1q6" path="res://sprites/Objetos/Floresta/Passaro/32x32-passaro-down.png" id="1_rsaid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jk35"]
+size = Vector2(14, 21)
 
 [node name="Passaro" type="CharacterBody2D"]
+script = ExtResource("1_6jk35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_6jk35")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rsaid")

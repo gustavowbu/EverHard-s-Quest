@@ -17,8 +17,10 @@ var codigo_main = """public class Main {
 }
 """
 
-var player_position: Vector2 = Vector2.ZERO
-var inimigo_derrotado: String = ""
+var player_position := Vector2.ZERO
+var enemy = null
+var enemy_name = ""
+var enemies_defeated = []
 
 func _ready() -> void:
 	var codigo_pedra = """public class Pedra {

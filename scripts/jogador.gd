@@ -12,7 +12,6 @@ func _ready():
 	$FadeLayer.fade_in()
 	if global.player_position != Vector2.ZERO:
 		global_position = global.player_position
-		print("POSIÇÃO RESTAURADA:", global_position)
 
 func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
 	if Input.is_action_just_pressed("ide"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bahh0ovdvc2th"]
+[gd_scene load_steps=30 format=4 uid="uid://bahh0ovdvc2th"]
 
 [ext_resource type="Script" uid="uid://b2mvffkbwbucc" path="res://scripts/floresta_da_abstracao.gd" id="1_6fifn"]
 [ext_resource type="Texture2D" uid="uid://dbw3lavju3ssm" path="res://sprites/tilesets/7.png" id="2_tmlbr"]
@@ -13,9 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dqnhjxam3n4hx" path="res://sprites/tilesets/8.png" id="11_23hjr"]
 [ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/jogador.tscn" id="12_15aux"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_ueubi"]
-[ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/Objetos/Slime.tscn" id="14_b5exp"]
-[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://scenes/Inventário/inv_ui.tscn" id="14_tmlbr"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="15_xc05o"]
+[ext_resource type="PackedScene" uid="uid://bmiv2pgstv60r" path="res://scenes/Objetos/Floresta/Passaro.tscn" id="16_7jtjw"]
+[ext_resource type="PackedScene" uid="uid://b1ecp3b3rdvjg" path="res://scenes/Objetos/Floresta/Cobra.tscn" id="16_tmlbr"]
+[ext_resource type="PackedScene" uid="uid://b6tubsioidgk3" path="res://scenes/Objetos/Floresta/Arvore.tscn" id="17_qb6mp"]
+[ext_resource type="PackedScene" uid="uid://di4wayxqepnul" path="res://scenes/Objetos/Floresta/Minhoca.tscn" id="18_y54ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mgxn"]
 texture = ExtResource("2_tmlbr")
@@ -2357,6 +2359,7 @@ grow_vertical = 1
 scale = Vector2(0.3, 0.3)
 
 [node name="FadeLayer" parent="jogador" instance=ExtResource("15_xc05o")]
+visible = false
 z_index = 3
 offset_left = -124.23077
 offset_top = -70.0
@@ -2365,25 +2368,23 @@ offset_bottom = 70.19232
 mouse_filter = 1
 mouse_behavior_recursive = 1
 
-[node name="slime" parent="." instance=ExtResource("14_b5exp")]
-position = Vector2(234, 112)
-velocidade = 70.0
-distancia_max = 300.0
-
-[node name="slime2" parent="." instance=ExtResource("14_b5exp")]
-position = Vector2(53.25, 53.25)
-velocidade = 70.0
-distancia_max = 300.0
-
-[node name="slime3" parent="." instance=ExtResource("14_b5exp")]
-position = Vector2(253.5, 59.75)
-velocidade = 70.0
-distancia_max = 300.0
-
-[node name="slime4" parent="." instance=ExtResource("14_b5exp")]
-position = Vector2(-106.5, -24.25)
-velocidade = 70.0
-distancia_max = 300.0
-
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../jogador/Camera2D2")
+
+[node name="Cobra" parent="." instance=ExtResource("16_tmlbr")]
+position = Vector2(32.5, 20.25)
+velocidade = null
+mover_no_eixo_x = null
+mover_no_eixo_y = null
+distancia_max = null
+raio_acao = null
+caminho_cena_batalha = null
+
+[node name="Passaro" parent="." instance=ExtResource("16_7jtjw")]
+position = Vector2(-57, -42.5)
+
+[node name="Arvore" parent="." instance=ExtResource("17_qb6mp")]
+position = Vector2(-0.25, 39.25)
+
+[node name="Minhoca" parent="." instance=ExtResource("18_y54ee")]
+position = Vector2(121.75, 73)
