@@ -14,14 +14,20 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"Apolo: Como sabe meu nome?",
-	"NPC: Eu sei de tudo.", 
-	"Apolo: Tô sabendo… Mas o que você é? Roupa meio esquisita essa sua.", 
-	"NPC: O que eu sou… não importa. Importa o que eu faço.",
-	"Apolo: Isso não respondeu nada.",
-	"NPC: Você não precisa saber como eu funciono. Só precisa saber o que esperar de mim.",
-	"NPC: No caso, estou te dando conhecimento.",
-	"NPC: Em Java, isso se chama abstração. O resto fica escondido.",
+	"Apolo: Como você sabe meu nome?",
+	"NPC: Eu sei o suficiente.",
+	"Apolo: Tô sabendo… Mas afinal, o que você é? Essa roupa não ajuda muito.",
+	"NPC: O que eu sou não importa.",
+	"NPC: O que importa é o que eu faço.",
+	"Apolo: Isso ainda não explica nada.",
+	"NPC: Explica sim.",
+	"NPC: Você não precisa saber como eu funciono por dentro.",
+	"NPC: Só precisa saber o que pode esperar de mim.",
+	"NPC: Eu entrego conhecimento.",
+	"NPC: Em programação orientada a objetos, isso se chama abstração.",
+	"NPC: Mostrar o que um objeto faz… e esconder como ele faz.",
+	"NPC: O resto fica oculto."
+
 
 ]
 

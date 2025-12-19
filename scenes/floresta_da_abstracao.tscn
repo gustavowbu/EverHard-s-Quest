@@ -13,7 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dqnhjxam3n4hx" path="res://sprites/tilesets/8.png" id="11_23hjr"]
 [ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/jogador.tscn" id="12_15aux"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_ueubi"]
+[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://scenes/Inventário/InventoryScenes/inv_ui.tscn" id="14_tmlbr"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="15_xc05o"]
+[ext_resource type="PackedScene" uid="uid://ce0aj2242ow4l" path="res://scenes/Npc/npc_floresta.tscn" id="16_7jtjw"]
+[ext_resource type="PackedScene" uid="uid://dn44ulqm6b3vh" path="res://scenes/Npc/npc_floresta2.tscn" id="17_qb6mp"]
+[ext_resource type="PackedScene" uid="uid://dens2k11rjs0b" path="res://scenes/Npc/npc_floresta3.tscn" id="18_y54ee"]
 [ext_resource type="PackedScene" uid="uid://bmiv2pgstv60r" path="res://scenes/Objetos/Floresta/Passaro.tscn" id="16_7jtjw"]
 [ext_resource type="PackedScene" uid="uid://b1ecp3b3rdvjg" path="res://scenes/Objetos/Floresta/Cobra.tscn" id="16_tmlbr"]
 [ext_resource type="PackedScene" uid="uid://b6tubsioidgk3" path="res://scenes/Objetos/Floresta/Arvore.tscn" id="17_qb6mp"]
@@ -2367,6 +2371,9 @@ offset_right = 123.65385
 offset_bottom = 70.19232
 mouse_filter = 1
 mouse_behavior_recursive = 1
+
+[node name="Inv_UI" parent="jogador" instance=ExtResource("14_tmlbr")]
+visible = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../jogador/Camera2D2")

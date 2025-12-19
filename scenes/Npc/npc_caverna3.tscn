@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://bye4hljyt2fsf"]
+
+[ext_resource type="Script" uid="uid://dcmbv7g4b0s56" path="res://scripts/npc_caverna_3.gd" id="1_jy6fw"]
+[ext_resource type="Texture2D" uid="uid://dvcis5yqio78k" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/adventurer_03/adventurer_03_1.png" id="2_6qrn0"]
+[ext_resource type="Texture2D" uid="uid://dlb2ox4qug0qj" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/adventurer_03/adventurer_03_2.png" id="3_glt7r"]
+[ext_resource type="Texture2D" uid="uid://cyns8kfpt7you" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/adventurer_03/adventurer_03_3.png" id="4_2m5re"]
+[ext_resource type="Texture2D" uid="uid://kep70cejjbga" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/adventurer_03/adventurer_03_4.png" id="5_w3on4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prune"]
+atlas = ExtResource("2_6qrn0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj4gg"]
+atlas = ExtResource("3_glt7r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm5av"]
+atlas = ExtResource("4_2m5re")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfisb"]
+atlas = ExtResource("5_w3on4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jy6fw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prune")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj4gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm5av")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfisb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5mm2"]
+size = Vector2(101, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swvxe"]
+bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
+
+[sub_resource type="SystemFont" id="SystemFont_6qrn0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_glt7r"]
+font = SubResource("SystemFont_6qrn0")
+font_size = 7
+
+[node name="NpcCaverna3" type="Area2D"]
+script = ExtResource("1_jy6fw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jy6fw")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_o5mm2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 101.0
+offset_top = 507.0
+offset_right = 1201.0
+offset_bottom = 657.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_swvxe")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 146.0
+offset_top = 521.0
+offset_right = 1146.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 21
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="LabelInteracao" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -24.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_glt7r")
+metadata/_edit_use_anchors_ = true

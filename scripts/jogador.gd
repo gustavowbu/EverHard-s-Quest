@@ -6,12 +6,22 @@ var direction := "down"
 var state := "run"
 @onready var interact_area = $InteractArea
 @export var inv: Inv
+@export var selectedObjects: Inv 
 @onready var animation = $AnimatedSprite2D
 
 func _ready():
 	$FadeLayer.fade_in()
 	if global.player_position != Vector2.ZERO:
 		global_position = global.player_position
+		print("POSIÇÃO RESTAURADA:", global_position)
+
+	# Isso é um debug pq o inv vermelho está com problema
+	print("Inventário principal carregado:", inv != null)
+	print("Inventário selecionado carregado:", selectedObjects != null)
+	if selectedObjects != null:
+		print("Slots no inventário selecionado:", selectedObjects.slots.size())
+		for i in range(selectedObjects.slots.size()):
+			print("Slot", i, ":", "Vazio" if selectedObjects.slots[i].item == null else selectedObjects.slots[i].item.name)
 
 func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
 	if Input.is_action_just_pressed("ide"):
@@ -73,3 +83,32 @@ func _input(event):
 
 func player() -> void:
 	pass
+
+func collect(item):
+	inv.insert(item)
+	
+func select_item(item: InvItem):
+	if selectedObjects == null:
+		print("ERRO CRÍTICO: selectedObjects é NULO!")
+		return
+	print("=== ADICIONANDO AO INVENTÁRIO SELECIONADO ===")
+	print("Item:", item.name)
+	print("Textura do item:", item.texture != null)
+	
+	# Verifica slots antes de inserir
+	var empty_slots = selectedObjects.slots.filter(func(slot): return slot.item == null)
+	print("Slots vazios no inventário selecionado:", empty_slots.size())
+	
+	# Chama insert
+	selectedObjects.insert(item)
+	
+	# Verifica após inserir
+	print("Após inserir - Slots:")
+	for i in range(selectedObjects.slots.size()):
+		var slot = selectedObjects.slots[i]
+		if slot.item:
+			print("Slot", i, ":", slot.item.name, "Quantidade:", slot.amount)
+		
+		else:
+			print("Slot", i, ": Vazio")
+		print("==============================")

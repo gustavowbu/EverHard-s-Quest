@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://b3bdq2pojl7d"]
+
+[ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_yuxst"]
+
+[resource]
+script = ExtResource("1_yuxst")
+name = "Borboleta"
+metadata/_custom_type_script = "uid://c4av2irg6eps5"

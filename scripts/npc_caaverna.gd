@@ -15,14 +15,19 @@ var fala_index = 0
 
 var falas = [
 	"NPC: Ei! Veja isso aqui…",
-	"Apolo: … Não tem nada aí.",
-	"NPC: Ah, você não consegue ver? Pois bem, esqueci que era um atributo privado.",
-	"NPC: Pode ir andando.",
-	"NPC: …",
-	"Apolo: E agora? Não posso ver?",
-	"NPC: Pode, mas do jeito certo. Em Java, dados ficam protegidos dentro da classe…",
-	"NPC: … acesso só por métodos públicos.",
-	"NPC: Encapsulamento evita bagunça e erros inesperados.",
+	"Apolo: …Não tem nada aí.",
+	"NPC: Claro que tem.",
+	"NPC: Mas você não consegue ver.",
+	"NPC: Esqueci que isso é um atributo privado.",
+	"Apolo: Então ele existe, mas fica escondido?",
+	"NPC: Exatamente.",
+	"NPC: Em Java, dados importantes ficam dentro da classe.",
+	"NPC: Protegidos do acesso direto.",
+	"NPC: Quem está fora não pode mexer do jeito que quiser.",
+	"NPC: Acesso só acontece por métodos públicos.",
+	"NPC: Isso se chama encapsulamento.",
+	"NPC: Menos bagunça. Menos erro."
+
 
 ]
 

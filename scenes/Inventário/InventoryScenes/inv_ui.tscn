@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsivo5tx8cx28"]
+
+[ext_resource type="Script" uid="uid://xu1adsi0yeyd" path="res://scripts/Inventário/inv_ui.gd" id="1_2dxkv"]
+[ext_resource type="Texture2D" uid="uid://bilctdu6maurx" path="res://sprites/inventory_background.png" id="2_qnoh4"]
+[ext_resource type="PackedScene" uid="uid://bahpt3cd5rpxd" path="res://scenes/Inventário/InventoryScenes/inv_ui_slot.tscn" id="3_jy7ay"]
+[ext_resource type="PackedScene" uid="uid://7ix8l77h42hh" path="res://scenes/Inventário/InventoryScenes/inv_ui_object.tscn" id="4_3lq4p"]
+[ext_resource type="Script" uid="uid://ceqyt0qc1egoy" path="res://scripts/Inventário/move_button.gd" id="5_lq7j1"]
+
+[node name="Inv_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -65.0
+offset_top = -43.0
+offset_right = 64.0
+offset_bottom = 35.0
+script = ExtResource("1_2dxkv")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.54700005
+anchor_right = 0.5
+anchor_bottom = 0.54700005
+offset_left = -64.5
+offset_top = -42.666004
+offset_right = 64.5
+offset_bottom = 35.333996
+texture = ExtResource("2_qnoh4")
+region_rect = Rect2(26.863907, 25.005798, 16.295273, 16.024918)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 6.5
+offset_right = 58.0
+offset_bottom = 42.5
+grow_horizontal = 2
+columns = 6
+
+[node name="Inv_UI_slot1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="Inv_UI_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_jy7ay")]
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.5
+offset_top = -22.5
+offset_right = 82.5
+offset_bottom = -6.5
+grow_vertical = 0
+size_flags_vertical = 8
+columns = 6
+
+[node name="Inv_UI_object" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+layout_mode = 2
+
+[node name="Inv_UI_object2" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+layout_mode = 2
+
+[node name="Inv_UI_object3" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+layout_mode = 2
+
+[node name="Inv_UI_object4" parent="NinePatchRect/GridContainer2" instance=ExtResource("4_3lq4p")]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.837
+anchor_top = 0.75600004
+anchor_right = 0.837
+anchor_bottom = 0.75600004
+offset_left = -12.973
+offset_top = 6.0319977
+offset_right = 13.027
+offset_bottom = 14.031998
+
+[node name="MoveButton" type="Button" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.837
+anchor_top = 0.75600004
+anchor_right = 0.837
+anchor_bottom = 0.75600004
+offset_left = -12.973
+offset_top = -3.9680023
+offset_right = 13.027
+offset_bottom = 4.0319977
+script = ExtResource("5_lq7j1")
