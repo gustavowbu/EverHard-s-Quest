@@ -32,8 +32,6 @@ func get_height() -> int:
 		return height
 
 func update() -> void:
-	print(get_path())
-	print(get_height())
 	var sprite_height = 30
 
 	# Ajustando a altura dos métodos

@@ -12,21 +12,20 @@ func _ready():
 	selectedObjects.update.connect(update_slots)
 	update_slots()
 	close()
-	
+
 	setup_slots()
-	
-	sync_selected_to_global()
+
+#	sync_selected_to_global()
 
 func setup_slots():
 	for i in range(slots.size()):
 		if slots[i] is DragSlot:  # Verifica se é do tipo correto
 			slots[i].setup(i)  # Passa apenas o índice
-	
+
 	# Configura slots vermelhos  
 	for i in range(red_slots.size()):
 		if red_slots[i] is DragSlotRed:  
 			red_slots[i].setup(i) 
-			
 
 func _on_selected_items_changed():
 	# Chamado quando os itens selecionados mudam
@@ -36,14 +35,14 @@ func _on_selected_items_changed():
 func sync_selected_to_global():
 	# Obtém os nomes dos itens dos slots vermelhos
 	var item_names = selectedObjects.get_item_names()
-	
+
 	# Atualiza o array tabs do global
 	update_global_tabs(item_names)
 
 func update_global_tabs(item_names: Array[String]):
 	# O array tabs deve ter: ["Main"] + [4 itens dos slots vermelhos]
 	var new_tabs = ["Main"]
-	
+
 	# Adiciona os 4 itens (ou "Objeto vazio" se não tiver item)
 	for i in range(4):  # Sempre 4 slots
 		if i < item_names.size():
@@ -54,17 +53,15 @@ func update_global_tabs(item_names: Array[String]):
 				#global.objetos[item_names[i]] = Pedra.new()
 			#elif item_names[i] == "Cobra":
 				#global.objetos[item_names[i]] = Cobra.new()
-				
-		
 		else:
 			new_tabs.append("Objeto vazio")
-	
+
 	# Atualiza o global
 	global.tabs = new_tabs
-	
+
 	# Atualiza a lista de objetos selecionados
 	global.atualizar_objetos_selecionados()
-	
+
 	print("Global.tabs atualizado: ", global.tabs)
 	print("Objetos selecionados: ", global.objetos_selecionados)
 
@@ -72,32 +69,30 @@ func process_drag_drop(from_index: int, from_is_red: bool, to_index: int, to_is_
 	print("Processando drag & drop:")
 	print("  De: slot ", from_index, " (", "vermelho" if from_is_red else "normal", ")")
 	print("  Para: slot ", to_index, " (", "vermelho" if to_is_red else "normal", ")")
-	
+
 	# Se for o mesmo slot, não faz nada
 	if from_index == to_index and from_is_red == to_is_red:
 		print("  Mesmo slot, ignorando...")
 		return
-	
+
 	# Decide qual ação tomar baseado nos tipos de slots
 	if not from_is_red and not to_is_red:
 		# Normal → Normal (troca dentro do inventário principal)
 		swap_main_slots(from_index, to_index)
-		
+
 	elif not from_is_red and to_is_red:
 		# Normal → Vermelho (move para inventário selecionado)
 		move_to_red_slot(from_index, to_index)
-		
+
 	elif from_is_red and not to_is_red:
 		# Vermelho → Normal (devolve ao inventário principal)
 		move_to_main_slot(from_index, to_index)
-		
+
 	else:
 		# Vermelho → Vermelho (troca dentro do inventário selecionado)
 		swap_red_slots(from_index, to_index)
 	if from_is_red or to_is_red:
 		sync_selected_to_global()
-		
-
 
 func move_to_red_slot(main_index: int, red_index: int):
 	if main_index >= inv.slots.size() or red_index >= selectedObjects.slots.size():
@@ -208,7 +203,7 @@ func update_slots():
 	for i in range(min(selectedObjects.slots.size(), red_slots.size())):
 		red_slots[i].update(selectedObjects.slots[i])
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("inventory"):
 		if is_open:
 			close()

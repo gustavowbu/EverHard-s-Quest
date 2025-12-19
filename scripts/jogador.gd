@@ -14,12 +14,12 @@ var pode_mover := true   # 🔒 CONTROLE DE MOVIMENTO
 @export var starting_red_item: InvItem = null
 
 func _ready():
+	add_to_group("player")
 	$FadeLayer.fade_in()
 	if global.player_position != Vector2.ZERO:
 		global_position = global.player_position
 
 func _process(_delta):
-	print("POSIÇÃO RESTAURADA:", global_position)
 	# Carrega os inventários se não foram atribuídos
 	if inv == null:
 		inv = preload("res://scenes/Inventário/inventory/Inventario.tres")
@@ -31,9 +31,6 @@ func _process(_delta):
 	var pedra_item = preload("res://scenes/Inventário/Itens inventário/Floresta/Pedra.tres")
 	if pedra_item:
 		selectedObjects.insert(pedra_item)
-		print("Item inicial (Pedra) adicionado ao slot vermelho")
-	else:
-		print("AVISO: Não foi possível carregar Pedra.tres")
 
 	if Input.is_action_just_pressed("ide"):
 		var main := get_tree().current_scene

@@ -123,8 +123,6 @@ func _on_test_button_button_down() -> void: # Rodar a main
 			objetos_str += ", "
 		var key = global.objetos.keys()[i]
 		objetos_str += global.objetos[key].nome + "(" + str(global.objetos[key].metodos) + ")"
-	print("Objetos: ", objetos_str)
-	print("Objetos selecionados: ", global.objetos_selecionados)
 
 	if classe.classe != "Exception":
 		classe.sout.connect(terminal.adicionar_linha)

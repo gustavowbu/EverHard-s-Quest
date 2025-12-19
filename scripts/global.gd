@@ -48,7 +48,6 @@ func atualizar_objetos_selecionados() -> void:
 		if not tab in ["Main", "Objeto vazio"]:
 			objetos_selecionados.append(tab)
 	print("Objetos selecionados atualizados: ", objetos_selecionados)
-	
 
 var current_scene = "res://scenes/main.tscn"
 
