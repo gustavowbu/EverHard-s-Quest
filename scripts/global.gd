@@ -18,6 +18,7 @@ var codigo_main = """public class Main {
 """
 
 var player_position := Vector2.ZERO
+var player_health := 100.0
 var enemy = null
 var enemy_name = ""
 var enemies_defeated = []
@@ -44,3 +45,8 @@ func atualizar_objetos_selecionados() -> void:
 			objetos_selecionados.append(tab)
 
 var current_scene = "res://scenes/main.tscn"
+
+var metodos = {
+	"jogar": {"tipo": "ataque", "poder": 10},
+	"aumentar": {"tipo": "status", "poder": 0}
+}

@@ -63,9 +63,9 @@ var pronomes := "ele/dele"
 var metodos := []
 var codigo := ""
 
-var vida := 10.0
-var forca := 5
-var defesa := 5
+var vida := 50.0
+var forca := 10
+var defesa := 10
 var mvida := 1.0
 var mforca := 1.0
 var mdefesa := 1.0
@@ -84,8 +84,9 @@ var sprites = {
 func atacar(poder: int) -> float:
 	return forca * mforca + poder
 
-func levar_hit(dano: float) -> void:
-	vida -= dano - float(defesa * mdefesa)
+func levar_hit(dano: float) -> float:
+	# Retorna a quantidade de vida perdida
+	return dano - float(defesa * mdefesa)
 
 func copy() -> Objeto:
 	var copia = get_script().new()

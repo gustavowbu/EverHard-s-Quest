@@ -1,6 +1,6 @@
 extends Control
 
-signal battle_ended
+signal attack
 
 @onready var message_box = $MessageBox
 @onready var message_label = $MessageBox/Label
@@ -52,15 +52,16 @@ func _ready():
 	var artigo = "Um"
 	if global.enemy.pronomes == "ela/dela":
 		artigo += "a"
-	show_message(artigo + " " + global.enemy.nome + " selvagem apareceu!")
+	messages.append(artigo + " " + global.enemy.nome + " selvagem apareceu!")
+	show_message()
 
 #  SISTEMA DE MENSAGENS
-func show_message(text: String):
+func show_message():
 	state = "message"
 	fight_box.visible = false
 	action_box.visible = false
 	message_box.visible = true
-	message_label.text = text
+	message_label.text = messages[0]
 
 func show_actions():
 	state = "actions"
@@ -86,7 +87,11 @@ func _close_battle_ui():
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept"):
 		if state == "message":
-			show_actions()
+			if len(messages) > 1:
+				messages.pop_at(0)
+				show_message()
+			elif len(messages) == 1:
+				show_actions()
 
 		elif state == "victory":
 			_close_battle_ui()
@@ -96,23 +101,22 @@ func _on_fight():
 	show_fight()
 
 func _on_bag():
-	show_message("Você abriu a mochila...")
+	messages.append("Você abriu a mochila...")
+	show_message()
 
 func _on_run():
-	show_message("Você tentou fugir!")
+	messages.append("Você tentou fugir!")
+	show_message()
 
 func _on_party():
-	show_message("Você olhou sua equipe!")
+	messages.append("Você olhou sua equipe!")
+	show_message()
 
 #  AÇÕES DOS BOTÕES DE ATAQUE
 func _on_attack_pressed(attack_name: String):
-	damage_enemy(10)
-
-	# se o inimigo morreu, NÃO mostrar outra mensagem
-	if enemy_hp == 0:
-		return
-
-	show_message("Você usou %s!" % attack_name)
+	messages.append("Você usou " + attack_name + "!")
+	emit_signal("attack")
+	show_message()
 
 
 

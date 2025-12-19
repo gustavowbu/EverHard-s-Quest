@@ -7,7 +7,7 @@ func _init(metodos_in := [], codigo_in := "") -> void:
 	metodos = metodos_in
 	codigo = codigo_in
 
-	vida = 10
+	vida = 50.0
 	forca = 3
 	defesa = 6
 

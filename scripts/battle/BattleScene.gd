@@ -1,12 +1,15 @@
 extends Node
 
+@onready var ui = $BattleUI
+
 var turno := "player"
+var objeto = global.objetos[global.objetos.keys()[0]]
+var inimigo = global.enemy
 
 func _ready():
 	$FadeLayer.fade_in()
 
-	$BattleUI.connect("battle_ended", _on_battle_ended)
-	var objeto = global.objetos[global.objetos.keys()[0]]
+	$BattleUI.connect("attack", _on_attack)
 	var metodos = objeto.metodos
 	if len(metodos) >= 1:
 		$BattleUI/BoxPanel/FightBox/Attack1.text = metodos[0]
@@ -18,11 +21,13 @@ func _ready():
 		$BattleUI/BoxPanel/FightBox/Attack4.text = metodos[3]
 
 	$ObjectMon.texture = load(objeto.sprites["64x64_back"])
-	$EnemyMon.texture = load(global.enemy.sprites["64x64_front"])
+	$EnemyMon.texture = load(inimigo.sprites["64x64_front"])
 
-	# É atualizado aqui o objeto do jogador, mas tbm deve ser atualizado o do inimigo
+func _on_attack(nome: String):
+	
+	ui.messages.append()
 
-func _on_battle_ended():
+func end_battle():
 	$FadeLayer.fade_out()
 	await $FadeLayer/AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://scenes/floresta_da_abstracao.tscn")

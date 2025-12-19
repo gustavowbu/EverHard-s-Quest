@@ -6,9 +6,9 @@ func _init(metodos_in := [], codigo_in := "") -> void:
 	metodos = metodos_in
 	codigo = codigo_in
 
-	vida = 5
-	forca = 6
-	defesa = 8
+	vida = 25.0
+	forca = 11
+	defesa = 16
 
 	atributos = {"tamanho": 1}
 	testes = {
