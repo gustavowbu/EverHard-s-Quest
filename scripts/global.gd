@@ -34,6 +34,7 @@ func _ready() -> void:
 
 	void aumentar() {
 		this.tamanho = this.tamanho + 1;
+		return this.tamanho;
 	}
 }
 """
@@ -60,8 +61,8 @@ var metodos = {
 	"crescer": {"tipo": "status", "poder": 0.0},
 	"cair": {"tipo": "ataque", "poder": 1.0},
 	"balançar": {"tipo": "ataque", "poder": 5.0},
-	"quebrar galho": {"tipo": "ataque", "poder": 20.0},
-	"fotossíntese": {"tipo": "status", "poder": 0.0},
+	"quebrarGalho": {"tipo": "ataque", "poder": 20.0},
+	"fotossintese": {"tipo": "status", "poder": 0.0},
 	"bicar": {"tipo": "ataque", "poder": 12.0},
 	"voar": {"tipo": "ataque", "poder": 15.0},
 	"cavar": {"tipo": "ataque", "poder": 11.0},

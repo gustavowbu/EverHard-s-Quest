@@ -23,7 +23,7 @@ func rename(new_name: String) -> void:
 	$Label.text = new_name
 
 func get_height() -> int:
-	if open:
+	if is_open:
 		var elements_height = 0
 		for element in elements:
 			elements_height += element.get_height()
@@ -32,6 +32,8 @@ func get_height() -> int:
 		return height
 
 func update() -> void:
+	print(get_path())
+	print(get_height())
 	var sprite_height = 30
 
 	# Ajustando a altura dos métodos

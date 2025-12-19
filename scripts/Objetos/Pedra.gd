@@ -11,8 +11,16 @@ func _init() -> void:
 
 	atributos = {"tamanho": 1}
 	testes = {
-		"jogar": [],
-		"aumentar": [],
+		"jogar": [
+			{"x": 2, "esperado": 4},
+			{"x": 5, "esperado": 10},
+			{"x": 11, "esperado": 22},
+		],
+		"aumentar": [
+			{"this.tamanho": 3, "esperado": 4},
+			{"this.tamanho": 4, "esperado": 5},
+			{"this.tamanho": 6, "esperado": 7}
+		],
 		"bater": [
 			{"this.tamanho": 1, "x": 1, "esperado": 1},
 			{"this.tamanho": 3, "x": 4, "esperado": 12},

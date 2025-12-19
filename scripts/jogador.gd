@@ -17,12 +17,10 @@ func _ready():
 	$FadeLayer.fade_in()
 	if global.player_position != Vector2.ZERO:
 		global_position = global.player_position
-<<<<<<< HEAD
 
 func _process(_delta):
-=======
-		print("POSIÇÃO RESTAURADA:", global_position)
-		# Carrega os inventários se não foram atribuídos
+	print("POSIÇÃO RESTAURADA:", global_position)
+	# Carrega os inventários se não foram atribuídos
 	if inv == null:
 		inv = preload("res://scenes/Inventário/inventory/Inventario.tres")
 	
@@ -37,9 +35,6 @@ func _process(_delta):
 	else:
 		print("AVISO: Não foi possível carregar Pedra.tres")
 
-
-func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
->>>>>>> 84df23795692f295eaf6127bb71e85d946ed62ac
 	if Input.is_action_just_pressed("ide"):
 		var main := get_tree().current_scene
 		var packed := load("res://scenes/IDE/ide.tscn") as PackedScene
@@ -48,6 +43,8 @@ func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quan
 		get_tree().get_root().add_child(ide)
 		get_tree().current_scene = ide
 		main.get_parent().remove_child(main)
+	if Input.is_action_just_pressed("DEBUG"):
+		print(global.objetos)
 
 func _physics_process(delta):
 	player_movement(delta)
