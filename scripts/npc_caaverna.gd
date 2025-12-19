@@ -10,6 +10,7 @@ extends Area2D
 var jogador_in_area = false
 var falando = false
 
+
 var pode_avancar = false
 var fala_index = 0
 
@@ -72,11 +73,14 @@ func verificar_distancia() -> void:
 
 func iniciar_dialogo():
 	falando = true
+	player.pode_mover = false   # 🔒 NOVO
+
 	label_interacao.visible = false
 	caixa_dialogo.visible = true
 	texto_dialogo.visible = true
 	fala_index = 0
 	proxima_fala()
+
 
 
 func proxima_fala():
@@ -108,5 +112,7 @@ func mostrar_texto_com_efeito(texto: String) -> void:
 func encerrar_dialogo():
 	falando = false
 	pode_avancar = false
+	player.pode_mover = true   # ✅ NOVO
+
 	texto_dialogo.visible = false
 	caixa_dialogo.visible = false
