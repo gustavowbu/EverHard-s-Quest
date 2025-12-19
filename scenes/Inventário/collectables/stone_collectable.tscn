@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dobwpkbyvnn2c"]
 
 [ext_resource type="Script" uid="uid://d8wjqbg8o5p5" path="res://scripts/Inventário/stone_collectable.gd" id="1_xk2lc"]
-[ext_resource type="Resource" uid="uid://bc763noybndnr" path="res://scenes/Inventário/Itens inventário/Pedra.tres" id="2_u63g0"]
+[ext_resource type="Resource" uid="uid://bc763noybndnr" path="res://scenes/Inventário/Itens inventário/Floresta/Pedra.tres" id="2_u63g0"]
 [ext_resource type="Texture2D" uid="uid://dykfbxv0mojhp" path="res://sprites/Objetos/Pedra/32x32-pedra-down.png" id="3_g8hgq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u63g0"]

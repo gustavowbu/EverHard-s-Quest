@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bkbe8cwuw583k"]
+
+[ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_o266o"]
+[ext_resource type="Texture2D" uid="uid://c1ny8i75bk6jh" path="res://sprites/Objetos/Floresta/Minhoca/32x32-minhoca-left.png" id="2_ktr32"]
+
+[resource]
+script = ExtResource("1_o266o")
+name = "Minhoca"
+texture = ExtResource("2_ktr32")
+metadata/_custom_type_script = "uid://c4av2irg6eps5"
