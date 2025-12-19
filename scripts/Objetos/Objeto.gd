@@ -60,12 +60,13 @@ func entrar_batalha():
 
 var nome := "Objeto nulo"
 var pronomes := "ele/dele"
-var metodos := []
+@export var metodos := []
 var codigo := ""
 
+var vida_max := 50.0
 var vida := 50.0
-var forca := 10
-var defesa := 10
+var forca := 10.0
+var defesa := 10.0
 var mvida := 1.0
 var mforca := 1.0
 var mdefesa := 1.0
@@ -80,13 +81,6 @@ var sprites = {
 	"64x64_front": null,
 	"64x64_back": null
 }
-
-func atacar(poder: int) -> float:
-	return forca * mforca + poder
-
-func levar_hit(dano: float) -> float:
-	# Retorna a quantidade de vida perdida
-	return dano - float(defesa * mdefesa)
 
 func copy() -> Objeto:
 	var copia = get_script().new()

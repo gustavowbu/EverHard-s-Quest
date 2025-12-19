@@ -1,6 +1,6 @@
 extends Control
 
-signal attack
+signal attack(nome_metodo)
 
 @onready var message_box = $MessageBox
 @onready var message_label = $MessageBox/Label
@@ -17,6 +17,9 @@ signal attack
 @onready var attack3 = $BoxPanel/FightBox/Attack3
 @onready var attack4 = $BoxPanel/FightBox/Attack4
 @onready var back_btn = $BoxPanel/VBox/BackButton
+
+var inimigo = global.enemy
+var turno = "player"
 
 # Estados possíveis: "message", "actions", "fight", "victory"
 var state := "message"
@@ -91,7 +94,12 @@ func _unhandled_input(event):
 				messages.pop_at(0)
 				show_message()
 			elif len(messages) == 1:
-				show_actions()
+				messages.pop_at(0)
+				update_status_boxes()
+				if turno == "player":
+					show_actions()
+				else:
+					emit_signal("attack", "")
 
 		elif state == "victory":
 			_close_battle_ui()
@@ -114,9 +122,7 @@ func _on_party():
 
 #  AÇÕES DOS BOTÕES DE ATAQUE
 func _on_attack_pressed(attack_name: String):
-	messages.append("Você usou " + attack_name + "!")
-	emit_signal("attack")
-	show_message()
+	emit_signal("attack", attack_name)
 
 
 
@@ -132,47 +138,31 @@ func _on_back():
 @onready var enemy_hp_bar = $EnemyStatusBox/ProgressBarHP
 
 
-var player_max_hp = 100
-var player_hp = 100
-var player_xp = 0
+var player_max_hp = 100.0
+var player_hp = global.player_health
 var xp_reward = 25
 
 var enemy_max_hp = 40
 var enemy_hp = 40
 
 func update_status_boxes():
-	update_hp_color(player_hp_bar, player_hp, player_max_hp)
-	update_hp_color(enemy_hp_bar, enemy_hp, enemy_max_hp)
+	update_hp_color(player_hp_bar, global.player_health, global.player_health_max)
+	update_hp_color(enemy_hp_bar, inimigo.vida, inimigo.vida_max)
 
 	# Player
 	player_name.text = "Apolo"
-	player_hp_label.text = str(player_hp, " / ", player_max_hp)
-	player_hp_bar.max_value = player_max_hp
-	player_hp_bar.value = player_hp
+	player_hp_label.text = str(global.player_health, " / ", global.player_health_max)
+	player_hp_bar.max_value = global.player_health_max
+	player_hp_bar.value = global.player_health
 
 	# Enemy
-	enemy_name.text = global.enemy.nome
-	enemy_hp_label.text = str(enemy_hp, " / ", enemy_max_hp)
-	enemy_hp_bar.max_value = enemy_max_hp
-	enemy_hp_bar.value = enemy_hp
-	
+	enemy_name.text = inimigo.nome
+	enemy_hp_label.text = str(inimigo.vida, " / ", inimigo.vida_max)
+	enemy_hp_bar.max_value = inimigo.vida_max
+	enemy_hp_bar.value = inimigo.vida
 
-func damage_enemy(amount: int):
-	enemy_hp = max(0, enemy_hp - amount)
-	update_status_boxes()
-
-	print("Enemy HP:", enemy_hp)  # debug
-
-	if enemy_hp == 0:
-		print("Chamando end_battle")  # debug
-		end_battle()
-
-func damage_player(amount: int):
-	player_hp = max(0, player_hp - amount)
-	update_status_boxes()
-
-func update_hp_color(pb: ProgressBar, hp: int, maxhp: int):
-	var percent := float(hp) / float(maxhp)
+func update_hp_color(pb: ProgressBar, hp: float, maxhp: float):
+	var percent := hp / maxhp
 
 	var color: Color
 

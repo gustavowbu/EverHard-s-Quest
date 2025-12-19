@@ -2377,6 +2377,7 @@ remote_path = NodePath("../jogador/Camera2D2")
 
 [node name="Cobra" parent="." instance=ExtResource("16_tmlbr")]
 position = Vector2(32.5, 20.25)
+metodos = ["rastejar", "veneno", "enrolar"]
 
 [node name="Passaro" parent="." instance=ExtResource("16_7jtjw")]
 position = Vector2(-57, -42.5)

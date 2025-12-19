@@ -38,6 +38,8 @@ func atualizar_codigo():
 				global.objetos[nome] = Pedra.new()
 			elif nome == "Slime":
 				global.objetos[nome] = Slime.new()
+			elif nome == "Cobra":
+				global.objetos[nome] = Cobra.new()
 			else:
 				if not global.tabs[code_index] in ["Main", "Objeto vazio"]:
 					global.objetos.erase(global.tabs[code_index])

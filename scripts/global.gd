@@ -18,6 +18,7 @@ var codigo_main = """public class Main {
 """
 
 var player_position := Vector2.ZERO
+var player_health_max := 100.0
 var player_health := 100.0
 var enemy = null
 var enemy_name = ""
@@ -36,7 +37,9 @@ func _ready() -> void:
 	}
 }
 """
-	objetos["Pedra"] = Pedra.new(["jogar", "aumentar"], codigo_pedra)
+	objetos["Pedra"] = Pedra.new()
+	objetos["Pedra"].metodos = ["jogar", "aumentar"]
+	objetos["Pedra"].codigo = codigo_pedra
 
 func atualizar_objetos_selecionados() -> void:
 	objetos_selecionados = []
@@ -49,8 +52,11 @@ func atualizar_objetos_selecionados() -> void:
 var current_scene = "res://scenes/main.tscn"
 
 var metodos = {
-	"jogar": {"tipo": "ataque", "poder": 10},
-	"aumentar": {"tipo": "status", "poder": 0}
+	"jogar": {"tipo": "ataque", "poder": 10.0},
+	"aumentar": {"tipo": "status", "poder": 0.0},
+	"rastejar": {"tipo": "status", "poder": 0.0},
+	"veneno": {"tipo": "ataque", "poder": 5.0},
+	"enrolar": {"tipo": "ataque", "poder": 15.0}
 }
 
 func objeto_disponivel(nome_objeto: String) -> bool:

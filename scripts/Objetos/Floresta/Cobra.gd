@@ -1,15 +1,14 @@
 extends Objeto
 class_name Cobra
 
-func _init(metodos_in := [], codigo_in := "") -> void:
+func _init() -> void:
 	nome = "Cobra"
 	pronomes = "ela/dela"
-	metodos = metodos_in
-	codigo = codigo_in
 
+	vida_max = 50.0
 	vida = 50.0
-	forca = 15
-	defesa = 6
+	forca = 15.0
+	defesa = 6.0
 
 	#atributos = {}
 	testes = {

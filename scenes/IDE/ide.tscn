@@ -323,9 +323,9 @@ text_overrun_behavior = 3
 position = Vector2(15, 115)
 
 [node name="Run button" type="Button" parent="."]
-offset_left = 970.0
+offset_left = 977.0
 offset_top = 58.0
-offset_right = 987.0
+offset_right = 994.0
 offset_bottom = 75.000015
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7rcaa")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_byolr")
@@ -344,10 +344,18 @@ scale = Vector2(0.16831683, 0.16831684)
 texture = ExtResource("5_g2orf")
 centered = false
 
+[node name="Label" type="Label" parent="Run button"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 23.0
+offset_right = 53.0
+offset_bottom = 46.0
+text = "Rodar Teste"
+
 [node name="Test button" type="Button" parent="."]
-offset_left = 1000.0
+offset_left = 160.0
 offset_top = 58.0
-offset_right = 1017.0
+offset_right = 177.0
 offset_bottom = 75.000015
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7rcaa")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_byolr")
@@ -365,6 +373,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ro6xt")
 scale = Vector2(0.16831683, 0.16831684)
 texture = ExtResource("5_g2orf")
 centered = false
+
+[node name="Label" type="Label" parent="Test button"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 23.0
+offset_right = 53.0
+offset_bottom = 46.0
+text = "Rodar Main"
 
 [node name="Back button" type="Button" parent="."]
 offset_left = 6.0

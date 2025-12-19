@@ -1,14 +1,13 @@
 extends Objeto
 class_name Pedra
 
-func _init(metodos_in := [], codigo_in := "") -> void:
+func _init() -> void:
 	nome = "Pedra"
-	metodos = metodos_in
-	codigo = codigo_in
 
+	vida_max = 25.0
 	vida = 25.0
-	forca = 11
-	defesa = 16
+	forca = 11.0
+	defesa = 16.0
 
 	atributos = {"tamanho": 1}
 	testes = {
