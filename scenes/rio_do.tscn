@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cnyev33883wjr"]
+[gd_scene load_steps=24 format=4 uid="uid://cnyev33883wjr"]
 
 [ext_resource type="Texture2D" uid="uid://vnaf1uh1qyck" path="res://sprites/Pixel Crawler - Free Pack/Environment/Tilesets/Water_tiles.png" id="1_xx1cl"]
 [ext_resource type="Texture2D" uid="uid://bknpvifvlneve" path="res://sprites/Pixel Crawler - Free Pack/Environment/Tilesets/Floors_Tiles.png" id="2_iyh6g"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://ckiw4uh323tg5" path="res://sprites/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Roofs.png" id="7_ybhum"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="8_ybhum"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="9_u3ecg"]
+[ext_resource type="PackedScene" uid="uid://b2vnq6t3oiw1t" path="res://scenes/Npc/npc_rio2.tscn" id="11_1rlfs"]
+[ext_resource type="PackedScene" uid="uid://by7aic05pajs7" path="res://scenes/Npc/npc_rio3.tscn" id="12_837ox"]
+[ext_resource type="PackedScene" uid="uid://dpmjrfa5lpvvn" path="res://scenes/Npc/npc_rio.tscn" id="13_rqw06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6mrr"]
 texture = ExtResource("1_xx1cl")
@@ -2435,3 +2438,12 @@ offset_right = 140.21977
 offset_bottom = 79.423065
 mouse_filter = 1
 mouse_behavior_recursive = 1
+
+[node name="NpcRio2" parent="." instance=ExtResource("11_1rlfs")]
+position = Vector2(-30.857141, 70.57143)
+
+[node name="NpcRio3" parent="." instance=ExtResource("12_837ox")]
+position = Vector2(-211.99998, 151.14285)
+
+[node name="Npc_inicial" parent="." instance=ExtResource("13_rqw06")]
+position = Vector2(288.14285, 302.2857)

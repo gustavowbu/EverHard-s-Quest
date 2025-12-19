@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://d3di2xukmltp4"]
+[gd_scene load_steps=32 format=4 uid="uid://d3di2xukmltp4"]
 
 [ext_resource type="Texture2D" uid="uid://cwi45f15vh6gu" path="res://sprites/Pixel Art Top Down basic 1.2.2/TX Tileset Grass.png" id="1_1dhon"]
 [ext_resource type="Texture2D" uid="uid://c7g83fhewmolq" path="res://sprites/Pixel Art Top Down basic 1.2.2/TX Tileset Stone Ground.png" id="2_kl8v5"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="8_ps3lm"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="9_dq1i1"]
 [ext_resource type="Texture2D" uid="uid://cuu16rpxixt37" path="res://sprites/Pixel Art Top Down basic 1.2.2/TX Struct.png" id="10_kl8v5"]
+[ext_resource type="PackedScene" uid="uid://dka8k0xci7g00" path="res://scenes/Npc/npc_reino.tscn" id="11_upjuc"]
+[ext_resource type="PackedScene" uid="uid://coo7qw8tbyjmi" path="res://scenes/Npc/npc_reino2.tscn" id="12_d3s61"]
+[ext_resource type="PackedScene" uid="uid://bpxqxrh3uero7" path="res://scenes/Npc/npc_reino3.tscn" id="13_naxjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jr67o"]
 texture = ExtResource("1_1dhon")
@@ -3329,3 +3332,12 @@ offset_right = 140.21977
 offset_bottom = 79.423065
 mouse_filter = 1
 mouse_behavior_recursive = 1
+
+[node name="NpcReino" parent="." instance=ExtResource("11_upjuc")]
+position = Vector2(-429.99997, 400.2857)
+
+[node name="NpcReino2" parent="." instance=ExtResource("12_d3s61")]
+position = Vector2(745.4285, 319.99997)
+
+[node name="NpcReino3" parent="." instance=ExtResource("13_naxjy")]
+position = Vector2(-17.714285, 916.28564)
