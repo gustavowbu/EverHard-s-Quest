@@ -10,15 +10,33 @@ func _init() -> void:
 	forca = 15.0
 	defesa = 6.0
 
-	#atributos = {}
+	atributos = {
+	"veneno": 3,
+	"comprimento": 2,
+	"energia": 4
+}
+
 	testes = {
-		"atirar gosma": [],
-		"pular": [
-			{"this.tamanho": 1, "x": 1, "esperado": 1},
-			{"this.tamanho": 3, "x": 4, "esperado": 12},
-			{"this.tamanho": 5, "x": 2, "esperado": 10}
-		]
-	}
+		"rastejar": [
+			{"this.energia": 4, "esperado": 3},
+			{"this.energia": 1, "esperado": 0}
+		],
+
+	"atacar": [
+		{"this.veneno": 3, "this.comprimento": 2, "esperado": 6},
+		{"this.veneno": 5, "this.comprimento": 4, "esperado": 20}
+	],
+
+	"enrolar": [
+		{"esperado": "Cobra enrolou o alvo"}
+	],
+
+	"aumentarVeneno": [
+		{"this.veneno": 3, "esperado": 4},
+		{"this.veneno": 7, "esperado": 8}
+	]
+}
+
 
 	sprites = {
 		"32x32_down": "res://sprites/Objetos/Floresta/Cobra/32x32-cobra-down.png",
