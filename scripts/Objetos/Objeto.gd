@@ -39,7 +39,6 @@ func mover(delta) -> void:
 
 func verificar_distancia_para_player() -> void:
 	if player == null:
-		print("Player é NULL! Verifique o caminho do nó.")
 		return
 
 	var distancia = global_position.distance_to(player.global_position)

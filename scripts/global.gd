@@ -56,7 +56,19 @@ var metodos = {
 	"aumentar": {"tipo": "status", "poder": 0.0},
 	"rastejar": {"tipo": "status", "poder": 0.0},
 	"veneno": {"tipo": "ataque", "poder": 5.0},
-	"enrolar": {"tipo": "ataque", "poder": 15.0}
+	"enrolar": {"tipo": "ataque", "poder": 15.0},
+	"crescer": {"tipo": "status", "poder": 0.0},
+	"cair": {"tipo": "ataque", "poder": 1.0},
+	"balançar": {"tipo": "ataque", "poder": 5.0},
+	"quebrar galho": {"tipo": "ataque", "poder": 20.0},
+	"fotossíntese": {"tipo": "status", "poder": 0.0},
+	"bicar": {"tipo": "ataque", "poder": 12.0},
+	"voar": {"tipo": "ataque", "poder": 15.0},
+	"cavar": {"tipo": "ataque", "poder": 11.0},
+	"esticar": {"tipo": "ataque", "poder": 6.0},
+	"comer folhas": {"tipo": "ataque", "poder": 3.0},
+	"esconder": {"tipo": "status", "poder": 0.0},
+	"espalhar": {"tipo": "status", "poder": 0.0}
 }
 
 func objeto_disponivel(nome_objeto: String) -> bool:

@@ -169,15 +169,16 @@ show_percentage = false
 layout_mode = 0
 offset_left = 2.0
 offset_top = 3.0
-offset_right = 167.0
+offset_right = 195.0
 offset_bottom = 26.0
 
 [node name="LabelHP" type="Label" parent="BattleUI/PlayerStatusBox"]
 layout_mode = 0
-offset_left = 324.0
+offset_left = 202.0
 offset_top = 3.0
 offset_right = 391.0
 offset_bottom = 26.0
+horizontal_alignment = 2
 
 [node name="EnemyStatusBox" type="Panel" parent="BattleUI"]
 layout_mode = 0
@@ -197,15 +198,16 @@ show_percentage = false
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
-offset_right = 125.0
+offset_right = 185.0
 offset_bottom = 24.0
 
 [node name="LabelHP" type="Label" parent="BattleUI/EnemyStatusBox"]
 layout_mode = 0
-offset_left = 336.0
+offset_left = 204.0
 offset_top = 2.0
 offset_right = 398.0
 offset_bottom = 25.0
+horizontal_alignment = 2
 
 [node name="FadeLayer" parent="." instance=ExtResource("6_ndsvx")]
 visible = false

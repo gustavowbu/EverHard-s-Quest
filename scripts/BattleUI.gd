@@ -1,6 +1,7 @@
 extends Control
 
 signal attack(nome_metodo)
+signal finished_text
 
 @onready var message_box = $MessageBox
 @onready var message_label = $MessageBox/Label
@@ -99,7 +100,9 @@ func _unhandled_input(event):
 				if turno == "player":
 					show_actions()
 				else:
-					emit_signal("attack", "")
+					if inimigo.vida != 0.0:
+						emit_signal("attack", "")
+				emit_signal("finished_text")
 
 		elif state == "victory":
 			_close_battle_ui()
@@ -151,13 +154,13 @@ func update_status_boxes():
 
 	# Player
 	player_name.text = "Apolo"
-	player_hp_label.text = str(global.player_health, " / ", global.player_health_max)
+	player_hp_label.text = str("%.1f" % global.player_health, " / %.1f" % global.player_health_max)
 	player_hp_bar.max_value = global.player_health_max
 	player_hp_bar.value = global.player_health
 
 	# Enemy
 	enemy_name.text = inimigo.nome
-	enemy_hp_label.text = str(inimigo.vida, " / ", inimigo.vida_max)
+	enemy_hp_label.text = str("%.1f" % inimigo.vida, " / %.1f" % inimigo.vida_max)
 	enemy_hp_bar.max_value = inimigo.vida_max
 	enemy_hp_bar.value = inimigo.vida
 

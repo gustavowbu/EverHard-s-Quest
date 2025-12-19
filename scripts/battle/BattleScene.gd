@@ -26,34 +26,46 @@ func _ready():
 func _on_move(nome_metodo: String):
 	if ui.turno == "player":
 		var poder = global.metodos[nome_metodo]["poder"]
-		var dano = objeto.forca * objeto.mforca * (poder / 10.0)
-		dano = max(0.0, dano - (inimigo.defesa * inimigo.mdefesa / 5.0))
+		var dano = objeto.forca * objeto.mforca * (poder / 2.0)
+		dano = dano / (inimigo.defesa * inimigo.mdefesa / 2 + 1)
 		inimigo.vida -= dano
+		inimigo.vida = max(0.0, inimigo.vida)
 
 		ui.turno = "inimigo"
 		ui.messages.append("Você usou " + nome_metodo + "!")
 		if dano != 0:
-			ui.messages.append("Você deu " + str(dano) + " de dano! Boa!")
+			ui.messages.append("Você deu %.1f de dano! Boa!" % dano)
 		else:
 			ui.messages.append("Você não deu dano! Nada boa!")
-		ui.show_message()
+
+		if inimigo.vida == 0.0:
+			var artigo = "o"
+			if inimigo.pronomes == "ela/dela":
+				artigo = "a"
+			ui.messages.append("Você derrotou " + artigo + " " + inimigo.nome + "!")
+			ui.connect("finished_text", end_battle)
 	else:
 		randomize()
-		var i_metodo = randi_range(1, len(inimigo.metodos) - 1)
+		var i_metodo = randi_range(0, len(inimigo.metodos) - 1)
 		nome_metodo = inimigo.metodos[i_metodo]
 
 		var poder = global.metodos[nome_metodo]["poder"]
-		var dano = inimigo.forca * inimigo.mforca * (poder / 10.0)
-		dano = max(0.0, dano - objeto.defesa * objeto.mdefesa)
+		var dano = inimigo.forca * inimigo.mforca * (poder / 2.0)
+		dano = dano / (objeto.defesa * objeto.mdefesa / 2 + 1)
 		global.player_health -= dano
+		global.player_health = max(0.0, global.player_health)
 
 		ui.turno = "player"
 		ui.messages.append(inimigo.nome + " usou " + nome_metodo + "!")
 		if dano != 0:
-			ui.messages.append("Você recebeu " + str(dano) + " de dano... Pena.")
+			ui.messages.append("Você recebeu %.1f de dano... Pena." % dano)
 		else:
 			ui.messages.append("Você não recebeu dano... Ok.")
-		ui.show_message()
+
+		if global.player_health == 0:
+			ui.messages.append("Você perdeu...")
+			ui.connect("finished_text", end_battle)
+	ui.show_message()
 
 func end_battle():
 	$FadeLayer.fade_out()
