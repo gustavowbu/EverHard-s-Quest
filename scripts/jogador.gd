@@ -11,12 +11,35 @@ var pode_mover := true   # 🔒 CONTROLE DE MOVIMENTO
 @export var selectedObjects: Inv 
 @onready var animation = $AnimatedSprite2D
 
+@export var starting_red_item: InvItem = null
+
 func _ready():
 	$FadeLayer.fade_in()
 	if global.player_position != Vector2.ZERO:
 		global_position = global.player_position
+<<<<<<< HEAD
 
 func _process(_delta):
+=======
+		print("POSIÇÃO RESTAURADA:", global_position)
+		# Carrega os inventários se não foram atribuídos
+	if inv == null:
+		inv = preload("res://scenes/Inventário/inventory/Inventario.tres")
+	
+	if selectedObjects == null:
+		selectedObjects = preload("res://scenes/Inventário/inventory/selectedObjects.tres")
+	
+	# Adiciona item inicial no slot vermelho (se configurado)
+	var pedra_item = preload("res://scenes/Inventário/Itens inventário/Floresta/Pedra.tres")
+	if pedra_item:
+		selectedObjects.insert(pedra_item)
+		print("Item inicial (Pedra) adicionado ao slot vermelho")
+	else:
+		print("AVISO: Não foi possível carregar Pedra.tres")
+
+
+func _process(_delta): # Deixa o _ só enquanto o parâmetro não é usado. Quando for utilizar, remove o _
+>>>>>>> 84df23795692f295eaf6127bb71e85d946ed62ac
 	if Input.is_action_just_pressed("ide"):
 		var main := get_tree().current_scene
 		var packed := load("res://scenes/IDE/ide.tscn") as PackedScene

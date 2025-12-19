@@ -12,5 +12,5 @@ func _on_interactable_area_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(0.1).timeout
 		self.queue_free()
 func playercollect():
-	player.collect(item)
-	#player.select_item(item)
+	#player.collect(item)
+	player.select_item(item)
