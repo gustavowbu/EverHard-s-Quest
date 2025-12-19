@@ -8,7 +8,7 @@ func _init(metodos_in := [], codigo_in := "") -> void:
 	codigo = codigo_in
 
 	vida = 50.0
-	forca = 3
+	forca = 15
 	defesa = 6
 
 	#atributos = {}
