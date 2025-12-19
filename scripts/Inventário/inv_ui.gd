@@ -48,6 +48,14 @@ func update_global_tabs(item_names: Array[String]):
 	for i in range(4):  # Sempre 4 slots
 		if i < item_names.size():
 			new_tabs.append(item_names[i])
+			if item_names[i] == "Cobra":
+				global.objetos[item_names[i]] = Cobra.new()
+			#elif item_names[i] == "Pedra":
+				#global.objetos[item_names[i]] = Pedra.new()
+			#elif item_names[i] == "Cobra":
+				#global.objetos[item_names[i]] = Cobra.new()
+				
+		
 		else:
 			new_tabs.append("Objeto vazio")
 	
