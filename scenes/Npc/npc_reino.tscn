@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://dka8k0xci7g00"]
+
+[ext_resource type="Script" uid="uid://coggp5oybwg6h" path="res://scripts/npc_reino.gd" id="1_cdklc"]
+[ext_resource type="Texture2D" uid="uid://cnstegh5lpwwq" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_02/villager_02_00.png" id="2_3jkxn"]
+[ext_resource type="Texture2D" uid="uid://d1hvfoc0mebo0" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_02/villager_02_01.png" id="3_hqx1d"]
+[ext_resource type="Texture2D" uid="uid://c6deg6mkoex3h" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_02/villager_02_02.png" id="4_xbryt"]
+[ext_resource type="Texture2D" uid="uid://cxbjymju8ulpu" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_02/villager_02_03.png" id="5_wtdws"]
+[ext_resource type="Texture2D" uid="uid://djhodgae1no3k" path="res://sprites/Lively_NPCs_v3.0/individual sprites/medieval/villager_02/villager_02_04.png" id="6_ql8h0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyss0"]
+atlas = ExtResource("2_3jkxn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmknr"]
+atlas = ExtResource("3_hqx1d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w1gn"]
+atlas = ExtResource("4_xbryt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03tqk"]
+atlas = ExtResource("5_wtdws")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_101dr"]
+atlas = ExtResource("6_ql8h0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qbup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyss0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmknr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w1gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03tqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_101dr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl40w"]
+size = Vector2(135.5, 67)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qykua"]
+bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
+
+[sub_resource type="SystemFont" id="SystemFont_sk8ai"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqqh2"]
+font = SubResource("SystemFont_sk8ai")
+font_size = 7
+
+[node name="NpcReino" type="Area2D"]
+script = ExtResource("1_cdklc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0qbup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_hl40w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 101.0
+offset_top = 507.0
+offset_right = 1201.0
+offset_bottom = 657.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qykua")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 146.0
+offset_top = 521.0
+offset_right = 1146.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 21
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="LabelInteracao" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -24.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_iqqh2")
+metadata/_edit_use_anchors_ = true

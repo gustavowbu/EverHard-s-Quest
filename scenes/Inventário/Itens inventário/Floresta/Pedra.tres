@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bc763noybndnr"]
+
+[ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_lxwa4"]
+[ext_resource type="Texture2D" uid="uid://dykfbxv0mojhp" path="res://sprites/Objetos/Pedra/32x32-pedra-down.png" id="2_pjqmy"]
+
+[resource]
+script = ExtResource("1_lxwa4")
+name = "Pedra"
+texture = ExtResource("2_pjqmy")
+metadata/_custom_type_script = "uid://c4av2irg6eps5"

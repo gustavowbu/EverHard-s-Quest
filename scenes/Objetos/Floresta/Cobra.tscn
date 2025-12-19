@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1ecp3b3rdvjg"]
+
+[ext_resource type="Texture2D" uid="uid://xq1b7nqnwrnu" path="res://sprites/Objetos/Floresta/Cobra/32x32-cobra-down.png" id="1_j2pc8"]
+[ext_resource type="Script" uid="uid://dmb6op8l2im4g" path="res://scripts/Objetos/Floresta/Cobra.gd" id="1_kmsq3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmsq3"]
+size = Vector2(21, 15)
+
+[node name="Cobra" type="CharacterBody2D"]
+script = ExtResource("1_kmsq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_kmsq3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_j2pc8")

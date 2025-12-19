@@ -8,21 +8,22 @@ class_name Objeto
 @export var distancia_max: float = 60.0
 @export var raio_acao: float = 90.0
 
-@export var caminho_cena_batalha: String = "res://scenes/Battle/battleScene.tscn"
+@export var caminho_cena_batalha: String = "res://scenes/Battle/BattleScene.tscn"
 
 @onready var player = get_node("../jogador")
 
-var direcao: int = 1
+var direcao := 1
 var pos_inicial: Vector2
 
 func _ready():
+	add_to_group("enemies")
 	pos_inicial = global_position
 
-func _process(delta):
-	mover_inimigo(delta)
+func _process(delta) -> void:
+	mover(delta)
 	verificar_distancia_para_player()
 
-func mover_inimigo(delta):	
+func mover(delta) -> void:
 	var movimento := Vector2.ZERO
 
 	if mover_no_eixo_x:
@@ -36,7 +37,7 @@ func mover_inimigo(delta):
 	if global_position.distance_to(pos_inicial) >= distancia_max:
 		direcao *= -1
 
-func verificar_distancia_para_player():
+func verificar_distancia_para_player() -> void:
 	if player == null:
 		print("Player é NULL! Verifique o caminho do nó.")
 		return
@@ -48,8 +49,71 @@ func verificar_distancia_para_player():
 
 func entrar_batalha():
 	global.player_position = player.global_position
-	global.inimigo_derrotado = self.name
-	print("POSIÇÃO SALVA:", global.player_position)
+	global.enemy = copy()
+	global.enemy_name = self.name
+	global.enemies_defeated.append(get_path())
 
 	print("O inimigo detectou o player! Indo para batalha...")
 	get_tree().change_scene_to_file(caminho_cena_batalha)
+
+# Informações do objeto
+
+var nome := "Objeto nulo"
+var pronomes := "ele/dele"
+var metodos := []
+var codigo := ""
+
+var vida := 50.0
+var forca := 10
+var defesa := 10
+var mvida := 1.0
+var mforca := 1.0
+var mdefesa := 1.0
+
+var atributos := {}
+var testes := {}
+
+var sprites = {
+	"16x16": null,
+	"32x32_front": null,
+	"32x32_back": null,
+	"64x64_front": null,
+	"64x64_back": null
+}
+
+func atacar(poder: int) -> float:
+	return forca * mforca + poder
+
+func levar_hit(dano: float) -> float:
+	# Retorna a quantidade de vida perdida
+	return dano - float(defesa * mdefesa)
+
+func copy() -> Objeto:
+	var copia = get_script().new()
+
+	copia.velocidade = velocidade
+	copia.mover_no_eixo_x = mover_no_eixo_x
+	copia.mover_no_eixo_y = mover_no_eixo_y
+	copia.distancia_max = distancia_max
+	copia.raio_acao = raio_acao
+	copia.caminho_cena_batalha = caminho_cena_batalha
+	copia.player = player
+
+	copia.direcao = direcao
+	copia.pos_inicial = pos_inicial
+
+	copia.nome = nome
+	copia.metodos = metodos
+	copia.codigo = codigo
+
+	copia.vida = vida
+	copia.forca = forca
+	copia.defesa = defesa
+	copia.mvida = mvida
+	copia.mforca = mforca
+	copia.mdefesa = mdefesa
+
+	copia.atributos = atributos
+	copia.testes = testes
+
+	return copia

@@ -1,29 +1,33 @@
 extends Node
 
+@onready var ui = $BattleUI
+
+var turno := "player"
+var objeto = global.objetos[global.objetos.keys()[0]]
+var inimigo = global.enemy
+
 func _ready():
 	$FadeLayer.fade_in()
 
-	$battle_ui.connect("battle_ended", Callable(self, "_on_battle_ended"))
-	var metodos = global.objetos[0]["metodos"]
-	if len(metodos) > 0:
-		$battle_ui/BoxPanel/FightBox/Attack1.text = global.objetos[0]["metodos"][0]
-	if len(metodos) > 1:
-		$battle_ui/BoxPanel/FightBox/Attack2.text = global.objetos[0]["metodos"][1]
-	if len(metodos) > 2:
-		$battle_ui/BoxPanel/FightBox/Attack3.text = global.objetos[0]["metodos"][2]
-	if len(metodos) > 3:
-		$battle_ui/BoxPanel/FightBox/Attack4.text = global.objetos[0]["metodos"][3]
+	$BattleUI.connect("attack", _on_attack)
+	var metodos = objeto.metodos
+	if len(metodos) >= 1:
+		$BattleUI/BoxPanel/FightBox/Attack1.text = metodos[0]
+	if len(metodos) >= 2:
+		$BattleUI/BoxPanel/FightBox/Attack2.text = metodos[1]
+	if len(metodos) >= 3:
+		$BattleUI/BoxPanel/FightBox/Attack3.text = metodos[2]
+	if len(metodos) >= 4:
+		$BattleUI/BoxPanel/FightBox/Attack4.text = metodos[3]
 
-	if global.objetos[0]["nome"] == "Pedra":
-		$Objeto.texture = load("res://sprites/Objetos/pedra-costas.png")
-	elif global.objetos[0]["nome"] == "Zumbi":
-		$Objeto.texture = load("res://sprites/Objetos/zumbi-costas.png")
+	$ObjectMon.texture = load(objeto.sprites["64x64_back"])
+	$EnemyMon.texture = load(inimigo.sprites["64x64_front"])
 
-func _on_battle_ended():
-	print("Batalha terminou!")
+func _on_attack(nome: String):
+	
+	ui.messages.append()
 
+func end_battle():
 	$FadeLayer.fade_out()
-
 	await $FadeLayer/AnimationPlayer.animation_finished
-
 	get_tree().change_scene_to_file("res://scenes/floresta_da_abstracao.tscn")

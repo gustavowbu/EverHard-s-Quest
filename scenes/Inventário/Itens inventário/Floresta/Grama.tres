@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bvp0o4grnb28j"]
+
+[ext_resource type="Script" uid="uid://c4av2irg6eps5" path="res://scripts/Inventário/inventory_item.gd" id="1_ep3pd"]
+[ext_resource type="Texture2D" uid="uid://cxjjlrbsub50i" path="res://sprites/Objetos/Floresta/Grama/32x32-grama-up.png" id="2_s4pj8"]
+
+[resource]
+script = ExtResource("1_ep3pd")
+name = "Grama"
+texture = ExtResource("2_s4pj8")
+metadata/_custom_type_script = "uid://c4av2irg6eps5"

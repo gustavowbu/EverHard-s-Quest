@@ -1,6 +1,6 @@
 extends Control
 
-signal battle_ended
+signal attack
 
 @onready var message_box = $MessageBox
 @onready var message_label = $MessageBox/Label
@@ -18,8 +18,9 @@ signal battle_ended
 @onready var attack4 = $BoxPanel/FightBox/Attack4
 @onready var back_btn = $BoxPanel/VBox/BackButton
 
-# Estados possíveis: "message", "actions", "fight"
-var state: String = "message"
+# Estados possíveis: "message", "actions", "fight", "victory"
+var state := "message"
+var messages := []
 
 func _ready():
 	update_status_boxes()
@@ -29,11 +30,17 @@ func _ready():
 	btn_run.pressed.connect(_on_run)
 	btn_party.pressed.connect(_on_party)
 
+	var objeto = global.objetos[global.objetos.keys()[0]]
+	var metodos = objeto.metodos
 	# Conectar botões dos ataques
-	attack1.pressed.connect(func(): _on_attack_pressed("Jogar Pedra"))
-	attack2.pressed.connect(func(): _on_attack_pressed("Gosma de SLime"))
-	attack3.pressed.connect(func(): _on_attack_pressed("Bola de Fogo"))
-	attack4.pressed.connect(func(): _on_attack_pressed("Gorfo de Zumbi"))
+	if len(metodos) >= 1:
+		attack1.pressed.connect(func(): _on_attack_pressed(metodos[0]))
+	if len(metodos) >= 2:
+		attack2.pressed.connect(func(): _on_attack_pressed(metodos[1]))
+	if len(metodos) >= 3:
+		attack3.pressed.connect(func(): _on_attack_pressed(metodos[2]))
+	if len(metodos) >= 4:
+		attack4.pressed.connect(func(): _on_attack_pressed(metodos[3]))
 
 	# Conectar botão BACK
 	back_btn.pressed.connect(_on_back)
@@ -41,32 +48,36 @@ func _ready():
 	# Inicial
 	fight_box.visible = false
 	action_box.visible = false
-	show_message("Um inimigo apareceu!")
+
+	var artigo = "Um"
+	if global.enemy.pronomes == "ela/dela":
+		artigo += "a"
+	messages.append(artigo + " " + global.enemy.nome + " selvagem apareceu!")
+	show_message()
 
 #  SISTEMA DE MENSAGENS
-func show_message(text: String):
+func show_message():
 	state = "message"
 	fight_box.visible = false
 	action_box.visible = false
 	message_box.visible = true
-	message_label.text = text
-
+	message_label.text = messages[0]
 
 func show_actions():
 	state = "actions"
-	message_box.visible = false
 	fight_box.visible = false
 	action_box.visible = true
-
+	message_box.visible = true
+	message_label.text = ""
 
 func show_fight():
 	state = "fight"
-	message_box.visible = false
-	action_box.visible = false
 	fight_box.visible = true
+	action_box.visible = false
+	message_box.visible = true
+	message_label.text = ""
 
 func _close_battle_ui():
-	
 	self.visible = false   # desativa TODO o BattleUI
 
 	# Se quiser despausar o jogo quando acabar:
@@ -75,9 +86,12 @@ func _close_battle_ui():
 # Enter automaticamente sai das mensagens
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept"):
-
 		if state == "message":
-			show_actions()
+			if len(messages) > 1:
+				messages.pop_at(0)
+				show_message()
+			elif len(messages) == 1:
+				show_actions()
 
 		elif state == "victory":
 			_close_battle_ui()
@@ -87,23 +101,22 @@ func _on_fight():
 	show_fight()
 
 func _on_bag():
-	show_message("Você abriu a mochila...")
+	messages.append("Você abriu a mochila...")
+	show_message()
 
 func _on_run():
-	show_message("Você tentou fugir!")
+	messages.append("Você tentou fugir!")
+	show_message()
 
 func _on_party():
-	show_message("Você olhou sua equipe!")
+	messages.append("Você olhou sua equipe!")
+	show_message()
 
 #  AÇÕES DOS BOTÕES DE ATAQUE
 func _on_attack_pressed(attack_name: String):
-	damage_enemy(10)
-
-	# se o inimigo morreu, NÃO mostrar outra mensagem
-	if enemy_hp == 0:
-		return
-
-	show_message("Você usou %s!" % attack_name)
+	messages.append("Você usou " + attack_name + "!")
+	emit_signal("attack")
+	show_message()
 
 
 
@@ -128,18 +141,17 @@ var enemy_max_hp = 40
 var enemy_hp = 40
 
 func update_status_boxes():
-	
 	update_hp_color(player_hp_bar, player_hp, player_max_hp)
 	update_hp_color(enemy_hp_bar, enemy_hp, enemy_max_hp)
 
 	# Player
-	player_name.text = "Diluc"
+	player_name.text = "Apolo"
 	player_hp_label.text = str(player_hp, " / ", player_max_hp)
 	player_hp_bar.max_value = player_max_hp
 	player_hp_bar.value = player_hp
 
 	# Enemy
-	enemy_name.text = "Slime"
+	enemy_name.text = global.enemy.nome
 	enemy_hp_label.text = str(enemy_hp, " / ", enemy_max_hp)
 	enemy_hp_bar.max_value = enemy_max_hp
 	enemy_hp_bar.value = enemy_hp
@@ -187,8 +199,8 @@ func end_battle():
 	fight_box.visible = false
 
 	message_label.text = "Você derrotou o inimigo!\nGanhou %d XP!" % xp_reward
-	
+
 	# Espera o jogador ver a mensagem
 	await get_tree().create_timer(1.5).timeout
-	
+
 	emit_signal("battle_ended")

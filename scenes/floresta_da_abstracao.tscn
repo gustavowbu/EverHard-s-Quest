@@ -8,8 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dqnhjxam3n4hx" path="res://sprites/tilesets/8.png" id="11_23hjr"]
 [ext_resource type="PackedScene" uid="uid://cf58vpmi7co7v" path="res://scenes/jogador.tscn" id="12_15aux"]
 [ext_resource type="PackedScene" uid="uid://u8ap2xp7nwi6" path="res://scenes/Menus/pause_menu.tscn" id="13_ueubi"]
-[ext_resource type="PackedScene" uid="uid://b2lqirqx17vp2" path="res://scenes/Objetos/Slime.tscn" id="14_b5exp"]
+[ext_resource type="PackedScene" uid="uid://bsivo5tx8cx28" path="res://scenes/Inventário/InventoryScenes/inv_ui.tscn" id="14_tmlbr"]
 [ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="15_xc05o"]
+[ext_resource type="PackedScene" uid="uid://bmiv2pgstv60r" path="res://scenes/Objetos/Floresta/Passaro.tscn" id="16_7jtjw"]
+[ext_resource type="PackedScene" uid="uid://b1ecp3b3rdvjg" path="res://scenes/Objetos/Floresta/Cobra.tscn" id="16_tmlbr"]
+[ext_resource type="PackedScene" uid="uid://b6tubsioidgk3" path="res://scenes/Objetos/Floresta/Arvore.tscn" id="17_qb6mp"]
+[ext_resource type="PackedScene" uid="uid://di4wayxqepnul" path="res://scenes/Objetos/Floresta/Minhoca.tscn" id="18_y54ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mgxn"]
 texture = ExtResource("2_tmlbr")
@@ -1144,5 +1148,14 @@ position = Vector2(-106.5, -24.25)
 velocidade = 70.0
 distancia_max = 300.0
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-remote_path = NodePath("../jogador/Camera2D2")
+[node name="Arvore" parent="." instance=ExtResource("17_qb6mp")]
+position = Vector2(-0.25, 39.25)
+
+[node name="Cobra2" parent="." instance=ExtResource("16_tmlbr")]
+position = Vector2(-100.5, -19.75)
+
+[node name="Minhoca" parent="." instance=ExtResource("18_y54ee")]
+position = Vector2(107.75, 65.75)
+
+[node name="Passaro2" parent="." instance=ExtResource("16_7jtjw")]
+position = Vector2(262.5, 98.5)

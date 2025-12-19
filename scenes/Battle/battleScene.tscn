@@ -1,49 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://vagcf1p28bw4"]
+[gd_scene load_steps=7 format=3 uid="uid://vagcf1p28bw4"]
 
-[ext_resource type="Script" uid="uid://cbvbwgt1p30kw" path="res://scripts/battle/BattleScene.gd" id="1_643ng"]
-[ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_653c6"]
-[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="2_jnwg1"]
-[ext_resource type="Texture2D" uid="uid://b2wk47xpd3fnw" path="res://sprites/ezgif-split-diluc/frame_00_delay-0.2s.png" id="3_jnwg1"]
-[ext_resource type="Texture2D" uid="uid://mlmieuquqjjq" path="res://sprites/Objetos/slime/frame_00_delay-0.1s.png" id="4_rhix4"]
-[ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="5_w5rgc"]
+[ext_resource type="Script" uid="uid://cbvbwgt1p30kw" path="res://scripts/battle/BattleScene.gd" id="1_2fq3d"]
+[ext_resource type="Texture2D" uid="uid://dv57pjk20uc1r" path="res://sprites/background.jpg" id="2_8e0o3"]
+[ext_resource type="Texture2D" uid="uid://c25pueiyo0b1d" path="res://sprites/Player/64x64_back.png" id="3_2fq3d"]
+[ext_resource type="Script" uid="uid://boclgl8oxw8ek" path="res://scripts/BattleUI.gd" id="5_e0cih"]
+[ext_resource type="PackedScene" uid="uid://dk3crail78frm" path="res://scenes/fade_layer.tscn" id="6_ndsvx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w5rgc"]
 font_size = 32
 
 [node name="BattleScene" type="Node2D"]
-script = ExtResource("1_643ng")
+script = ExtResource("1_2fq3d")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-2.842171e-14, -5.9604645e-08)
 scale = Vector2(1.7414967, 1.9074075)
-texture = ExtResource("2_653c6")
+texture = ExtResource("2_8e0o3")
 centered = false
 
 [node name="PlayerMon" type="Sprite2D" parent="."]
-position = Vector2(409, 415)
-scale = Vector2(0.6340278, 0.6058739)
-texture = ExtResource("3_jnwg1")
+position = Vector2(320.00003, 488.00003)
+scale = Vector2(5, 4.779)
+texture = ExtResource("3_2fq3d")
+
+[node name="ObjectMon" type="Sprite2D" parent="."]
+position = Vector2(544.00006, 448)
+scale = Vector2(5, 5)
 
 [node name="EnemyMon" type="Sprite2D" parent="."]
 position = Vector2(833, 319)
-scale = Vector2(0.67382544, 0.69251156)
-texture = ExtResource("4_rhix4")
+scale = Vector2(5, 5)
 
-[node name="battle_ui" type="Control" parent="."]
+[node name="BattleUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_w5rgc")
+script = ExtResource("5_e0cih")
 
-[node name="MessageBox" type="Panel" parent="battle_ui"]
+[node name="MessageBox" type="Panel" parent="BattleUI"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 539.0
 offset_right = 794.0
 offset_bottom = 681.0
 
-[node name="Label" type="Label" parent="battle_ui/MessageBox"]
+[node name="Label" type="Label" parent="BattleUI/MessageBox"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
@@ -51,7 +53,7 @@ offset_right = 768.0
 offset_bottom = 137.0
 label_settings = SubResource("LabelSettings_w5rgc")
 
-[node name="ActionsBox" type="Panel" parent="battle_ui"]
+[node name="ActionsBox" type="Panel" parent="BattleUI"]
 custom_minimum_size = Vector2(300, 160)
 layout_mode = 0
 offset_left = 804.0
@@ -59,7 +61,7 @@ offset_top = 402.0
 offset_right = 1260.0
 offset_bottom = 681.0
 
-[node name="VBoxContainer" type="GridContainer" parent="battle_ui/ActionsBox"]
+[node name="VBoxContainer" type="GridContainer" parent="BattleUI/ActionsBox"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
@@ -67,28 +69,28 @@ offset_right = 452.0
 offset_bottom = 274.0
 columns = 2
 
-[node name="ButtonFight" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+[node name="ButtonFight" type="Button" parent="BattleUI/ActionsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 action_mode = 0
 text = "Lutar"
 
-[node name="ButtonBag" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+[node name="ButtonBag" type="Button" parent="BattleUI/ActionsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 action_mode = 0
 text = "Bolsa"
 
-[node name="ButtonRun" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+[node name="ButtonRun" type="Button" parent="BattleUI/ActionsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 action_mode = 0
 text = "Fugir"
 
-[node name="ButtonParty" type="Button" parent="battle_ui/ActionsBox/VBoxContainer"]
+[node name="ButtonParty" type="Button" parent="BattleUI/ActionsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -96,14 +98,14 @@ action_mode = 0
 text = "Equipe
 "
 
-[node name="BoxPanel" type="Panel" parent="battle_ui"]
+[node name="BoxPanel" type="Panel" parent="BattleUI"]
 layout_mode = 0
 offset_left = 803.0
 offset_top = 402.0
 offset_right = 1259.0
 offset_bottom = 681.0
 
-[node name="FightBox" type="GridContainer" parent="battle_ui/BoxPanel"]
+[node name="FightBox" type="GridContainer" parent="BattleUI/BoxPanel"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -115,27 +117,27 @@ offset_right = -2.632019
 offset_bottom = -2.4890137
 columns = 2
 
-[node name="Attack1" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+[node name="Attack1" type="Button" parent="BattleUI/BoxPanel/FightBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Attack2" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+[node name="Attack2" type="Button" parent="BattleUI/BoxPanel/FightBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Attack3" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+[node name="Attack3" type="Button" parent="BattleUI/BoxPanel/FightBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Attack4" type="Button" parent="battle_ui/BoxPanel/FightBox"]
+[node name="Attack4" type="Button" parent="BattleUI/BoxPanel/FightBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBox" type="VBoxContainer" parent="battle_ui/BoxPanel"]
+[node name="VBox" type="VBoxContainer" parent="BattleUI/BoxPanel"]
 layout_mode = 0
 offset_left = 293.0
 offset_top = 281.0
@@ -144,72 +146,69 @@ offset_bottom = 312.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BackButton" type="Button" parent="battle_ui/BoxPanel/VBox"]
+[node name="BackButton" type="Button" parent="BattleUI/BoxPanel/VBox"]
 layout_direction = 3
 layout_mode = 2
 text = "Voltar"
 
-[node name="PlayerStatusBox" type="Panel" parent="battle_ui"]
+[node name="PlayerStatusBox" type="Panel" parent="BattleUI"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 477.0
 offset_right = 422.0
 offset_bottom = 530.0
 
-[node name="ProgressBarHP" type="ProgressBar" parent="battle_ui/PlayerStatusBox"]
+[node name="ProgressBarHP" type="ProgressBar" parent="BattleUI/PlayerStatusBox"]
 layout_mode = 0
 offset_right = 401.0
 offset_bottom = 54.0
 value = 100.0
 show_percentage = false
 
-[node name="LabelName" type="Label" parent="battle_ui/PlayerStatusBox"]
+[node name="LabelName" type="Label" parent="BattleUI/PlayerStatusBox"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 3.0
 offset_right = 167.0
 offset_bottom = 26.0
 
-[node name="LabelHP" type="Label" parent="battle_ui/PlayerStatusBox"]
+[node name="LabelHP" type="Label" parent="BattleUI/PlayerStatusBox"]
 layout_mode = 0
 offset_left = 324.0
 offset_top = 3.0
 offset_right = 391.0
 offset_bottom = 26.0
 
-[node name="EnemyStatusBox" type="Panel" parent="battle_ui"]
+[node name="EnemyStatusBox" type="Panel" parent="BattleUI"]
 layout_mode = 0
 offset_left = 867.0
 offset_top = 9.0
 offset_right = 1268.0
 offset_bottom = 62.0
 
-[node name="ProgressBarHP" type="ProgressBar" parent="battle_ui/EnemyStatusBox"]
+[node name="ProgressBarHP" type="ProgressBar" parent="BattleUI/EnemyStatusBox"]
 layout_mode = 0
 offset_right = 401.0
 offset_bottom = 53.0
 value = 100.0
 show_percentage = false
 
-[node name="LabelName" type="Label" parent="battle_ui/EnemyStatusBox"]
+[node name="LabelName" type="Label" parent="BattleUI/EnemyStatusBox"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
 offset_right = 125.0
 offset_bottom = 24.0
 
-[node name="LabelHP" type="Label" parent="battle_ui/EnemyStatusBox"]
+[node name="LabelHP" type="Label" parent="BattleUI/EnemyStatusBox"]
 layout_mode = 0
 offset_left = 336.0
 offset_top = 2.0
 offset_right = 398.0
 offset_bottom = 25.0
 
-[node name="Objeto" type="Sprite2D" parent="."]
-position = Vector2(584, 440)
-scale = Vector2(0.634, 0.634)
-
-[node name="FadeLayer" parent="." instance=ExtResource("2_jnwg1")]
+[node name="FadeLayer" parent="." instance=ExtResource("6_ndsvx")]
+visible = false
 offset_right = 1282.0
 offset_bottom = 721.0
 mouse_filter = 2

@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://coo7qw8tbyjmi"]
+
+[ext_resource type="Script" uid="uid://uffikpmk2fih" path="res://scripts/npc_reino_2.gd" id="1_cjxlr"]
+[ext_resource type="Texture2D" uid="uid://c4xy216tpvecr" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/fire_knight/fire_knight_1.png" id="2_whx8k"]
+[ext_resource type="Texture2D" uid="uid://db73w4mw2n674" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/fire_knight/fire_knight_2.png" id="3_rqn48"]
+[ext_resource type="Texture2D" uid="uid://cyhp4gxxf0l2h" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/fire_knight/fire_knight_3.png" id="4_f583u"]
+[ext_resource type="Texture2D" uid="uid://on7uhq082wbm" path="res://sprites/Lively_NPCs_v3.0/individual sprites/elementals/fire_knight/fire_knight_4.png" id="5_hw1ih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vmki"]
+atlas = ExtResource("2_whx8k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb0qc"]
+atlas = ExtResource("3_rqn48")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2klil"]
+atlas = ExtResource("4_f583u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txdum"]
+atlas = ExtResource("5_hw1ih")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cjxlr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vmki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb0qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2klil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txdum")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnmub"]
+size = Vector2(101, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2l4o"]
+bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
+
+[sub_resource type="SystemFont" id="SystemFont_6qrn0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_whx8k"]
+font = SubResource("SystemFont_6qrn0")
+font_size = 7
+
+[node name="NpcReino2" type="Area2D"]
+script = ExtResource("1_cjxlr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cjxlr")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_xnmub")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 101.0
+offset_top = 507.0
+offset_right = 1201.0
+offset_bottom = 657.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2l4o")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 146.0
+offset_top = 521.0
+offset_right = 1146.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 21
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="LabelInteracao" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -24.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_whx8k")
+metadata/_edit_use_anchors_ = true

@@ -7,11 +7,10 @@ func _ready():
 		$jogador.global_position = global.player_position
 
 	# remove inimigo derrotado
-	if global.inimigo_derrotado != "":
-		var morto = get_node_or_null(global.inimigo_derrotado)
+	for enemy_path in global.enemies_defeated:
+		var morto = get_node_or_null(enemy_path)
 		if morto:
 			morto.queue_free()
-			print("Inimigo removido:", global.inimigo_derrotado)
-		
-		# limpa para não deletar de novo
-		global.inimigo_derrotado = ""
+
+			# limpa para não deletar de novo
+			global.enemy_name = ""

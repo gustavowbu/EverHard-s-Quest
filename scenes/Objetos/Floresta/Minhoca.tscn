@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://di4wayxqepnul"]
+
+[ext_resource type="Texture2D" uid="uid://cilx881qjmyc4" path="res://sprites/Objetos/Floresta/Minhoca/32x32-minhoca-down.png" id="1_0kuy2"]
+[ext_resource type="Script" path="res://scripts/Objetos/Floresta/Minhoca.gd" id="1_qcj8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcj8a"]
+size = Vector2(17, 14)
+
+[node name="Minhoca" type="CharacterBody2D"]
+script = ExtResource("1_qcj8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_qcj8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0kuy2")
