@@ -57,6 +57,7 @@ size = Vector2(101, 45)
 bg_color = Color(0.007843138, 0.007843138, 0.007843138, 0.44313726)
 
 [sub_resource type="SystemFont" id="SystemFont_jcgsl"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_1agt7"]
 font = SubResource("SystemFont_jcgsl")
